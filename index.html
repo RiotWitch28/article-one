@@ -492,6 +492,42 @@
       color: var(--text-subtle);
     }
 
+    .show-more-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .show-more-btn {
+      padding: 12px 32px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: var(--surface);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .show-more-btn:hover {
+      border-color: var(--navy-light);
+      color: var(--navy);
+      background: var(--bg-warm);
+    }
+
+    .show-more-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
     .profiles-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -6457,6 +6493,12 @@
       </div>
 
     </div>
+
+    <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
+      <button class="show-more-btn" id="showMoreBtn">Show 12 more</button>
+      <div class="show-more-count" id="showMoreCount"></div>
+    </div>
+
   </section>
 
   <!-- ─── MODULES ─── -->
@@ -6600,29 +6642,61 @@
       stateSelect.appendChild(opt);
     });
 
+    const showMoreWrap = document.getElementById('showMoreWrap');
+    const showMoreBtn  = document.getElementById('showMoreBtn');
+    const showMoreCount = document.getElementById('showMoreCount');
+
+    const PAGE_SIZE = 12;
     let activeParty = '';
+    let matched = [];
+    let showing = PAGE_SIZE;
 
     function applyFilters() {
-      const query     = searchInput.value.toLowerCase().trim();
-      const state     = stateSelect.value;
-      const anyFilter = query || state || activeParty;
-      const allCards  = document.querySelectorAll('.member-card[data-name]');
+      const query = searchInput.value.toLowerCase().trim();
+      const state = stateSelect.value;
+      const allCards = [...document.querySelectorAll('.member-card[data-name]')];
 
-      let visible = 0;
-      allCards.forEach(card => {
+      matched = allCards.filter(card => {
         const matchName  = !query       || card.dataset.name.includes(query);
         const matchState = !state       || card.dataset.state === state;
         const matchParty = !activeParty || card.dataset.party === activeParty;
-        const show = matchName && matchState && matchParty;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
+        return matchName && matchState && matchParty;
       });
 
-      emptyMsg.style.display = (visible === 0 && anyFilter) ? 'block' : 'none';
+      showing = PAGE_SIZE;
+      renderPage();
+    }
+
+    function renderPage() {
+      const allCards = [...document.querySelectorAll('.member-card[data-name]')];
+
+      allCards.forEach(card => card.style.display = 'none');
+      matched.slice(0, showing).forEach(card => card.style.display = '');
+
+      const remaining = matched.length - showing;
+      emptyMsg.style.display = matched.length === 0 ? 'block' : 'none';
+
+      if (remaining > 0) {
+        showMoreWrap.style.display = 'flex';
+        const next = Math.min(remaining, PAGE_SIZE);
+        showMoreBtn.textContent = `Show ${next} more`;
+        showMoreCount.textContent = `${showing} of ${matched.length} shown`;
+      } else {
+        showMoreWrap.style.display = matched.length > PAGE_SIZE ? 'flex' : 'none';
+        showMoreBtn.style.display = 'none';
+        showMoreCount.textContent = matched.length > PAGE_SIZE ? `All ${matched.length} shown` : '';
+      }
+
+      const anyFilter = searchInput.value.trim() || stateSelect.value || activeParty;
       countEl.textContent = anyFilter
-        ? `${visible} result${visible !== 1 ? 's' : ''}`
+        ? `${matched.length} result${matched.length !== 1 ? 's' : ''}`
         : '1 of 435 live · all members listed';
     }
+
+    showMoreBtn.addEventListener('click', () => {
+      showing += PAGE_SIZE;
+      renderPage();
+    });
 
     searchInput.addEventListener('input', applyFilters);
     stateSelect.addEventListener('change', applyFilters);
@@ -6635,6 +6709,9 @@
       activeParty = pill.dataset.party;
       applyFilters();
     });
+
+    // Initial render — show first 12
+    applyFilters();
   </script>
 
 </body>
