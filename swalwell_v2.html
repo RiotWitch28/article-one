@@ -139,6 +139,38 @@ a{color:var(--navy-mid);text-decoration:none}
 .platform-member-chip:hover{background:rgba(255,255,255,.14)}
 .platform-avatar{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#e8b85a);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:var(--navy-deep);flex:none}
 .platform-member-name{font-size:11px;font-weight:600;color:rgba(255,255,255,.85)}
+.platform-back{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:color var(--t);letter-spacing:.02em}
+.platform-back:hover{color:rgba(255,255,255,.9)}
+.platform-back svg{opacity:.7;transition:opacity var(--t)}
+.platform-back:hover svg{opacity:1}
+
+/* ── MEMBER SWITCHER ── */
+.switcher-wrap{position:relative}
+.member-switcher{position:absolute;top:calc(100% + 10px);right:0;width:320px;background:#0f1d30;border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.5);z-index:400;display:none;overflow:hidden}
+.member-switcher.open{display:block}
+.switcher-search-wrap{padding:12px 12px 8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.switcher-search{width:100%;padding:8px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;font-size:12px;color:#fff;outline:none;transition:border-color var(--t)}
+.switcher-search::placeholder{color:rgba(255,255,255,.35)}
+.switcher-search:focus{border-color:rgba(201,150,58,.6)}
+.switcher-list{max-height:280px;overflow-y:auto;padding:6px}
+.switcher-list::-webkit-scrollbar{width:4px}
+.switcher-list::-webkit-scrollbar-track{background:transparent}
+.switcher-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px}
+.switcher-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;cursor:pointer;transition:background var(--t);text-decoration:none}
+.switcher-item:hover{background:rgba(255,255,255,.07)}
+.switcher-item.current{background:rgba(201,150,58,.12)}
+.switcher-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#e8b85a);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#122540;flex:none}
+.switcher-av.ghost{background:rgba(255,255,255,.08)}
+.switcher-info{flex:1;min-width:0}
+.switcher-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.88);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.switcher-meta{font-size:10px;color:rgba(255,255,255,.38);letter-spacing:.04em;margin-top:1px}
+.switcher-badge{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px;flex:none}
+.switcher-badge.live{background:rgba(201,150,58,.18);color:var(--gold)}
+.switcher-badge.soon{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3)}
+.switcher-empty{padding:20px;text-align:center;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase}
+.switcher-footer{padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+.switcher-footer a{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color var(--t)}
+.switcher-footer a:hover{color:var(--gold)}
 
 /* ── PROFILE NAV ── */
 nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:38px;z-index:200;box-shadow:var(--shadow-sm)}
@@ -735,12 +767,25 @@ body.dark .sev-badge.context{background:#0d1520;color:var(--navy-mid)}
   <div class="platform-divider"></div>
   <div class="platform-context">Political Intelligence OS &nbsp;·&nbsp; <strong>CA-14 Profile</strong></div>
   <div class="platform-right">
-    <button class="platform-btn">All Members</button>
-    <button class="platform-btn">Export</button>
+    <a href="index.html" class="platform-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All Members
+    </a>
+    <div class="platform-divider"></div>
     <button class="dark-toggle" id="darkToggle" onclick="toggleDark()">☀ Light</button>
-    <div class="platform-member-chip" id="platformMemberChip" onclick="document.getElementById('profileModalBg').classList.add('show')" style="cursor:pointer">
-      <div class="platform-avatar" id="platformAvatar">ES</div>
-      <div class="platform-member-name" id="platformMemberName">Swalwell</div>
+    <div class="switcher-wrap" id="switcherWrap">
+      <div class="platform-member-chip" id="platformMemberChip" onclick="toggleSwitcher()" style="cursor:pointer">
+        <div class="platform-avatar" id="platformAvatar">ES</div>
+        <div class="platform-member-name" id="platformMemberName">Swalwell</div>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left:2px;opacity:.5"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="member-switcher" id="memberSwitcher">
+        <div class="switcher-search-wrap">
+          <input class="switcher-search" id="switcherSearch" placeholder="Search members..." autocomplete="off">
+        </div>
+        <div class="switcher-list" id="switcherList"></div>
+        <div class="switcher-footer"><a href="index.html">← View all 435 members</a></div>
+      </div>
     </div>
   </div>
 </div>
@@ -3524,6 +3569,55 @@ if(localStorage.getItem('theme')==='dark'){
   document.body.classList.add('dark');
   document.getElementById('darkToggle').textContent='☀ Light';
 }
+
+// ── MEMBER SWITCHER ──
+const MEMBERS = [
+  { name:'Eric Swalwell', district:'CA-14', party:'D', initials:'ES', url:'swalwell_v2.html', live:true },
+  // Add members here as they are built
+];
+
+const CURRENT_URL = window.location.pathname.split('/').pop() || 'swalwell_v2.html';
+
+function renderSwitcher(query=''){
+  const list = document.getElementById('switcherList');
+  const q = query.toLowerCase().trim();
+  const filtered = MEMBERS.filter(m =>
+    !q || m.name.toLowerCase().includes(q) || m.district.toLowerCase().includes(q)
+  );
+  if(!filtered.length){
+    list.innerHTML='<div class="switcher-empty">No members found</div>';
+    return;
+  }
+  list.innerHTML = filtered.map(m => `
+    <a class="switcher-item${m.url===CURRENT_URL?' current':''}" href="${m.live ? m.url : '#'}"
+       style="${!m.live?'pointer-events:none;opacity:.5':''}">
+      <div class="switcher-av${!m.live?' ghost':''}">${m.initials}</div>
+      <div class="switcher-info">
+        <div class="switcher-name">${m.name}</div>
+        <div class="switcher-meta">${m.district} · ${m.party}</div>
+      </div>
+      <span class="switcher-badge ${m.live?'live':'soon'}">${m.live?'Live':'Soon'}</span>
+    </a>
+  `).join('');
+}
+
+function toggleSwitcher(){
+  const sw = document.getElementById('memberSwitcher');
+  const isOpen = sw.classList.toggle('open');
+  if(isOpen){
+    renderSwitcher();
+    setTimeout(()=>document.getElementById('switcherSearch').focus(), 50);
+  }
+}
+
+document.getElementById('switcherSearch').addEventListener('input', e => {
+  renderSwitcher(e.target.value);
+});
+
+document.addEventListener('click', e => {
+  const wrap = document.getElementById('switcherWrap');
+  if(!wrap.contains(e.target)) document.getElementById('memberSwitcher').classList.remove('open');
+});
 </script>
 </body>
 </html>
