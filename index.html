@@ -375,7 +375,7 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 48px;
+      margin-bottom: 28px;
       gap: 32px;
       flex-wrap: wrap;
     }
@@ -389,6 +389,107 @@
       text-transform: uppercase;
       color: var(--text-subtle);
       padding-bottom: 4px;
+    }
+
+    /* ─── FILTER BAR ─── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .filter-search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-search-wrap::before {
+      content: '⌕';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: var(--text-subtle);
+      pointer-events: none;
+    }
+
+    .filter-search {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .filter-search::placeholder { color: var(--text-subtle); }
+    .filter-search:focus { border-color: var(--navy-light); }
+
+    .filter-select {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      appearance: none;
+      padding-right: 32px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a7a8c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    .filter-select:focus { border-color: var(--navy-light); }
+
+    .filter-pills {
+      display: flex;
+      gap: 6px;
+    }
+
+    .filter-pill {
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover { border-color: var(--navy-light); color: var(--navy); }
+
+    .filter-pill.active {
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: var(--gold-bright);
+    }
+
+    .filter-empty {
+      text-align: center;
+      padding: 64px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
     }
 
     .profiles-grid {
@@ -970,13 +1071,31 @@
         <p class="section-label">Active Profiles</p>
         <h2 class="section-title">Member <em>financial universes</em></h2>
       </div>
-      <div class="profiles-count">1 of 435 · more being built</div>
+      <div class="profiles-count" id="profilesCount">1 of 435 · more being built</div>
     </div>
 
-    <div class="profiles-grid">
+    <div class="filter-bar">
+      <div class="filter-search-wrap">
+        <input type="text" class="filter-search" id="filterSearch" placeholder="Search members...">
+      </div>
+      <select class="filter-select" id="filterState">
+        <option value="">All States</option>
+      </select>
+      <div class="filter-pills" id="partyPills">
+        <button class="filter-pill active" data-party="">All</button>
+        <button class="filter-pill" data-party="D">Dem</button>
+        <button class="filter-pill" data-party="R">Rep</button>
+        <button class="filter-pill" data-party="I">Ind</button>
+      </div>
+    </div>
+
+    <div class="filter-empty" id="filterEmpty" style="display:none;">No members match your search.</div>
+
+    <div class="profiles-grid" id="profilesGrid">
 
       <!-- SWALWELL — active -->
-      <a href="swalwell_v2.html" class="member-card" aria-label="Eric Swalwell — CA-14">
+      <a href="swalwell_v2.html" class="member-card" aria-label="Eric Swalwell — CA-14"
+         data-name="eric swalwell" data-state="CA" data-party="D" data-status="live">
         <div class="card-bg bg-swalwell"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
@@ -1125,14 +1244,12 @@
   </footer>
 
   <script>
-    // Scroll entrance for profile cards
+    // ─── SCROLL ENTRANCE ───
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
-          entry.target.style.transform = entry.target.classList.contains('member-card')
-            ? 'translateY(0)'
-            : 'translateY(0)';
+          entry.target.style.transform = 'translateY(0)';
           observer.unobserve(entry.target);
         }
       });
@@ -1143,6 +1260,65 @@
       el.style.transform = 'translateY(20px)';
       el.style.transition = `opacity 0.55s ease ${i * 0.08}s, transform 0.55s ease ${i * 0.08}s`;
       observer.observe(el);
+    });
+
+    // ─── FILTERS ───
+    const searchInput  = document.getElementById('filterSearch');
+    const stateSelect  = document.getElementById('filterState');
+    const partyPills   = document.getElementById('partyPills');
+    const grid         = document.getElementById('profilesGrid');
+    const emptyMsg     = document.getElementById('filterEmpty');
+    const countEl      = document.getElementById('profilesCount');
+
+    // Populate state dropdown from card data
+    const states = [...new Set(
+      [...document.querySelectorAll('.member-card[data-state]')].map(c => c.dataset.state)
+    )].sort();
+    states.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      stateSelect.appendChild(opt);
+    });
+
+    let activeParty = '';
+
+    function applyFilters() {
+      const query  = searchInput.value.toLowerCase().trim();
+      const state  = stateSelect.value;
+      const liveCards  = document.querySelectorAll('.member-card[data-status="live"]');
+      const ghostCards = document.querySelectorAll('.member-card-ghost');
+      const anyFilter  = query || state || activeParty;
+
+      // Ghost cards hide whenever any filter is active
+      ghostCards.forEach(g => g.style.display = anyFilter ? 'none' : '');
+
+      let visible = 0;
+      liveCards.forEach(card => {
+        const matchName  = !query  || card.dataset.name.includes(query);
+        const matchState = !state  || card.dataset.state === state;
+        const matchParty = !activeParty || card.dataset.party === activeParty;
+        const show = matchName && matchState && matchParty;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      emptyMsg.style.display = (visible === 0 && anyFilter) ? 'block' : 'none';
+      countEl.textContent = anyFilter
+        ? `${visible} result${visible !== 1 ? 's' : ''}`
+        : '1 of 435 · more being built';
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    stateSelect.addEventListener('change', applyFilters);
+
+    partyPills.addEventListener('click', e => {
+      const pill = e.target.closest('.filter-pill');
+      if (!pill) return;
+      partyPills.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeParty = pill.dataset.party;
+      applyFilters();
     });
   </script>
 
