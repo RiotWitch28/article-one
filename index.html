@@ -6621,10 +6621,11 @@
       });
     }, { threshold: 0.08 });
 
-    document.querySelectorAll('.member-card, .member-card-ghost').forEach((el, i) => {
+    // Only animate visible (active) cards on load — skipping 441 hidden inactive cards
+    document.querySelectorAll('.member-card:not([style*="display:none"]), .member-card-ghost').forEach((el, i) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = `opacity 0.55s ease ${i * 0.08}s, transform 0.55s ease ${i * 0.08}s`;
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = `opacity 0.3s ease ${i * 0.05}s, transform 0.3s ease ${i * 0.05}s`;
       observer.observe(el);
     });
 
