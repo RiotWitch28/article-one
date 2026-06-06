@@ -145,11 +145,7 @@
     /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
-      background:
-        radial-gradient(ellipse 65% 55% at 90% 5%, rgba(201,150,58,0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 60% at 5% 90%, rgba(30,58,95,0.15) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 70% at 50% 50%, rgba(18,37,64,0.06) 0%, transparent 70%),
-        var(--bg);
+      background: #080f1e;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -197,7 +193,7 @@
       font-size: clamp(320px, 40vw, 560px);
       font-weight: 900;
       line-height: 1;
-      color: rgba(30,58,95,0.04);
+      color: rgba(255,255,255,0.04);
       letter-spacing: -0.06em;
       pointer-events: none;
       user-select: none;
@@ -205,7 +201,7 @@
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       max-width: 1400px;
     }
 
@@ -240,7 +236,7 @@
 
     .hero-headline .line-1 {
       display: block;
-      color: var(--navy-deep);
+      color: rgba(255,255,255,0.95);
     }
 
     .hero-headline .line-2 {
@@ -262,11 +258,11 @@
       font-size: 17px;
       font-weight: 300;
       line-height: 1.75;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.58);
     }
 
     .hero-tagline strong {
-      color: var(--text);
+      color: rgba(255,255,255,0.92);
       font-weight: 500;
     }
 
@@ -278,7 +274,7 @@
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: rgba(255,255,255,0.38);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -921,8 +917,10 @@
 
   <!-- ─── HERO ─── -->
   <section id="hero" style="max-width:100%; padding:40px 48px 88px;">
-    <div class="hero-lines"></div>
-    <div class="hero-watermark">A1</div>
+    <img src="capitol-night.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:0.55;pointer-events:none;z-index:0;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,10,24,0.55) 0%,rgba(6,14,32,0.25) 40%,rgba(4,10,24,0.80) 100%);z-index:1;pointer-events:none;"></div>
+    <div class="hero-lines" style="z-index:2;"></div>
+    <div class="hero-watermark" style="z-index:2;">A1</div>
     <div class="hero-content">
       <p class="hero-eyebrow">Congressional Intelligence &middot; Political Finance &middot; Accountability</p>
       <h1 class="hero-headline">
