@@ -7,7 +7,7 @@ set -euo pipefail
 
 # --- locations ---
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SRC_DIR="$REPO_DIR/../Soverign AI/dashboards"
+SRC_DIR="$REPO_DIR/../Sovereign AI/dashboards"
 
 FILES=(
   "swalwell_v2.html"
