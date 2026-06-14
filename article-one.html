@@ -391,45 +391,6 @@
       padding-bottom: 4px;
     }
 
-    .profiles-header-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    .dashboard-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--navy-deep);
-      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-      border: 1px solid var(--gold);
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-      box-shadow: 0 2px 8px rgba(201,150,58,0.18);
-    }
-
-    .dashboard-cta::after {
-      content: '→';
-      transition: transform 0.2s;
-    }
-
-    .dashboard-cta:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(201,150,58,0.28);
-    }
-
-    .dashboard-cta:hover::after { transform: translateX(3px); }
-
     /* ─── FILTER BAR ─── */
     .filter-bar {
       display: flex;
@@ -1130,7 +1091,7 @@
       <a href="#profiles" class="platform-link">Profiles</a>
       <a href="#modules" class="platform-link">Modules</a>
       <a href="#about" class="platform-link">About</a>
-      <a href="../suffrage-and-sass/index.html" class="platform-link studio">Suffrage &amp; Sass ↗</a>
+      <a href="suffrage-and-sass/index.html" class="platform-link studio">Suffrage &amp; Sass ↗</a>
     </div>
   </div>
 
@@ -1239,7 +1200,7 @@
     <div class="modules-grid">
 
       <!-- PRUDENCE -->
-      <a href="../Sovereign AI/dashboards/swalwell_dashboard copy.html#page-prudence" class="module-card" aria-label="Prudence">
+      <a href="index.html#page-prudence" class="module-card" aria-label="Prudence">
         <div class="card-bg bg-prudence"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
@@ -1282,10 +1243,7 @@
         <p class="section-label">Active Profiles</p>
         <h2 class="section-title">Member <em>financial universes</em></h2>
       </div>
-      <div class="profiles-header-right">
-        <a href="home.html" class="dashboard-cta">119th Congress Full Dashboard</a>
-        <div class="profiles-count" id="profilesCount">1 of 435 live · all members listed</div>
-      </div>
+      <div class="profiles-count" id="profilesCount">1 of 435 live · all members listed</div>
     </div>
 
     <div class="filter-bar">
@@ -5983,8 +5941,8 @@
           <div class="member-title">U.S. House of Representatives</div>
         </div>
       </div>
-      <div class="member-card inactive" style="display:none" aria-label="nan"
-           data-name="nan" data-state="TX" data-party="R" data-status="inactive">
+      <div class="member-card inactive" style="display:none" aria-label="Ernest Gonzales"
+           data-name="ernest gonzales" data-state="TX" data-party="R" data-status="inactive">
         <div class="card-bg bg-inactive"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
@@ -6648,7 +6606,7 @@
       <div class="footer-name">Article One</div>
     </div>
     <p class="footer-copy">&copy; 2026 &mdash; All data from public primary sources</p>
-    <a href="../suffrage-and-sass/index.html" class="footer-studio">A Suffrage &amp; Sass project ↗</a>
+    <a href="suffrage-and-sass/index.html" class="footer-studio">A Suffrage &amp; Sass project ↗</a>
   </footer>
 
   <script>
@@ -6778,8 +6736,8 @@
 <!-- Sample-member activation: marks the 10 worked members Active and links each to their live dashboard -->
 <script>
 (function(){
-  var DASH='https://riotwitch28.github.io/Prudence_SAI/?member=';
-  var ACTIVE={"raja krishnamoorthi": {"bio": "K000391", "u": "$52.2M", "e": 2, "t": "15.7K"}, "guy reschenthaler": {"bio": "R000610", "u": "$23.4M", "e": 2, "t": "8.7K"}, "lloyd doggett": {"bio": "D000399", "u": "$25.7M", "e": 2, "t": "11.0K"}, "monica de la cruz": {"bio": "D000594", "u": "$20.3M", "e": 6, "t": "6.3K"}, "nick lalota": {"bio": "L000598", "u": "$11.8M", "e": 3, "t": "4.4K"}, "randy fine": {"bio": "F000484", "u": "$4.0M", "e": 2, "t": "1.9K"}, "troy e. nehls": {"bio": "N000026", "u": "$13.2M", "e": 3, "t": "8.7K"}, "wesley bell": {"bio": "B001324", "u": "$7.6M", "e": 2, "t": "3.9K"}, "yvette d. clarke": {"bio": "C001067", "u": "$24.5M", "e": 3, "t": "13.9K"}};
+  var DASH='index.html?member=';
+  var ACTIVE={"raja krishnamoorthi": {"bio": "K000391", "u": "$52.2M", "e": 2, "t": "15.7K"}, "guy reschenthaler": {"bio": "R000610", "u": "$23.4M", "e": 2, "t": "8.7K"}, "lloyd doggett": {"bio": "D000399", "u": "$25.7M", "e": 2, "t": "11.0K"}, "monica de la cruz": {"bio": "D000594", "u": "$20.3M", "e": 6, "t": "6.3K"}, "nick lalota": {"bio": "L000598", "u": "$11.8M", "e": 3, "t": "4.4K"}, "randy fine": {"bio": "F000484", "u": "$4.0M", "e": 2, "t": "1.9K"}, "troy e. nehls": {"bio": "N000026", "u": "$13.2M", "e": 3, "t": "8.7K"}, "wesley bell": {"bio": "B001324", "u": "$7.6M", "e": 2, "t": "3.9K"}, "yvette d. clarke": {"bio": "C001067", "u": "$24.5M", "e": 3, "t": "13.9K"}, "joyce beatty": {"bio": "B001281", "u": "$23.9M", "e": 2, "t": "12.4K"}, "laura friedman": {"bio": "F000483", "u": "$3.9M", "e": 2, "t": "1.7K"}, "eric a. rick crawford": {"bio": "C001087", "u": "$25.0M", "e": 3, "t": "12.0K"}, "ernest gonzales": {"bio": "G000594", "u": "$24.0M", "e": 2, "t": "9.3K"}};
   Object.keys(ACTIVE).forEach(function(name){
     var m=ACTIVE[name];
     document.querySelectorAll('.member-card[data-name="'+name+'"]').forEach(function(card){
