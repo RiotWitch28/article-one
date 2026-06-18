@@ -1,2 +1,7 @@
 .DS_Store
 .claude/
+
+# Prudence risk analyses are PRIVATE — never publish them from this public repo
+members/*/prudence.js
+members/*/prudence.json
+prudence-*.html
