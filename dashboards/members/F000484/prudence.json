@@ -1,0 +1,634 @@
+{
+  "schema": "prudence-v2",
+  "mode": "lean",
+  "bioguide": "F000484",
+  "member_name": "Randy Fine",
+  "generated_at": "2026-06-15",
+  "generator": {
+    "agent": "Prudence (lean — prudence-analyst-lean)",
+    "spec": "PRUDENCE_AGENT v2",
+    "model": "claude-sonnet-4-6",
+    "roster": [
+      "rules-analyst (self)",
+      "structure-analyst (self)",
+      "composition-analyst (self)",
+      "advocate (self)",
+      "equity-auditor (self)",
+      "citation-verifier (self)"
+    ]
+  },
+  "coverage": {
+    "office_years": [
+      "2025"
+    ],
+    "campaign_range": [
+      "2024-11-29",
+      "2026-03-31"
+    ],
+    "tenure_note": "Rep. Fine won an April 2025 special election. The FY2025 SOD covers a partial year of approximately nine months (April–December 2025). Annualized figures derived from this window are estimates and should be confirmed against payroll authorizations before any action is taken. The office was still building out at this stage, which affects all staff-count and pay-concentration comparisons.",
+    "caveats": [
+      "Partial-year freshman office: all metrics are for approximately 9 months, not a full fiscal year. Comparisons to peers who served a full year must be interpreted with caution.",
+      "SOD quarterly payroll entries do not include per-pay-period date detail for salary entries; exact monthly rates cannot be derived without the underlying payroll authorizations.",
+      "FEC campaign data covers November 2024 through March 2026; the bulk of campaign activity (2025) corresponds with the special election period before and immediately after winning the seat.",
+      "Name-format differences between FEC (LAST, FIRST) and SOD (FIRST LAST) mean cross-entity name matching is approximate. Three individual matches were confirmed: Fischer, Rogerson, and Bendon.",
+      "Cross-office benchmark peer group is only three single-year members (Bell, Friedman, Fine). Percentile rankings in a three-member group are not statistically meaningful and are reported as descriptive comparisons only.",
+      "HERITAGE STARTEGIES & CONSULTING LLC is categorized as consulting in the data system, but all three of its payments are described as FRANKABLE TELECOM/TELETOWNHALL — the categorization appears to be a data-system artifact based on the company name, not the service type.",
+      "Reconciliation log notes 126 FEC memo items excluded ($52,928) and a -0.1% API cross-check variance ($2,955,591 local vs. $2,957,461 API). These are within normal reconciliation range and do not affect findings."
+    ],
+    "not_assessable": [
+      {
+        "check": "Individual salary compliance with Speaker's Pay Order maximum",
+        "reason": "The extracted rules corpus (Members' Congressional Handbook) states that the maximum rate of pay is set by the Speaker's Pay Order but does not reproduce the current numerical cap. The SOD shows quarterly salary aggregates only, not per-pay-period rates. Without the actual cap figure from the Speaker's Pay Order and confirmed payroll authorizations, compliance cannot be verified from public data alone. Human review of payroll records is required."
+      },
+      {
+        "check": "Specific per-diem rates for member lodging/meals",
+        "reason": "The Handbook directs offices to the GSA per diem tables rather than reproducing them. GSA rates for specific dates and locations are not in the rules corpus, so no per-night ceiling violation can be verified from the disbursement amounts shown."
+      },
+      {
+        "check": "Veteran, seniority, and tenure trends",
+        "reason": "Only one year (partial) of office data is available. No multi-year trend analysis is possible for churn, retention, or pay trajectory."
+      },
+      {
+        "check": "Lens B healthy-structure assessment — hybrid/remote arrangement specifics",
+        "reason": "Whether Fine's office operates any formal hybrid or telework program is not determinable from the SOD. The Lens B comparisons are therefore limited to what the staffing structure itself reveals about span of control and role clarity."
+      }
+    ]
+  },
+  "modules": {
+    "rules_check": {
+      "summary": "The office's FY2025 MRA spending (9 months, $1,061,010.84) runs cleanly through most checks. Salary and payroll constitute 83.1% of disbursements, in line with a newly staffed office. Two areas warrant human review: the high annualized salary rate implied for the Chief of Staff when partial-year SOD payments are extrapolated, and a $16,167 member-travel line whose per-night lodging amounts should be confirmed against GSA rates for the relevant dates and locations. All other category-level checks are clear.",
+      "findings": [
+        {
+          "id": "rc-1",
+          "severity": "REVIEW",
+          "title": "Chief of Staff salary — annualized rate implied by partial-year SOD warrants payroll verification",
+          "rule": {
+            "doc": "Members' Congressional Handbook (final-member-handbook-9.12.25)",
+            "section": "PAY (p. 15)",
+            "quote": "The Speaker sets the minimum and maximum rate of pay by issuance of a Speaker's Pay Order consistent with Federal law. [...] Total compensation in one month, including regular pay and any lump sum payment, may not exceed 1/12th of the maximum rate of the Speaker's Pay Order."
+          },
+          "evidence": {
+            "entity": "office",
+            "items": [
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "CHIEF OF STAFF",
+                "amount": 54544.16,
+                "note": "First salary entry (date field blank in SOD — quarterly aggregate)"
+              },
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "CHIEF OF STAFF",
+                "amount": 56424.99,
+                "note": "Second salary entry (date field blank in SOD — quarterly aggregate)"
+              },
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "CHIEF OF STAFF",
+                "amount": 56424.99,
+                "note": "Third salary period inferred: salary category total (167,394.14) minus the two displayed entries (110,969.15) equals exactly 56,424.99, suggesting a third quarterly period not shown in the top-individuals transaction display."
+              }
+            ],
+            "salary_category_total_for_fischer": 167394.14,
+            "office_total_fy2025": 1061010.84,
+            "partial_year_months_approx": 9
+          },
+          "analysis": "The salary category records $167,394.14 for FISCHER JASON (Chief of Staff) against approximately nine months of tenure. If the nine months comprise three equal quarterly periods (~$56,425 per period / 3 months = ~$18,808/month), the implied annualized rate is approximately $225,700. The 2026 Annual Pay Memo confirms Member pay is $174,000 for FY2026; it also confirms the senior-staff disclosure threshold is $151,661. The Handbook caps per-month total compensation at 1/12th of the Speaker's Pay Order maximum, but the corpus does not reproduce that numerical maximum. Without the Speaker's Pay Order and confirmed payroll authorizations, this analysis cannot determine whether the implied rate is inside or outside the allowable ceiling. The SOD data is also consistent with an innocent interpretation: partial-year offset (a smaller first payment reflecting a mid-quarter start), or the three-period decomposition being inaccurate because the quarterly aggregates span unequal periods. Human review of the payroll authorizations is the required next step.",
+          "options_for_human": [
+            "Request the office's payroll authorizations (PAFs) for FISCHER JASON covering April–December 2025 and confirm the monthly rate against the 2025 Speaker's Pay Order maximum.",
+            "If the monthly rate falls below 1/12th of the Pay Order maximum, record as clear. If it equals or exceeds the maximum, determine whether any portion is attributable to a permissible lump sum or bonus under 2 U.S.C. § 4537, or whether a compliance issue exists.",
+            "No action is warranted solely on the basis of this automated screen; this is a question for payroll records, not a finding of a violation."
+          ],
+          "limits": "The SOD does not publish per-pay-period salary breakdowns or effective dates for payroll changes. The Speaker's Pay Order maximum is not reproduced in the extracted rules corpus. Prudence cannot confirm or refute compliance from public data alone.",
+          "self_review": {
+            "advocate": {
+              "challenge": "The strongest innocent explanation is that Fine took office mid-April 2025, so the first quarterly SOD payment covers only a partial period (e.g., six weeks rather than three months), which would make the implied monthly rate substantially lower than $18,808. For example, if the first entry ($54,544) covers six weeks, the monthly rate is only ~$9,091 (annualized ~$109,091) — well within any plausible cap. The three-quarter decomposition assumed above may therefore be wrong.",
+              "answer": "This explanation is plausible and directly reduces the concern. The finding already acknowledges this possibility ('partial-year offset') and explicitly does not assert a violation. The finding's REVIEW severity is appropriate: the data is ambiguous enough to require payroll verification but not so clear that it can be dismissed. The advocate challenge is answered by the finding's framing — it frames the check as a verification question, not an allegation.",
+              "verdict": "answered"
+            },
+            "equity": "pass — the same pay-rate verification check applies to any Chief of Staff in any office, regardless of party. No partisan framing is present. The finding names FISCHER JASON as the relevant payee because that is who the data is about, not for any personal characterization.",
+            "citations": "verified — salary category total $167,394.14 re-traced from office by_category salary vendors. The two displayed COS entries ($54,544.16 and $56,424.99) sum to $110,969.15; the inferred third entry ($56,424.99) accounts for the gap to $167,394.14 ($167,394.14 – $110,969.15 = $56,424.99). Rule quote confirmed from members-congressional-handbook.txt p. 15, PAY section. Member pay $174,000 confirmed from annual-pay-memo-2026.txt p. 6, footnote 25. Senior staff rate $151,661 confirmed from annual-pay-memo-2026.txt p. 3."
+          }
+        },
+        {
+          "id": "rc-2",
+          "severity": "REVIEW",
+          "title": "Member travel — $16,167 in lodging and meals across four trips; GSA per diem conformance not verifiable from disbursement data",
+          "rule": {
+            "doc": "Members' Congressional Handbook (final-member-handbook-9.12.25)",
+            "section": "TRAVEL (pp. 41–42)",
+            "quote": "Ordinary and necessary expenses incurred by Members during official travel between a Member's primary residence and Washington, D.C., as well as while on official business in Washington, D.C., are reimbursable. [...] reimbursement shall not exceed the daily rate for meals, incidentals and lodging as determined by the General Services Administration for the Washington, D.C. area."
+          },
+          "evidence": {
+            "entity": "office",
+            "items": [
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 2208.0,
+                "date": "26-Jun-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 943.0,
+                "date": "26-Jun-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 1656.0,
+                "date": "29-Jul-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 575.0,
+                "date": "29-Jul-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 2760.0,
+                "date": "29-Jul-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 1058.0,
+                "date": "29-Jul-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 1281.0,
+                "date": "27-Aug-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 782.0,
+                "date": "27-Aug-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 2475.0,
+                "date": "30-Dec-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 966.0,
+                "date": "30-Dec-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "LODGING",
+                "amount": 980.0,
+                "date": "30-Dec-25"
+              },
+              {
+                "year": 2025,
+                "payee": "HON RANDY FINE",
+                "purpose": "MEALS",
+                "amount": 483.0,
+                "date": "30-Dec-25"
+              }
+            ],
+            "total_lodging": 11360.0,
+            "total_meals": 4807.0,
+            "grand_total": 16167.0
+          },
+          "analysis": "The SOD records $16,167.00 in Member lodging ($11,360.00) and meals ($4,807.00) across what appear to be four separate trip clusters (June, July×2, August, December 2025). The Handbook permits reimbursement for official travel between a Member's primary residence and Washington, D.C. at up to the GSA per diem rate. The GSA rate for Washington, D.C. in FY2025 is approximately $265/night for lodging, but the exact applicable rates by date and location are not in the rules corpus and cannot be confirmed here. The SOD dates appear to be trip certification dates, not individual nightly dates, so the number of nights covered by each amount is unknown. The June lodging ($2,208) and one of the July lodgings ($2,760) are higher than would be expected for a single week at GSA rates. Nothing in the data is diagnostic of a violation; the amounts may reflect multi-week stays fully within GSA rates, or legitimate hotel-cost variance above the GSA guidance. Human review of the submitted expense vouchers is the required next step.",
+          "options_for_human": [
+            "Request the member's official travel expense vouchers for the four trip clusters and confirm that lodging and meal amounts on each travel day do not exceed the applicable GSA per diem rates.",
+            "If the SOD dates are quarterly certification dates covering multiple trips, map the underlying nightly amounts to the GSA schedule to confirm conformance.",
+            "No action is warranted solely on this automated screen; the amounts are within the range a multi-week Washington stay could produce under GSA rates."
+          ],
+          "limits": "SOD dates for travel entries appear to be voucher certification dates, not per-night dates. GSA per diem tables are not in the extracted rules corpus. Neither the number of nights nor the specific city rates can be confirmed from public disbursement data.",
+          "self_review": {
+            "advocate": {
+              "challenge": "Florida is a long-haul travel market. A freshman Member commuting to Washington regularly during a high-session period would accumulate these amounts within GSA limits over multiple trips. For example, four multi-night stays of 7–10 nights each at $265/night would sum to $7,420–$10,600 in lodging — and the December lodging alone ($2,475 + $980) could represent a multi-week year-end session stay. None of the individual transaction amounts clearly exceeds a plausible GSA nightly rate for Washington.",
+              "answer": "This explanation is plausible and reduces the concern. The finding does not assert a violation; it flags the amounts for voucher verification. The REVIEW severity is appropriate given that two individual lodging entries ($2,208 and $2,760) exceed what a typical 7-night stay at GSA rates would produce (~$1,855), but are consistent with longer stays or hotel cost variations that are still within rules. The advocate challenge is answered by the finding's framing.",
+              "verdict": "answered"
+            },
+            "equity": "pass — member travel reimbursement is a standard check applied identically to all members regardless of party or state. Florida's geographic distance from Washington is noted descriptively, not as a partisan consideration.",
+            "citations": "verified — all 12 transaction amounts re-traced from data.json HON RANDY FINE top_individuals entries. Total lodging $11,360.00 and meals $4,807.00 re-computed: $2,208 + $1,656 + $2,760 + $1,281 + $2,475 + $980 = $11,360; $943 + $575 + $1,058 + $782 + $966 + $483 = $4,807. Total $16,167.00 confirmed. Rule quote confirmed from members-congressional-handbook.txt, TRAVEL section pp. 41–42."
+          }
+        },
+        {
+          "id": "rc-3",
+          "severity": "REVIEW",
+          "title": "High-volume individual payee FISCHER JASON — $190,510 across 81 transactions including both salary and substantial travel reimbursements",
+          "rule": {
+            "doc": "Members' Congressional Handbook (final-member-handbook-9.12.25)",
+            "section": "EMPLOYEES — Pay (p. 15) and TRAVEL (p. 41)",
+            "quote": "Employees may not be compensated from public funds to perform non-official, personal, campaign-related political party, or campaign activities on behalf of the Member, the employee, or anyone else."
+          },
+          "evidence": {
+            "entity": "office",
+            "items": [
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "CHIEF OF STAFF (salary aggregate)",
+                "amount": 167394.14,
+                "note": "Salary category total — see rc-1 for detail"
+              },
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "AIRFARE COMMERCIAL TRANSPORT (total)",
+                "amount": 9711.75,
+                "note": "Sum of airfare entries"
+              },
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "LODGING (total)",
+                "amount": 11610.12,
+                "note": "Sum of lodging entries"
+              },
+              {
+                "year": 2025,
+                "payee": "FISCHER JASON",
+                "purpose": "TAXI/RIDE SHARE (total)",
+                "amount": 742.52,
+                "note": "Sum of taxi entries"
+              }
+            ],
+            "total_salary": 167394.14,
+            "total_travel": 22064.39,
+            "grand_total_in_top_individuals": 190509.72,
+            "transaction_count": 81
+          },
+          "analysis": "FISCHER JASON appears in the SOD with a total of $190,509.72 across 81 transactions in the role of Personnel Compensation. The salary component ($167,394.14) is addressed in rc-1. The travel component ($22,064.39) is large for a single staffer in a nine-month partial year and includes travel clusters in June, July, and September 2025 — periods consistent with the Washington legislative calendar and a Florida-district Member's typical travel pattern. This data flag was also produced by the automated build process. The salary and travel purposes are distinguishable and plausible; the volume of transactions (81) is partly explained by the SOD recording individual airfare, lodging, taxi, and meal entries separately per trip. Nothing in the data pattern is diagnostic of a non-official purpose, but the magnitude warrants confirmation that all 81 transactions are supported by travel vouchers. Fischer also appears on the campaign entity receiving $9,039.15 (categorized as media / digital consulting services); that is a separate, FEC-reported activity and is assessed in Module 3.",
+          "options_for_human": [
+            "Review the travel vouchers underlying the $22,064.39 in Fischer's non-salary transactions to confirm all are associated with official Congressional business.",
+            "Confirm that the campaign-side payment to FISCHER, JASON ($9,039.15 for media/digital consulting) was properly authorized under FEC rules and that no official MRA funds were used for campaign purposes or vice versa.",
+            "No action is warranted solely on the automated flag; the data is consistent with a senior staffer traveling heavily during a freshman Member's first congressional term."
+          ],
+          "limits": "The SOD does not publish trip itineraries, so the official purpose of each travel segment cannot be confirmed from public data. The co-appearance of Fischer on the campaign entity is FEC-disclosed public information; whether the two relationships create any compliance tension is a question for the office and its counsel.",
+          "self_review": {
+            "advocate": {
+              "challenge": "For a freshman Member from Florida, a Chief of Staff traveling heavily in the first six months of a new congressional term is entirely expected. The trip clusters (June, July, September 2025) align with recess periods when district travel and constituent outreach are typical. The 81 transactions include many small taxi and meal items, inflating the count without inflating the concern. The campaign payment ($9,039.15) is for a different legal entity and a different category of activity (digital consulting), which is normal for dual-role political professionals.",
+              "answer": "This explanation is plausible and substantially mitigates the concern. The finding is appropriately REVIEW-level, not NOTABLE, because the pattern is consistent with ordinary practice. The advocate challenge is answered by the finding's own framing.",
+              "verdict": "answered"
+            },
+            "equity": "pass — the high-volume individual payee check is applied identically across all offices. No partisan framing is present. Fischer's dual appearance in office and campaign data is an observation, not an allegation.",
+            "citations": "verified — total $190,509.72 (n=81) re-traced from data.json top_individuals FISCHER JASON: amt=190509.72, n=81. Salary component $167,394.14 from office by_category salary vendors FISCHER JASON. Airfare $9,711.75, lodging $11,610.12, taxi $742.52 computed from transaction detail. Total travel $22,064.39 = $9,711.75 + $11,610.12 + $742.52. Rule quote confirmed from members-congressional-handbook.txt EMPLOYEES section p. 15."
+          }
+        }
+      ],
+      "clear": [
+        {
+          "check": "Shared Employee compliance — rule on separation and written job description",
+          "note": "Two shared employees appear: WELLS KORY M. ($14,888.92, SHARED EMPLOYEE) and STEVENS CHRISTOPHER D. ($7,444.42, SHARED EMPLOYEE). The Shared Employee Manual requires written job descriptions, established recurring meetings, and salary set by the employing authority. These structural requirements cannot be confirmed or refuted from SOD data alone; however, the payments themselves are consistent with ordinary shared-employee arrangements and present no obvious anomaly in amount or frequency. CLEAR at category level subject to the caveat that underlying agreements are not reviewable from public data."
+        },
+        {
+          "check": "Teletownhall vendor (HERITAGE STARTEGIES & CONSULTING LLC, $29,994.44)",
+          "note": "All three payments are coded FRANKABLE TELECOM/TELETOWNHALL, which is an explicitly MRA-eligible purpose under the Handbook. The company name contains 'consulting,' which triggered a data-system categorization as consulting — but the transaction purpose codes, not the company name, govern MRA eligibility. The amounts ($13,297.76, $3,954.00, $12,742.68) are within the range of teletownhall service contracts. This item is CLEAR of the consultant-prohibition rule (Handbook p. 22, vendors section: 'Vendors may not [...] provide consulting services'); the payments are for a technology service, not consulting."
+        },
+        {
+          "check": "Paid intern compensation cap",
+          "note": "Two interns paid from the House Paid Internship Program: SMITH RYAN T. ($5,750.00) and AYLESWORTH ETHAN P. ($4,800.00). Both are below the Handbook's $38,500 annual cap for intern compensation and above the $1,200 annual minimum. The House Paid Internship Program funds are separate from the MRA, and these interns do not count against the Member's employee ceiling. CLEAR."
+        },
+        {
+          "check": "Self-payment / campaign-personal payment",
+          "note": "No self-payments recorded in either the campaign or office entity. CLEAR."
+        },
+        {
+          "check": "Personnel compensation share (83.1%)",
+          "note": "Salary and payroll constitute $881,646.44 (83.1%) of the $1,061,010.84 MRA total, consistent with a fully staffed freshman office. The Handbook requires that employees 'perform official duties commensurate with the compensation received'; no structural anomaly in the salary share is present. CLEAR at category level."
+        },
+        {
+          "check": "Legal services payment (BALLARD SPAHR LLP, $4,272.50)",
+          "note": "A single legal services entry of $4,272.50 is visible in the office by_category data. The Handbook permits legal fees in limited circumstances. The amount is modest. Without more detail on the purpose, this is recorded as CLEAR at the amount level; it presents no anomaly requiring further screen."
+        }
+      ],
+      "disclaimer": "Prudence — Generated analysis. Findings are an automated first-pass screen of public Statement-of-Disbursements data against the Members' Congressional Handbook; they are not legal advice and not an allegation of misconduct. Confirmation of any flagged item requires the underlying invoices and payroll authorizations held by the office and the Committee on House Administration."
+    },
+    "structure_screen": {
+      "summary": "Fine's office presents a well-populated staffing structure for a partial-year freshman office with a recognizable congressional hierarchy (COS, Deputy COS, Legislative Director, Communications Director, District Director, Scheduler, Constituent Services Director, plus caseworkers and junior staff). Lens A identifies one structural pattern warranting attention: pay concentration in the top-tier positions is higher than in the two comparable single-year offices in the benchmark cache, a pattern that is expected in a small partial-year office where senior staff commanded full-year salaries against a partial-year total. Lens B finds the structure broadly consistent with healthy-workplace evidence on span of control and role clarity, with one structural gap: the SOD data provides no basis for assessing whether a formal mentorship or structured feedback channel exists for junior and district-based staff, which the healthy-structure corpus identifies as a protective factor.",
+      "benchmark": {
+        "window": "FY2025 (partial year, approximately 9 months for Fine vs. approximately 12 months for Bell and Friedman)",
+        "peers": 2,
+        "peers_note": "Only three single-year (FY2025-only) members appear in the benchmark cache: Fine, Wesley Bell (D-MO-1), and Laura Friedman (D-CA-30). Three-member comparisons are descriptive only and cannot support percentile claims. Multi-year members in the cache are excluded from comparison per §4.4. The benchmark percentiles shown (all 100th) reflect Fine's position at the top of a three-member group, not a meaningful statistical distribution.",
+        "metrics": [
+          {
+            "name": "Personnel share of office total",
+            "fine_value": 0.831,
+            "bell_value": 0.817,
+            "friedman_value": 0.83,
+            "note": "Fine is at the upper end but essentially equivalent to Friedman. The partial-year denominator (9 months vs. 12 months) modestly inflates this ratio."
+          },
+          {
+            "name": "Top-1 individual pay as share of salary category",
+            "fine_value": 0.216,
+            "bell_value": 0.139,
+            "friedman_value": 0.145,
+            "note": "Fine's COS accounts for 21.6% of the salary category, compared to 13.9% and 14.5% for the other two single-year offices. This is the most notable structural difference and is discussed in ss-1."
+          },
+          {
+            "name": "Top-3 individual pay as share of salary category",
+            "fine_value": 0.431,
+            "bell_value": 0.294,
+            "friedman_value": 0.333,
+            "note": "Fine's top three earners together account for 43.1% of the salary total; the other single-year offices are at 29.4% and 33.3% respectively."
+          },
+          {
+            "name": "Unique individuals in top-30",
+            "fine_value": 22,
+            "bell_value": 18,
+            "friedman_value": 19,
+            "note": "Fine's office shows more unique payees in the top-30, consistent with a fuller initial staffing ramp than the other two partial-year offices."
+          },
+          {
+            "name": "Interns in top-30",
+            "fine_value": 2,
+            "bell_value": 0,
+            "friedman_value": 0,
+            "note": "Two House Paid Internship Program interns appear; the other two comparison offices show none. This is a structural observation, not a risk indicator at this count."
+          }
+        ]
+      },
+      "risk_lens": {
+        "framework": "EEOC 2016 Select Task Force risk factors; Sinnamon (2017) adult grooming structural preconditions; CRS R46262 role benchmarks",
+        "indicators": [
+          {
+            "id": "ss-1",
+            "severity": "REVIEW",
+            "title": "Pay concentration — COS receives 21.6% of salary category against a 13.9%–14.5% range for comparable single-year offices",
+            "framework": "EEOC 2016 risk factor 7: 'Significant power disparities (including gendered power disparities)'; Sinnamon (2017): 'Concentrated power in a single individual [...] member of Congress [or] senior partner'",
+            "evidence": {
+              "entity": "office",
+              "items": [
+                {
+                  "year": 2025,
+                  "payee": "FISCHER JASON",
+                  "purpose": "CHIEF OF STAFF",
+                  "amount": 167394.14,
+                  "share_of_salary": "19.0% of salary category by amount; 21.6% by benchmark formula (top1 individual total / salary category total)"
+                },
+                {
+                  "year": 2025,
+                  "payee": "ROGERSON MARIE",
+                  "purpose": "DEPUTY CHIEF OF STAFF",
+                  "amount": 107800.0,
+                  "share_of_salary": "12.2%"
+                },
+                {
+                  "year": 2025,
+                  "payee": "ELIZONDO ESTEBAN",
+                  "purpose": "COMMUNICATIONS DIRECTOR",
+                  "amount": 74861.14,
+                  "share_of_salary": "8.5%"
+                },
+                {
+                  "note": "Top-3 combined: $350,055.28 = 39.7% of salary category by direct salary amounts; 43.1% by benchmark formula (top3 individual totals including travel / salary category total)"
+                }
+              ]
+            },
+            "analysis": "The EEOC 2016 framework lists 'significant power disparities' as an organizational risk factor. Sinnamon (2017) identifies concentrated positional power as a structural precondition associated with grooming risk. Fine's office shows higher pay concentration in the top position than both available single-year comparison offices. Important structural mitigants are present: the office has a clear Deputy COS (ROGERSON MARIE), a Legislative Director (GANN CHARLES), a District Director (SHYLKOFSKI STEPHEN), and distinct functional directors for communications and constituent services — this is not a structure where one person controls all access to the Member. The partial-year effect also inflates concentration metrics: senior staff commanded full-period salaries against a shorter total disbursement window. The concentration pattern is a structural observation for human awareness, not an allegation.",
+            "options_for_human": [
+              "Review whether junior and district-based staff have meaningful access to the Member and to HR channels that bypass the Chief of Staff.",
+              "Assess whether the staffing structure provides multiple supervision pathways and whether the office has an active anti-harassment and reporting policy posted to staff.",
+              "Consider whether a formal mentorship or buddy arrangement for junior staff (two interns, several entry-level positions) is in place."
+            ],
+            "limits": "Pay concentration in a partial-year freshman office is structurally expected. The benchmark group has only two comparators. CRS R46262 provides role descriptions but not pay-concentration benchmarks. This is a structural observation from public data — the SOD does not reveal the internal power dynamics of an office.",
+            "self_review": {
+              "advocate": {
+                "challenge": "The most direct innocent explanation: the partial-year denominator effect. If Fine's office total were annualized to ~$1,415,000 (= $1,061,011 × 12/9), the COS share would fall from 21.6% to about 16.2% — closer to the peer range. Additionally, senior staff are typically hired first in a new office, which mechanically inflates their share in the early months.",
+                "answer": "The advocate challenge is well-taken and substantially reduces the concern. The finding already acknowledges the partial-year effect. The surviving observation is that the top-3 concentration (43.1%) remains above the peer range even accounting for some partial-year effect, and the structural fact of a distinct senior tier is worth a human review of supervision pathways. The finding's framing is appropriate and the severity should remain REVIEW, not be escalated. This is answered.",
+                "verdict": "answered"
+              },
+              "equity": "pass — pay concentration analysis is applied identically to all offices regardless of party. The comparison to Bell and Friedman (both Democrats) is descriptive, not partisan. No individual's conduct is implied.",
+              "citations": "verified — top1_pay_share=0.216 and top3_pay_share=0.431 re-derived: FISCHER JASON top_individuals amt $190,509.72 / salary category total $881,646.44 = 0.2161; top-3 (Fischer $190,509.72 + Rogerson $114,675.88 + Elizondo $74,861.14 = $380,046.74) / $881,646.44 = 0.4311. These match the benchmark cache values (0.216, 0.431) within rounding. EEOC 2016 risk factor 7 quote confirmed from eeoc-2016-workplace-harassment.txt p. 5 section 1C. Sinnamon 2017 structural precondition quote confirmed from sinnamon-adult-grooming.txt p. 3."
+            }
+          },
+          {
+            "id": "ss-2",
+            "severity": "CLEAR",
+            "title": "Staffing structure — recognizable congressional hierarchy with functional differentiation",
+            "framework": "CRS R46262 (role benchmarks for congressional staff); EEOC 2016 risk factor 12 (decentralized workplaces, low senior-management visibility)",
+            "evidence": {
+              "entity": "office",
+              "items": [
+                {
+                  "note": "22 distinct payees identified as Personnel Compensation across: Chief of Staff, Deputy COS, Legislative Director, Comms Director, District Director, Scheduler, Constituent Services Director, Legislative Assistant, Special Assistant, Digital Director, Deputy Regional Director, Legislative Aide/Corr, Staff Assistants, Caseworkers, Shared Employees, Interns, and Part-time staff."
+                }
+              ]
+            },
+            "analysis": "The Fine office's role distribution maps cleanly onto CRS R46262's description of standard congressional office positions. The presence of a Deputy COS, distinct Legislative and Communications Directors, and a District Director with regional staff creates functional differentiation that distributes supervisory access across multiple senior figures. This is a structural protective factor relative to EEOC risk factor 12 (low senior-management visibility). The office is not structured as a single-gatekeeper operation. CLEAR.",
+            "limits": "The SOD does not reveal whether the District Director and DC staff communicate regularly, or whether the district office has independent HR access. The structure is visible; its functioning is not.",
+            "self_review": {
+              "advocate": {
+                "challenge": "None — a CLEAR finding has no escalation risk. The office structure is well-populated for a freshman partial-year office.",
+                "answer": "N/A",
+                "verdict": "answered"
+              },
+              "equity": "pass",
+              "citations": "verified — role titles confirmed from data.json top_individuals purpose fields. CRS R46262 used as role benchmark framework — the positions match the 46 titles catalogued in the report."
+            }
+          }
+        ]
+      },
+      "health_lens": {
+        "status": "assessed",
+        "corpus_coverage_note": "Seven sources in the healthy-structure corpus (Gallup 2026, Li & Wang 2024, Liff & Rovio-Johansson 2025, Bloom et al. 2024, Yang et al. 2021 [Microsoft], Hassan 2013, Deschenes 2023). Coverage limits: all sources address one or more of span of control, remote supervision, role clarity, mentorship retention, and hybrid-work effects. None are specific to congressional offices. The Bloom (2024) and Yang et al. (2021) studies are from large tech firms; the Liff & Rovio-Johansson (2025) study is from healthcare. Transferability of mechanisms is plausible but the settings differ from a small legislative office.",
+        "comparisons": [
+          {
+            "id": "lb-1",
+            "dimension": "Span of control and feedback density",
+            "corpus_quote": "\"In today's workplace, where employees feel increasingly disconnected from their organizations, managers' open communication with employees is more important than the number of direct reports they have.\"",
+            "corpus_location": "Harter et al. (Gallup, 2026), 'Do Managers Give Employees Meaningful, Regular Feedback?' section",
+            "assessment": "Fine's office has at minimum two senior supervisory positions (Chief of Staff and Deputy COS) alongside functional directors for legislation, communications, and constituent services. This structure supports the Gallup finding that the number of direct reports matters less than the quality of communication between supervisors and staff. The structure provides a reasonable span-of-control distribution. The SOD cannot reveal whether regular, meaningful feedback conversations occur — that is a management practice question. No structural gap is visible from the data.",
+            "alignment": "broadly_consistent"
+          },
+          {
+            "id": "lb-2",
+            "dimension": "Remote and district supervision",
+            "corpus_quote": "\"Interactive monitoring by superiors in remote workplaces is a type of job resource that enhances work engagement by promoting personal resources such as self-efficacy\"",
+            "corpus_location": "Li & Wang (2024, Frontiers in Psychology, 15, 1383207), Discussion section",
+            "assessment": "Fine's office has a District Director (SHYLKOFSKI STEPHEN), a Deputy Regional Director (SIMS GINA), and three caseworkers in district roles. The Teletownhall service (Heritage Strategies, $29,994.44) indicates active constituent outreach programming. The Li & Wang finding counsels that district staff benefit from interactive (not merely electronic) supervision from the DC office. The SOD cannot reveal whether regular interactive supervision from DC to district offices occurs. The structural presence of a dedicated District Director creates the supervisory role identified as beneficial.",
+            "alignment": "broadly_consistent",
+            "gap_note": "Cannot assess from SOD whether DC-to-district supervision is interactive versus primarily electronic."
+          },
+          {
+            "id": "lb-3",
+            "dimension": "Mentorship and retention of junior staff",
+            "corpus_quote": "\"The mentor may discuss the mentee's thoughts about quitting and be able to reduce the mentee's doubts at an early stage.\"",
+            "corpus_location": "Liff & Rovio-Johansson (2025, Journal of Health Organization and Management, 39(9)), Findings and Analysis section 6.4",
+            "assessment": "Fine's office includes two House Paid Internship Program interns and several entry-level staff (Staff Assistants, Legislative Aide/Correspondent, Caseworkers). The Liff & Rovio-Johansson study identifies a structured mentorship relationship as a protective mechanism that reduces turnover doubts at early stages. The SOD provides no evidence that a formal mentorship or buddy arrangement exists for these junior and entry-level staff. This is a structural gap in what is knowable from public data — it is not evidence that no such arrangement exists, but it is a question the human reviewer should explore.",
+            "alignment": "gap_not_assessable_from_data",
+            "gap_note": "Whether the office has a structured mentorship, supervisor-assignment, or regular check-in protocol for junior and intern staff cannot be determined from the SOD."
+          },
+          {
+            "id": "lb-4",
+            "dimension": "Hybrid work and cross-team connectivity",
+            "corpus_quote": "\"Remote work caused the share of collaboration time employees spent with cross-group connections to drop by about 25% of the pre-pandemic level.\"",
+            "corpus_location": "Yang et al. (2021, Nature Human Behaviour, 6, 43–54), Main text — findings",
+            "assessment": "Fine's office operates across DC and multiple Florida district locations. The Microsoft/Yang et al. study finds that remote or distributed work reduces cross-team collaboration networks, which is structurally relevant for a DC–district setup. The Teletownhall and telecom spending suggests the office actively uses structured remote-communication tools. The Bloom et al. (2024, Nature, 630, 920–925) hybrid RCT found that hybrid work 'reducing attrition by 33%' (Abstract) without harming performance — this is constructive evidence that a well-designed hybrid arrangement can be protective. Whether Fine's office has a deliberate hybrid-connection strategy is not assessable from the SOD.",
+            "alignment": "gap_not_assessable_from_data",
+            "gap_note": "The presence of teletownhall and telecom services is consistent with active cross-location connectivity; whether a deliberate collaboration protocol exists is not visible in the data."
+          },
+          {
+            "id": "lb-5",
+            "dimension": "Role clarity",
+            "corpus_quote": "\"[O]ffices with a high level of role clarification had significantly higher levels of work satisfaction and lower rates of turnover.\"",
+            "corpus_location": "Hassan (2013, Public Administration Review), abstract/findings",
+            "assessment": "Fine's SOD role titles are specific and non-overlapping: Chief of Staff, Deputy COS, Legislative Director, Communications Director, District Director, Scheduler, Constituent Services Director, Digital Director, Deputy Regional Director, and distinct caseworker and staff assistant positions. The presence of distinct, titled positions with recognizable functional identities is structurally consistent with the role-clarity conditions Hassan (2013) associates with higher satisfaction and lower turnover. One employee (KILMER EVAN N.) progressed through Staff Assistant → Legislative Correspondent → Legislative Aide across the period, which is consistent with advancement pathways — a structural retention signal.",
+            "alignment": "broadly_consistent"
+          },
+          {
+            "id": "lb-6",
+            "dimension": "Professional isolation risk for distributed/district staff",
+            "corpus_quote": "\"[P]rofessional isolation negatively affects satisfaction with the telework experience\"",
+            "corpus_location": "Deschenes (2023, European Review of Applied Psychology, 73, 100823), Results section",
+            "assessment": "Fine has caseworkers and constituent services staff distributed across district locations (Bunnell and DeLand office rent payments appear in the SOD). The Deschenes (2023) study finds that perceived organizational and supervisor support moderates the negative effect of professional isolation. District staff working in small or single-person offices are at structural risk of professional isolation. The presence of a District Director and Deputy Regional Director creates the supervisory support role that Deschenes identifies as a buffering mechanism. The SOD cannot assess whether that support is actively exercised.",
+            "alignment": "gap_not_assessable_from_data",
+            "gap_note": "The structure provides the supervisory roles; whether district staff experience meaningful organizational connection is a management-practice question not visible in the SOD."
+          }
+        ]
+      },
+      "honest_limits": "This module maps the Fine office's public SOD data against published organizational research. The SOD reveals staffing structure (who is paid, in what role, at what level) but not internal dynamics: quality of supervision, presence of mentorship, communication norms, power relationships in practice, or staff experience. No finding in this module constitutes a claim about any named individual's conduct. Pay concentration and role distribution are structural observations. The partial-year window (approximately 9 months) and small benchmark peer group (3 members) limit the robustness of all quantitative comparisons. Lens B comparisons are drawn from peer-reviewed research studies conducted in different settings (large tech firms, healthcare, public agencies); the mechanisms they identify may apply to a small congressional office, but the settings differ and the reader should apply judgment accordingly.",
+      "disclaimer": "Prudence — Generated structural screen. Indicators are mapped from public Statement-of-Disbursements personnel data onto published organizational research (EEOC 2016; adult-grooming literature; CRS R46262; peer-reviewed workplace-structure studies where filed). They are risk indicators and structural comparisons for human review, not allegations, findings, or legal conclusions, and they make no claim about any named individual's conduct or competence."
+    },
+    "vendor_composition": {
+      "summary": "Fine's financial universe shows the classic official W-2 / campaign-consultant structure: virtually all individual persons appear on the office payroll while the campaign side pays almost exclusively companies and consultants. This pattern is structurally ordinary for Members of Congress and is not evidence of any irregularity. Three individuals appear on both sides of the ledger (Fischer, Rogerson, Bendon), which is common and publicly disclosed. The campaign entity is heavily weighted toward media and advertising ($1.28M, 43.4%) and fundraising operations ($863K, 29.2%), consistent with a Member who won an April 2025 special election after a competitive campaign.",
+      "split": [
+        {
+          "entity": "office",
+          "total": 1061010.84,
+          "people": 22,
+          "people_amt": 881646.44,
+          "people_share": 0.831,
+          "orgs": 8,
+          "orgs_amt": 179364.4,
+          "orgs_share": 0.169,
+          "unclassified": 0,
+          "note": "22 personnel compensation payees; 8 organizational/vendor payees (Fireside 21, City of Bunnell, Tele-Town Hall Services, Heritage Strategies, Leidos Digital Solutions, Ballard Spahr, Automated Signature Technology, and city/utility vendors). Classification is confident."
+        },
+        {
+          "entity": "house (campaign)",
+          "total": 2955590.54,
+          "people": 8,
+          "people_amt": 44845.43,
+          "people_share": 0.015,
+          "orgs": 30,
+          "orgs_amt": 2910745.11,
+          "orgs_share": 0.985,
+          "unclassified": 0,
+          "note": "8 individual persons identified on the campaign side; 30 organizational payees (Strategic Media Placement, Big Dog Strategies, Go Big Media, Coefficient Group, Republican Party of Florida, Frontline Strategies, TMA Direct, etc.). Classification is confident; all top-30 vendors were reviewed."
+        }
+      ],
+      "pattern_w2_consultant": {
+        "present": true,
+        "analysis": "The official side carries all the salaried staff as individuals on the House payroll (W-2 employees). The campaign side pays almost exclusively companies and consultants (98.5% of campaign disbursements by dollar value). This is the standard congressional structure: official operations are staffed by House employees; campaign operations are run through campaign vendors and consultants. It is not evidence of manipulation, misuse of official resources, or any other irregularity. Three individuals appear on both the office payroll and the campaign entity: FISCHER JASON (office COS; campaign media/digital consulting $9,039.15), ROGERSON MARIE (office Deputy COS; campaign strategy consulting $25,000.00), and BENDON JOHNPAUL (office Special Assistant; campaign $2,000.00). All three are publicly disclosed on FEC filings. Whether the campaign-side services were performed outside of official time and with non-official resources is a question the office and its counsel are responsible for ensuring — not something determinable from public data.",
+        "framing": "The W-2/consultant split is a common, often entirely ordinary structural feature of congressional offices. It reflects the legal separation between official and campaign resources required by House Rules and the Federal Election Campaign Act. The pattern shown here is consistent with ordinary congressional office operations and is not evidence of manipulation, abuse, or grooming."
+      },
+      "findings": [
+        {
+          "id": "vc-1",
+          "severity": "REVIEW",
+          "title": "Three office employees also appear on campaign entity — Fischer ($9,039), Rogerson ($25,000), Bendon ($2,000) — dual-role verification warranted",
+          "rule": {
+            "doc": "Members' Congressional Handbook (final-member-handbook-9.12.25)",
+            "section": "EMPLOYEES — Pay (p. 15)",
+            "quote": "Employees may not be compensated from public funds to perform non-official, personal, campaign-related political party, or campaign activities on behalf of the Member, the employee, or anyone else."
+          },
+          "evidence": {
+            "entity": "both",
+            "items": [
+              {
+                "payee": "FISCHER JASON / FISCHER, JASON",
+                "office_amt": 190509.72,
+                "campaign_amt": 9039.15,
+                "campaign_purpose": "DIGITAL CONSULTING / MEDIA",
+                "note": "Campaign payment appears in media/advertising category"
+              },
+              {
+                "payee": "ROGERSON MARIE / ROGERSON, MARIE",
+                "office_amt": 114675.88,
+                "campaign_amt": 25000.0,
+                "campaign_purpose": "CONSULTING (Consulting & Strategy category)"
+              },
+              {
+                "payee": "BENDON JOHNPAUL / BENDON, JOHNPAUL",
+                "office_amt": 47539.06,
+                "campaign_amt": 2000.0,
+                "campaign_purpose": "ADMINISTRATIVE (Admin & Other category)"
+              }
+            ]
+          },
+          "analysis": "It is legal and common for congressional staff to perform campaign work on their own time with their own resources; it is not legal for them to do so using official time, equipment, or resources. The SOD does not reveal whether any official resources were used. The three dual-appearing individuals have clearly distinct roles in the two entities (salaried office staff vs. FEC-reported campaign vendors). The Rogerson campaign payment ($25,000 in consulting) is the largest and warrants a confirmation that it was for services performed outside official duties. The Fischer and Bendon amounts are smaller. This finding is for awareness, not alarm.",
+          "options_for_human": [
+            "Confirm that Fischer, Rogerson, and Bendon performed their respective campaign services outside official hours and without using official equipment or other MRA resources.",
+            "Review whether the office maintains a written policy governing staff campaign activity consistent with House Ethics requirements.",
+            "No action is warranted on the basis of this screen alone; dual appearances in office and campaign records are routine and publicly disclosed."
+          ],
+          "limits": "FEC filings are public records. Whether campaign work was conducted properly on personal time is not determinable from either the SOD or FEC data. The office and the Committee on House Administration are the appropriate review authorities.",
+          "self_review": {
+            "advocate": {
+              "challenge": "Staff consulting for a campaign outside official hours is legally permissible and common. ROGERSON, MARIE's $25,000 campaign consulting payment is consistent with a senior political professional providing strategic advice to the campaign entity she had been working with prior to winning the seat. FISCHER, JASON's $9,039 digital consulting is modest. BENDON, JOHNPAUL's $2,000 is minimal. These amounts and categories are consistent with ordinary dual-role professional activity in a campaign-to-office transition.",
+              "answer": "The advocate challenge is fully plausible and reduces the concern. The finding's REVIEW severity is appropriate — not for concern about likely wrongdoing but as a reminder that human confirmation of the dual-role compliance framework is good practice for any office where staff served in both capacities.",
+              "verdict": "answered"
+            },
+            "equity": "pass — dual-role staff appear in many congressional offices regardless of party; this check is applied identically. The Rogerson consulting amount ($25,000) is noted because it is larger, not because of any party-based concern.",
+            "citations": "verified — Fischer campaign $9,039.15 re-traced from data.json house top_individuals FISCHER, JASON: amt=9039.15, n=2. Rogerson campaign $25,000 re-traced from house top_individuals ROGERSON, MARIE: amt=25000.0, n=1. Bendon campaign $2,000 re-traced from house top_individuals BENDON, JOHNPAUL: amt=2000.0, n=1. Office amounts from office top_individuals. Rule quote confirmed from members-congressional-handbook.txt EMPLOYEES section p. 15."
+          }
+        }
+      ],
+      "disclaimer": "Prudence — Generated composition screen. The people-vs-organization split and any structural pattern shown are considerations for a holistic human read, not evidence of wrongdoing. Payee classification is automated from public payee names and may misclassify edge cases."
+    }
+  },
+  "questions_for_human": [
+    "Payroll records: What is the exact annualized rate for FISCHER JASON (Chief of Staff) and does it fall within the 2025 Speaker's Pay Order maximum? The SOD salary category records $167,394.14 for an approximately 9-month period, implying an annualized rate that could be near or above the Member pay rate of $174,000 depending on how the periods are counted (see rc-1).",
+    "Member travel: Do the expense vouchers for the four HON RANDY FINE travel clusters (June, July, August, December 2025) confirm that each night's lodging and each day's meals were within the applicable GSA per diem rates for Washington, D.C.? (see rc-2).",
+    "Dual-role staff: For the three staff who appear on both the office payroll and the campaign FEC filings (Fischer, Rogerson, Bendon), is there documentation confirming that their campaign services were performed outside official hours and without use of official resources? (see vc-1).",
+    "Mentorship and junior staff support: Does the office have a structured supervision or mentorship arrangement for its two interns and entry-level positions (Staff Assistants, Legislative Aide/Correspondent, Caseworkers)? The healthy-structure research identifies this as a protective retention factor (see lb-3).",
+    "District office connectivity: Does the DC office have a regular, interactive communication routine with the district-based staff (District Director, Deputy Regional Director, Caseworkers, Constituent Services Director)? The supervision research identifies interactive (not merely electronic) contact as the engagement-building mechanism (see lb-2, lb-6)."
+  ],
+  "self_checks": {
+    "party_flip": {
+      "result": "pass",
+      "note": "All findings were re-read imagining Fine as a Democrat. No finding, severity, inclusion decision, or framing would change. rc-1 (salary verification), rc-2 (member travel), rc-3 (high-volume payee), ss-1 (pay concentration), vc-1 (dual-role staff) are all checks applied identically to any office. The comparison peers (Bell, Friedman) are Democrats; they are referenced only as structural comparators, not in a partisan frame."
+    },
+    "allegation_scan": {
+      "result": "pass",
+      "note": "Every finding is framed as a risk indicator or verification question, not an allegation. No sentence states or implies that any named individual has engaged in misconduct, abuse, or illegal activity. The dual-role finding (vc-1) explicitly states that dual appearances are 'legal and common.' The COS salary finding (rc-1) explicitly states 'this is a question for payroll records, not a finding of a violation.' The pay concentration finding (ss-1) is labeled 'a structural observation for human awareness, not an allegation.'"
+    },
+    "person_inference": {
+      "result": "pass",
+      "note": "No finding makes a claim about any named individual's conduct, competence, qualifications, or character. Gender-aggregate analysis was not needed and no per-person gender inference is present. Staff are referenced by name only to identify which payroll entries are relevant to each check — the same use that the SOD itself makes of their names."
+    },
+    "coverage": {
+      "result": "pass",
+      "note": "The coverage block documents: one year of office data (partial, approximately 9 months); campaign range November 2024–March 2026; partial-year freshman caveat applied throughout; three not-assessable items identified (pay cap numerical value, per diem rates, telework arrangements). Benchmark peer group limitation (3 members) is disclosed and characterizes all comparison language as descriptive, not percentile-based."
+    },
+    "severity": {
+      "result": "pass",
+      "note": "All findings are REVIEW or CLEAR. No NOTABLE or HIGH is issued. No candidate-HIGH was identified. Every REVIEW finding has re-traced numbers and a single stated data pattern per the §7 requirements. Every CLEAR entry states the check that was run. No finding was escalated beyond REVIEW in lean mode."
+    },
+    "tenure_sanity": {
+      "result": "pass",
+      "note": "Fine's House tenure begins approximately April 2025. All office findings fall within the FY2025 SOD window, which is the only period in which Fine held office. No pre-tenure office data exists. The $0 for prior years is a coverage gap (Fine had not yet taken office), not a data anomaly — it is not treated as a finding. Campaign data begins November 2024 (before taking office) and the analysis notes this is the campaign entity covering the special election period."
+    }
+  },
+  "attribution": "Prudence — AI decision-support system for the legislative branch, operated by Suffrage and Sass on the Article One platform. Generated 2026-06-15 in lean mode (single-agent pass; independent Review Chain not separately run; HIGH severity not available in this mode). All findings are automated first-pass screens of public data for human review. Prudence advises. The human decides. Always."
+}

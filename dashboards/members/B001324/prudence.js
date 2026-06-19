@@ -1,0 +1,327 @@
+window.PRUDENCE_DATA = {
+  "schema": "prudence-v2",
+  "mode": "lean",
+  "bioguide": "B001324",
+  "member_name": "Wesley Bell",
+  "generated_at": "2026-06-18T00:00:00Z",
+  "generator": {
+    "agent": "Prudence (orchestrator) + house-prudence-analyst-lean",
+    "spec": "PRUDENCE_AGENT v2",
+    "model": "claude-sonnet-4-6",
+    "roster": ["house-prudence-analyst-lean (single-pass: all modules + self-administered review)"]
+  },
+  "coverage": {
+    "office_years": ["2025"],
+    "campaign_range": ["2023-06-07", "2026-03-31"],
+    "tenure_note": "Bell took office January 2025; FY2025 is his first and only year of MRA data. No prior MRA data exists; this is expected and not a finding.",
+    "caveats": [
+      "Pre-tenure SOD row from 2014 (misattributed John Campbell record, -$54.50) correctly removed before analysis.",
+      "Category sum ($1,627,119.96) differs from office total ($1,627,174.46) by $54.50 — consistent with the removed pre-tenure row; treated as reconciled.",
+      "Name format difference: FEC uses LAST, FIRST; SOD uses FIRST LAST. Cross-entity overlaps (SANDERS, WILSON, ZUCKERBROT) verified and confirmed as same individuals.",
+      "Peer benchmark has only 3 single-year (FY2025-only) members. Percentiles at n=3 are not statistically meaningful; patterns are described directionally only.",
+      "Disclosure is a 2024 candidate financial disclosure (pre-Congress). Schedule C liability of $160,000 is pre-tenure and carries no office-spending implication."
+    ],
+    "not_assessable": [
+      {
+        "check": "Speaker's Pay Order maximum rate for FY2025",
+        "reason": "The exact numerical maximum from the Speaker's Pay Order is not reproduced in the extracted corpus. The 2026 Annual Pay Memo establishes the 2026 senior staff rate ($151,661) and the 2025 FD threshold ($150,160/year), but does not state the Speaker's Pay Order maximum cap. Accordingly, a ceiling-exceedance finding cannot be confirmed or ruled out from corpus alone. A human reviewer should obtain the FY2025 Speaker's Pay Order to confirm O'NEAL WHITLEY D.'s $185,000 annual rate sits within the permitted maximum."
+      },
+      {
+        "check": "Healthy-structures Lens B: three corpus files not read",
+        "reason": "bloom-hybrid-rct.txt, hassan-2013-role-clarification.txt, and microsoft-remote-collaboration.txt exist in the healthy-structures corpus but were not read in this lean-tier run. Lens B comparisons are drawn from four of seven available files. A full-tier run would read all seven."
+      }
+    ]
+  },
+  "modules": {
+    "rules_check": {
+      "summary": "The office's FY2025 MRA spending of $1,627,174.46 is largely consistent with Handbook categories. Personnel compensation at 81.7% of total is the dominant category and sits within normal range for a first-year office building out its team. One payee — O'NEAL WHITLEY D. at $185,000 — exceeds the senior staff financial-disclosure trigger ($151,661); this is a compliance-awareness note, not a confirmed cap exceedance (Speaker's Pay Order maximum not assessable from corpus). District office leases, travel, and vendor spending are categorically permissible. LEIDOS DIGITAL SOLUTIONS INC ($41,593, 16 transactions) appears in Media & Advertising and warrants a human check to confirm services are for official communications.",
+      "findings": [
+        {
+          "id": "rc-1",
+          "severity": "REVIEW",
+          "title": "Senior staff compensation threshold: O'NEAL WHITLEY D. at $185,000 exceeds the 2026 financial-disclosure trigger",
+          "rule": {
+            "doc": "2026 Annual Pay Memo (Committee on Ethics, January 30, 2026)",
+            "section": "Financial Disclosure / Calendar Year 2026 table",
+            "quote": "House officers and employees whose basic rate of pay is equal to or greater than the senior staff rate ($151,661) for at least 60 days during 2026 must file an FD report on or before May 15, 2027."
+          },
+          "evidence": {
+            "entity": "office",
+            "items": [
+              { "year": 2025, "payee": "O'NEAL WHITLEY D.", "purpose": "Salary & Payroll", "amount": 185000.00 }
+            ]
+          },
+          "analysis": "O'NEAL WHITLEY D. received $185,000 in Salary & Payroll disbursements in FY2025, above the 2026 senior staff rate ($151,661) and the 2025 FD threshold ($150,160). If paid at or above these thresholds for the qualifying periods, financial disclosure filing requirements, outside-employment restrictions, and PTR obligations apply. Whether the rate has been paid for the requisite number of days is a payroll-record question not determinable from the SOD alone. The Speaker's Pay Order maximum — the binding pay cap — is not in the extracted corpus and therefore cannot be compared against; cap compliance is not-assessable (see coverage block). This is a single-year observation; no trend can be assessed.",
+          "options_for_human": [
+            "Confirm that O'NEAL WHITLEY D. has filed required financial disclosure reports for CY2025 and CY2026 as applicable.",
+            "Confirm that the $185,000 annual rate falls within the Speaker's Pay Order maximum rate for FY2025.",
+            "If paid above the senior staff rate, confirm compliance with outside-employment restrictions and PTR filing obligations under the 2026 Annual Pay Memo."
+          ],
+          "limits": "The SOD shows total compensation disbursed; it does not distinguish regular monthly pay from lump sums (which per the 2026 Pay Memo footnote 6 do not count toward basic pay for FD purposes). No inference about the individual's qualifications or competence is made or possible.",
+          "review": {
+            "advocate": {
+              "challenge": "The $185,000 figure may include a lump sum bonus or accrued-leave payout, which would not count toward the 'rate of basic pay' for FD purposes. If the annualized base rate is below $151,661 and the balance is a lump sum, no FD obligation is triggered.",
+              "answer": "Plausible innocent explanation; stated in analysis and options. Finding does not assert violation — it flags for human verification. REVIEW severity appropriate for an unresolved compliance check.",
+              "verdict": "answered"
+            },
+            "equity": "pass",
+            "citations": "verified"
+          }
+        },
+        {
+          "id": "rc-2",
+          "severity": "REVIEW",
+          "title": "LEIDOS DIGITAL SOLUTIONS INC: $41,593 in Media & Advertising warrants purpose confirmation",
+          "rule": {
+            "doc": "Members' Congressional Handbook (September 12, 2025)",
+            "section": "General, item 1(e)",
+            "quote": "The MRA may not be used to pay for: ... campaign expenses"
+          },
+          "evidence": {
+            "entity": "office",
+            "items": [
+              { "year": 2025, "payee": "LEIDOS DIGITAL SOLUTIONS INC", "purpose": "Media & Advertising (category)", "amount": 41593.00, "transactions": 16 }
+            ]
+          },
+          "analysis": "LEIDOS DIGITAL SOLUTIONS INC received $41,593 across 16 MRA transactions in the Media & Advertising category. Leidos is a federal technology contractor whose services commonly include official constituent communications. Given Bell's parallel campaign spending on substantial digital and media services (GPS IMPACT, MEADOWLARK STRATEGIES, TUNLAW STRATEGIES), a human reviewer may wish to confirm that the Leidos services are for official constituent communications distinct from campaign digital services. The Handbook prohibits campaign expenses from the MRA. This is a routine vendor-confirmation check, not an anomaly.",
+          "options_for_human": [
+            "Review underlying invoices from LEIDOS DIGITAL SOLUTIONS INC to confirm services are for official constituent communications, not campaign-related digital services.",
+            "Confirm services were pre-approved or reviewed by the Communications Standards Commission if applicable.",
+            "If any services overlap with campaign digital services, consult Committee on House Administration on permissible allocation."
+          ],
+          "limits": "The SOD does not itemize transaction-level purpose; only vendor name and category are visible. Leidos is a large federal contractor and provides many legitimate official services. This is a routine confirmation check, not an allegation of misuse.",
+          "review": {
+            "advocate": {
+              "challenge": "Leidos Digital Solutions is a well-known federal IT and communications contractor commonly used for official constituent outreach, mailing management, and digital infrastructure — all MRA-permitted.",
+              "answer": "Innocent explanation is most likely. Finding calibrated as REVIEW (routine confirmation check, not anomaly) and explicitly notes the ordinary nature of this vendor category.",
+              "verdict": "answered"
+            },
+            "equity": "pass",
+            "citations": "verified"
+          }
+        }
+      ],
+      "clear": [
+        {
+          "check": "Personnel share within normal range",
+          "note": "Salary & Payroll at $1,329,314.71 is 81.7% of total MRA spending. No Handbook maximum applies; 81.7% is consistent with a first-year office investing heavily in staffing. Among the three single-year peers, Bell's personnel share is the lowest (Fine 83.1%, Friedman 83.0%). No anomaly identified."
+        },
+        {
+          "check": "Employee ceiling",
+          "note": "18 unique individuals identified in payroll. The Handbook (citing 2 U.S.C. § 5321) permits 18 permanent employees plus up to 4 additional in designated categories. 18 = the statutory permanent ceiling. No overage is indicated. 0 interns identified in top-30 payroll."
+        },
+        {
+          "check": "District office leases",
+          "note": "900 N TUCKER BUILDING LLC ($28,290.00) and 900 N TUCKER MASTER TENANT LLC ($24,989.50) total $53,279.50 in district office lease payments. The Handbook (District Office Expenses, Leases section) permits district office lease expenses from the MRA. Two payees for the same address is consistent with a building/master-tenant commercial real estate structure. No anomaly identified."
+        },
+        {
+          "check": "Member travel reimbursement",
+          "note": "HON WESLEY BELL received travel reimbursements consistent with the Handbook provision permitting member reimbursement for official and representational travel. No anomaly identified."
+        },
+        {
+          "check": "MRA non-personnel categories",
+          "note": "Administrative & Other ($166,637.77), Media & Advertising ($72,869.34, pending rc-2 confirmation), Travel & Transportation ($56,102.14), and Hotels & Lodging ($2,196.00) are all within Handbook-recognized reimbursable categories. CITIBANK credit card entries in Travel ($33,935.66, 93 transactions) are consistent with Handbook Purchase Card / Travel Card provisions. No category-level anomaly identified."
+        }
+      ],
+      "attribution": "🤖 Prudence — Generated analysis. Findings are an automated first-pass screen of public Statement-of-Disbursements data against the Members' Congressional Handbook; they are not legal advice and not an allegation of misconduct. Confirmation of any flagged item requires the underlying invoices and payroll authorizations held by the office and the Committee on House Administration."
+    },
+    "structure_screen": {
+      "summary": "Bell's office has 18 staff in its first year (FY2025), at the statutory permanent-employee ceiling. Pay is concentrated in a small senior tier: the top earner holds 13.9% of the salary pool and the top three hold 29.4%. Zero interns were identified. The three-peer benchmark group is too small for percentile inference; patterns are described directionally only — Bell is the lowest concentration among the three single-year peers on all three pay-concentration metrics. Lens B (healthy structures) is partially assessable from four of seven corpus files; coverage limits are stated.",
+      "benchmark": {
+        "window": "FY2025",
+        "peers": 3,
+        "peer_note": "Only 3 single-year (FY2025-only) members in the benchmark set: Bell (B001324), Friedman (F000483), Fine (F000484). Percentiles at n=3 are not statistically meaningful. Patterns are described directionally only.",
+        "metrics": [
+          { "name": "personnel_share", "value": 0.817, "directional_note": "Bell 81.7%; Friedman 83.0%, Fine 83.1%. Bell is the lowest of the three — no anomaly." },
+          { "name": "top1_pay_share", "value": 0.139, "directional_note": "Bell 13.9%; Friedman 14.5%, Fine 21.6%. Bell is the lowest — no anomaly." },
+          { "name": "top3_pay_share", "value": 0.294, "directional_note": "Bell 29.4%; Friedman 33.3%, Fine 43.1%. Bell is the lowest — no anomaly." },
+          { "name": "n_people_top30", "value": 18, "directional_note": "Bell 18; Friedman 19, Fine 22. Bell has the smallest staff among single-year peers." },
+          { "name": "intern_count_top30", "value": 0, "directional_note": "Bell 0; Friedman 0, Fine 2. At n=3, no meaningful pattern inference is possible." }
+        ]
+      },
+      "risk_lens": {
+        "framework": "EEOC 2016 Select Task Force risk factors; Sinnamon (2017) adult-grooming structural preconditions; CRS R46262 role benchmarks",
+        "indicators": [
+          {
+            "id": "ss-1",
+            "severity": "REVIEW",
+            "title": "Pay concentration in a small senior tier: top-3 earners hold 29.4% of salary pool",
+            "framework": "EEOC 2016 Select Task Force, risk factor 7: 'Significant power disparities'; Sinnamon (2017) stage 1 structural precondition: identification of early-career/dependent individuals",
+            "evidence": {
+              "entity": "office",
+              "items": [
+                { "year": 2025, "payee": "O'NEAL WHITLEY D.", "purpose": "Salary & Payroll", "amount": 185000.00 },
+                { "year": 2025, "payee": "CHUKWUKA CHIEKEZIE O.", "purpose": "Salary & Payroll", "amount": 106500.00 },
+                { "year": 2025, "payee": "TURKHEIMER MANNING L.", "purpose": "Salary & Payroll", "amount": 98972.25 }
+              ]
+            },
+            "analysis": "The top three earners together represent $390,472.25 of the $1,329,314.71 salary pool (29.4%). This concentration is typical of a first-year office building out a senior leadership tier. Among the three single-year peer offices, Bell's 29.4% top-3 concentration is the lowest (Friedman 33.3%, Fine 43.1%). The EEOC 2016 Select Task Force identifies significant power disparities as a structural risk factor; this concentration is driven by a conventional senior-tier structure, not a single outlier. This is a structural observation, not an allegation.",
+            "options_for_human": [
+              "Consider whether junior staff have accessible, independent reporting channels that do not require escalation through the most senior staff.",
+              "As the office matures, monitor whether pay-concentration ratios evolve toward a broader distribution."
+            ],
+            "limits": "Pay concentration is a structural indicator from the research literature, not evidence of any conduct. The SOD does not show titles, reporting lines, or HR infrastructure. No inference about any named individual's conduct or competence is made or possible. First-year staffing patterns typically show higher concentration as senior roles are filled before junior ones.",
+            "review": {
+              "advocate": {
+                "challenge": "A first-year congressional office building a senior leadership team will naturally show pay concentration at the top. This pattern is tenure-normal and not diagnostic of any risk factor.",
+                "answer": "Innocent explanation stated prominently in analysis. Finding is REVIEW (single data pattern), the appropriate level for a structural observation explained by tenure-normal factors. The finding notes Bell is the lowest concentration among single-year peers.",
+                "verdict": "answered"
+              },
+              "equity": "pass",
+              "citations": "verified"
+            }
+          },
+          {
+            "id": "ss-2",
+            "severity": "REVIEW",
+            "title": "Zero interns identified: absence of entry-level pipeline in a first-year office",
+            "framework": "EEOC 2016 Select Task Force, risk factor 7: power disparities; CRS R46262 entry-level role benchmarks (Staff Assistant, Legislative Correspondent); Sinnamon (2017) stage 1: identification of vulnerable individuals",
+            "evidence": {
+              "entity": "office",
+              "items": [
+                { "year": 2025, "payee": "(no intern payees identified in FY2025 payroll)", "purpose": "Salary & Payroll", "amount": 0 }
+              ]
+            },
+            "analysis": "Zero interns were identified in the FY2025 payroll record. The Handbook permits MRA-paid interns up to $38,500 annually and a House Paid Internship Program allowance separate from the MRA. A first-year office may not yet have established an intern program. The absence of interns removes the most vulnerable staffing tier from this office's structure — constructively protective for that population. However, it also removes a junior pipeline entry point. Whether this reflects a deliberate staffing decision or an administrative gap cannot be determined from the SOD.",
+            "options_for_human": [
+              "Consider whether establishing a formal intern program in year two would provide junior constituency service capacity and an entry pathway.",
+              "If the office hosts unpaid interns or volunteers, confirm that policies per the Handbook and Ethics Committee guidance are in place."
+            ],
+            "limits": "The SOD shows payroll disbursements only; it cannot confirm whether unpaid interns or volunteers are present. The benchmark's top-30 cutoff means very small payments could fall outside the window.",
+            "review": {
+              "advocate": {
+                "challenge": "Many first-year offices do not establish intern programs immediately. Absence of interns is unremarkable for a newly-sworn office.",
+                "answer": "Correct; the analysis explicitly states this. The finding presents the constructive protective effect of the absence alongside the pipeline-gap observation. REVIEW severity appropriate.",
+                "verdict": "answered"
+              },
+              "equity": "pass",
+              "citations": "verified"
+            }
+          }
+        ],
+        "eeoc_risk_factors_checked": {
+          "note": "EEOC 2016 Select Task Force identified 12 organizational risk factors. SOD data can speak to only a subset. Checked: power disparities (ss-1), employee count/pipeline (ss-2). Not assessable from financial data: isolated worksites, homogeneous workforce, cultural/language differences, many young workers, customer-service dependence, monotonous work, alcohol tolerance, coarsened social discourse."
+        }
+      },
+      "health_lens": {
+        "status": "partially-assessable",
+        "corpus_files_read": ["gallup-span-of-control.txt", "li-wang-remote-supervision.txt", "liff-mentoring-retention.txt", "deschenes-2023-professional-isolation.txt"],
+        "corpus_files_not_read": ["bloom-hybrid-rct.txt", "hassan-2013-role-clarification.txt", "microsoft-remote-collaboration.txt"],
+        "coverage_limit": "Lens B comparisons are drawn from four of seven healthy-structures corpus files. The three unread files may contain additional relevant findings. This analysis is partial; a full-tier run would read all seven.",
+        "comparisons": [
+          {
+            "id": "lb-1",
+            "corpus_source": "Gallup (2026). Span of Control: What's the Optimal Team Size for Managers? (Harter et al.)",
+            "quote": "Team size is only as effective as the engagement behind it. Highly engaged teams of 12 or more workers who are supported by effective management can thrive, while poorly managed teams struggle, even when small.",
+            "location": "Section: How Engaged Is the Team?",
+            "observation": "Bell's 18-person team is above the 12-person threshold Gallup identifies as viable when supported by effective management. Gallup's finding that open communication from managers matters more than headcount suggests the critical variable is active manager engagement. This is a constructive framing: a team of this size can be protective if management engagement is strong.",
+            "implication": "An 18-person team at the permanent-staff ceiling is operationally viable per Gallup's meta-analysis, provided management engagement — regular feedback, open communication — is an active practice from the office's first year."
+          },
+          {
+            "id": "lb-2",
+            "corpus_source": "Li, S., & Wang, Y. (2024). A study on the positive and negative effects of different supervisor monitoring in remote workplaces. Frontiers in Psychology, 15, 1383207.",
+            "quote": "Interactive monitoring by superiors in remote workplaces is a type of job resource that enhances work engagement by promoting personal resources such as self-efficacy.",
+            "location": "Discussion section",
+            "observation": "A first-year congressional office with DC and MO-01 district sites will have geographically distributed staff. Li & Wang find that interactive (personal, communicative) supervision builds staff self-efficacy in distributed settings, while electronic-only monitoring depletes it. The SOD cannot confirm which modality is used; this is a constructive benchmark for the office's first-year management norms.",
+            "implication": "For district-office staff not co-located with DC leadership, proactive interactive supervision — check-ins, in-person visits, direct communication — is the evidence-based protective model."
+          },
+          {
+            "id": "lb-3",
+            "corpus_source": "Liff, R., & Rovio-Johansson, A. (2025). Mentoring as a management practice to retain newly certified professionals in healthcare organisations. Journal of Health Organization and Management, 39(9), 54-70.",
+            "quote": "The mentor may discuss the mentee's thoughts about quitting and be able to reduce the mentee's doubts at an early stage.",
+            "location": "Findings and Analysis, Section 6.4",
+            "observation": "A first-year office staffing rapidly would benefit from mentorship or buddy structures for junior staff. Liff & Rovio-Johansson identify mentorship as a retention mechanism giving junior staff a confidential relationship through which to surface doubts. Note: this study is from healthcare; the mechanism, not the sector-specific findings, is the transferable element.",
+            "implication": "Consider whether junior staff have a designated senior staff mentor or point of contact distinct from their direct supervisor, providing a confidential alternative channel."
+          },
+          {
+            "id": "lb-4",
+            "corpus_source": "Deschenes, A.-A. (2023). Professional isolation and pandemic teleworkers' satisfaction and commitment. European Review of Applied Psychology, 73, 100823.",
+            "quote": "The results reveal that professional isolation negatively affects satisfaction with the telework experience, but does not affect affective organizational commitment when supervisor support is present.",
+            "location": "Abstract / Results",
+            "observation": "Deschenes finds that perceived supervisor support moderates the negative effect of professional isolation on satisfaction. Convergent with lb-2 (Li & Wang), the protective factor for geographically distributed staff is active supervisor support, not passive oversight.",
+            "implication": "Professional isolation risk is structural in any dual-site congressional office. Supervisor support — concrete, personal, and regular — is the convergent evidence-based protective response from two independent studies."
+          }
+        ]
+      },
+      "honest_limits": "The SOD provides payroll totals and vendor names only. It cannot show: reporting structures, titles, whether independent HR or complaint channels exist, whether formal mentorship or supervision norms are in place, workplace culture, staff tenure, or demographics. All structural indicators are derived from published organizational research applied to financial data patterns — they are risk indicators and healthy-structure benchmarks for human review, not findings of any condition or conduct. This is a first-year office; tenure-normal patterns explain several observed patterns without invoking any risk factor. Lens B covers four of seven healthy-structures corpus files.",
+      "attribution": "🤖 Prudence — Generated structural screen. Indicators are mapped from public Statement-of-Disbursements personnel data onto published organizational research (EEOC 2016; adult-grooming literature; CRS R46262; peer-reviewed workplace-structure studies where filed). They are risk indicators and structural comparisons for human review, not allegations, findings, or legal conclusions, and they make no claim about any named individual's conduct or competence."
+    },
+    "vendor_composition": {
+      "summary": "Bell's financial universe divides clearly: the official (MRA) side is dominated by individual-person payroll (18 employees, 81.7% of MRA spending), while the campaign side is entirely organizations and consultants. Three individuals — SANDERS JORDAN B., WILSON LARHONDA, and ZUCKERBROT EDWARD P. — appear as payees on both sides in the same period. The official-W2/campaign-consultant pattern is common in congressional offices and is not evidence of any improper arrangement. The presence of the same individuals on both sides is a structural note for human confirmation that role classification is consistent and each payment reflects distinct compensable services.",
+      "split": [
+        {
+          "entity": "office",
+          "people": 18,
+          "orgs": 12,
+          "unclassified": 0,
+          "people_amt": 1329314.71,
+          "orgs_amt": 297859.75,
+          "people_pct": 81.7,
+          "note": "People: all named individuals in Salary & Payroll category. Orgs: all vendors in Admin, Media, Travel, Lodging categories. CITIBANK entries treated as card-payment pass-throughs (org). Member reimbursements (HON WESLEY BELL) not counted against the 18-staff figure."
+        },
+        {
+          "entity": "house_campaign",
+          "people": 1,
+          "orgs": 25,
+          "unclassified": 0,
+          "people_amt": 189179.67,
+          "orgs_amt": 5810164.10,
+          "people_pct": 3.2,
+          "note": "SANDERS JORDAN B. is the only identifiable natural person in the top campaign vendors. All other top vendors are organizations or LLCs. Campaign total $5,999,343.77 as filed."
+        }
+      ],
+      "pattern_w2_consultant": {
+        "present": true,
+        "analysis": "The official side pays individuals as W-2 employees through House payroll. The campaign side is structured around organizational consultants and vendors with minimal direct individual payments visible in the top-vendor list. The Congressional Accountability Act and House Rules require MRA funds for official duties and campaign funds for campaign activities. The structure as observed is consistent with those rules.",
+        "framing": "This pattern — official staff on W-2 payroll, campaign work done through consultant organizations — is common across congressional offices of both parties and is often entirely ordinary. It reflects the legal requirement to keep official and campaign activities separate, not a sign of any improper arrangement. This pattern is one structural consideration for a holistic human read and is not evidence of manipulation, abuse, or grooming."
+      },
+      "findings": [
+        {
+          "id": "vc-1",
+          "severity": "REVIEW",
+          "title": "Three individuals appear as payees on both office (SOD) and campaign (FEC) sides: SANDERS, WILSON, ZUCKERBROT",
+          "rule": {
+            "doc": "Members' Congressional Handbook (September 12, 2025)",
+            "section": "General, item 1(e)",
+            "quote": "The MRA may not be used to pay for: ... campaign expenses"
+          },
+          "evidence": {
+            "entity": "both",
+            "items": [
+              { "year": 2025, "payee": "SANDERS JORDAN B.", "purpose": "Office: Salary & Payroll", "amount_office": 95500.00, "amount_campaign": 189179.67, "campaign_txns": 72 },
+              { "year": 2025, "payee": "WILSON LARHONDA", "purpose": "Office: Salary & Payroll", "amount_office": 70638.93, "amount_campaign": 50175.87 },
+              { "year": 2025, "payee": "ZUCKERBROT EDWARD P.", "purpose": "Office: Salary & Payroll", "amount_office": 60694.41, "amount_campaign": 39382.79 }
+            ]
+          },
+          "analysis": "SANDERS JORDAN B. ($95,500 SOD / $189,179.67 FEC, 72 transactions), WILSON LARHONDA ($70,638.93 SOD / $50,175.87 FEC), and ZUCKERBROT EDWARD P. ($60,694.41 SOD / $39,382.79 FEC) each appear as payees in both the official payroll (SOD) and the campaign spending record (FEC) during overlapping periods. Name-format differences have been cross-checked and confirmed as the same individuals. The Handbook prohibits MRA funds from paying campaign expenses; FEC rules prohibit campaign funds from paying official expenses. Where an individual performs distinct services for both, dual payment from each fund is permissible when properly documented. This is a structural note for a human reviewer to confirm: (1) each individual's roles are separately documented for each payment context; (2) no official time or resources were used for compensated campaign work; and (3) FEC filings accurately describe the campaign-side purpose. SANDERS JORDAN B.'s 72 campaign transactions and high total ($189,179.67) alongside $95,500 in official payroll is the most prominent overlap and was independently flagged in the data build.",
+          "options_for_human": [
+            "Confirm SANDERS JORDAN B., WILSON LARHONDA, and ZUCKERBROT EDWARD P. each have clearly documented separate roles/services for the office and the campaign.",
+            "Confirm no official staff time was performed under arrangements compensated by the campaign, and vice versa.",
+            "Review FEC-disclosed purposes for each individual's campaign payments to confirm they describe distinct campaign services.",
+            "For SANDERS JORDAN B. specifically — $189,179.67 across 72 FEC transactions alongside $95,500 in official payroll — confirm the campaign-side arrangement is documented and the previously identified FEC flag has been reviewed."
+          ],
+          "limits": "Dual payee status across official and campaign entities is not inherently improper. The SOD and FEC records show totals and purposes only; neither shows time records, employment agreements, or the specific division of duties. Only a review of underlying records can determine whether services were properly separated.",
+          "review": {
+            "advocate": {
+              "challenge": "Many congressional staffers serve dual roles: official staff (W-2, MRA-paid) and separately consult for the campaign on campaign time. This is a normal and permitted arrangement when properly documented, and is common in a first-year competitive-district office.",
+              "answer": "Innocent explanation is clearly the most likely account, stated explicitly in the finding. REVIEW severity is appropriate: single pattern, stated as such, framed as a structural note for human confirmation.",
+              "verdict": "answered"
+            },
+            "equity": "pass",
+            "citations": "verified"
+          }
+        }
+      ],
+      "attribution": "🤖 Prudence — Generated composition screen. The people-vs-organization split and any structural pattern shown are considerations for a holistic human read, not evidence of wrongdoing. Payee classification is automated from public payee names and may misclassify edge cases."
+    }
+  },
+  "questions_for_human": [
+    "[rc-1] O'NEAL WHITLEY D. received $185,000 in FY2025 payroll, above the 2026 senior staff financial-disclosure trigger ($151,661). Has this individual filed required financial disclosures and PTRs for CY2025 and CY2026? Does the annual base rate fall within the Speaker's Pay Order maximum for FY2025 (not confirmable from corpus; payroll records required)?",
+    "[rc-2] LEIDOS DIGITAL SOLUTIONS INC received $41,593 across 16 MRA transactions in the Media & Advertising category. Review of the underlying invoices should confirm the services are for official constituent communications and not campaign-adjacent digital services.",
+    "[vc-1] Three individuals — SANDERS JORDAN B., WILSON LARHONDA, ZUCKERBROT EDWARD P. — appear in both the official payroll (SOD) and campaign spending (FEC). Are each individual's official and campaign roles separately documented? The overlap for SANDERS JORDAN B. ($189,179.67 across 72 FEC transactions alongside $95,500 official payroll) warrants specific review to confirm documented role separation.",
+    "[ss-1 / lb-1–lb-4] As a first-year office at the 18-person permanent-staff ceiling, does Bell's office have: (a) accessible independent reporting channels for staff that do not require escalation through senior staff; (b) proactive interactive supervision for district-office staff; and (c) a mentorship or peer structure for junior staff? These are constructive healthy-structure elements identified by four peer-reviewed studies (Gallup 2026; Li & Wang 2024; Liff & Rovio-Johansson 2025; Deschenes 2023).",
+    "[coverage] The Speaker's Pay Order maximum rate for FY2025 is not in the extracted corpus. A human reviewer with access to the Pay Order should verify O'NEAL WHITLEY D.'s $185,000 rate is within the permitted maximum."
+  ],
+  "attribution": "🤖 Prudence — lean mode. Generated analysis for Wesley Bell (B001324), MO-01. Office data: FY2025 only (Bell's first year). Campaign data: June 2023–March 2026. This is an automated first-pass screen produced by a single agent self-administering the adversarial review; it has not received the independent full Review Chain available in --full tier. Findings are risk indicators and structural observations for qualified human review — not legal conclusions, allegations, or determinations. Generated 2026-06-18. Agent: house-prudence-analyst-lean + Prudence orchestrator. Spec: PRUDENCE_AGENT v2. Model: claude-sonnet-4-6."
+}
+
