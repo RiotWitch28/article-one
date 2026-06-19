@@ -3434,7 +3434,6 @@ function renderPrudenceData(P, container){
     ${qsHtml?`<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px">Questions for a human reviewer</div>${qsHtml}</div>`:''}
   `;
   container.appendChild(wrapper);
-  if(typeof renderFlags==='function')renderFlags();
 }
 
 // Pull Prudence findings out of the rendered #page-houseai DOM. Returns the
