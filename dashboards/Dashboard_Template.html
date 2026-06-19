@@ -1368,6 +1368,17 @@ body.dark .dist-cmp-val{color:var(--navy-mid)}
 })();
 </script>
 <script>
+// Dynamic Prudence loader — loads prudence.js if it exists for this member.
+// Sets window.PRUDENCE_DATA (prudence-v2 schema). Silently absent = no Prudence yet.
+(function(){
+  var b=new URLSearchParams(location.search).get('member');
+  if(b&&/^[A-Z]\d{6}$/.test(b)){
+    var s='members/'+b+'/prudence.js?v='+Date.now();
+    document.write('<scr'+'ipt src="'+s+'"></scr'+'ipt>');
+  }
+})();
+</script>
+<script>
 window.MEMBER_DATA = window.MEMBER_DATA || {
   member: { first_name:"Jordan", last_name:"Avery", full_name:"Jordan Avery", state:"ST", district:"12", party:"Democrat", congress:"119th" },
   entities: {
@@ -3301,12 +3312,16 @@ const FLAG_REVIEWED_KEY='a1_flags_reviewed_v1';
     const sw=document.getElementById('prudence-sample');
     if(sw)sw.classList.remove('active');
     const houseai=document.getElementById('page-houseai');
-    if(houseai && !document.getElementById('prudencePlaceholder')){
-      const ph=document.createElement('div');
-      ph.id='prudencePlaceholder';
-      ph.style.cssText='padding:60px 40px;text-align:center;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg);margin:24px 0';
-      ph.innerHTML='<div style="font-size:32px;margin-bottom:12px">⚖</div><div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px">Prudence analysis not yet available for this member</div><div style="font-size:13.5px;color:var(--text-3);max-width:540px;margin:0 auto;line-height:1.6">Prudence is published as a reference case on the built-in sample profile. Per-member Prudence (Phase 3) is in development — each office will get its own MRA Spending &amp; Rules Check and Workplace Structure Screen against the same frameworks.</div>';
-      houseai.appendChild(ph);
+    if(houseai){
+      if(window.PRUDENCE_DATA){
+        renderPrudenceData(window.PRUDENCE_DATA, houseai);
+      } else if(!document.getElementById('prudencePlaceholder')){
+        const ph=document.createElement('div');
+        ph.id='prudencePlaceholder';
+        ph.style.cssText='padding:60px 40px;text-align:center;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg);margin:24px 0';
+        ph.innerHTML='<div style="font-size:32px;margin-bottom:12px">⚖</div><div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px">Prudence analysis not yet available for this member</div><div style="font-size:13.5px;color:var(--text-3);max-width:540px;margin:0 auto;line-height:1.6">Prudence is published as a reference case on the built-in sample profile. Per-member Prudence (Phase 3) is in development — each office will get its own MRA Spending &amp; Rules Check and Workplace Structure Screen against the same frameworks.</div>';
+        houseai.appendChild(ph);
+      }
     }
   }
 })();
@@ -3332,6 +3347,95 @@ function toggleFlagOpen(idx){
 }
 // Source filter for the unified findings inbox. 'all' = every source.
 window.flagSourceFilter=window.flagSourceFilter||'all';
+
+// Render a prudence-v2 PRUDENCE_DATA object into the Prudence tab.
+// Creates a .prudence-member-content.active div with .check <details> elements
+// that collectPrudenceFindings() can scrape into the unified inbox.
+function renderPrudenceData(P, container){
+  const sevDsev={HIGH:'review',NOTABLE:'review',LOW:'context',CLEAR:'pass','not-assessable':'context'};
+  const sevColor={HIGH:'var(--red)',NOTABLE:'var(--amber)',LOW:'var(--navy-mid)',CLEAR:'var(--green)','not-assessable':'var(--muted)'};
+  const modLabel={1:'Spending & Rules Check',2:'Workplace Structure Screen',3:'Vendor Composition'};
+
+  const counts={HIGH:0,NOTABLE:0,LOW:0,CLEAR:0};
+  (P.findings||[]).forEach(f=>{if(counts[f.severity]!=null)counts[f.severity]++;});
+
+  function findingHtml(f){
+    const ds=sevDsev[f.severity]||'context';
+    const sc=sevColor[f.severity]||'var(--muted)';
+    const qs=(f.questions_for_human||[]).map(q=>`<li style="margin-bottom:5px">${q}</li>`).join('');
+    const qHtml=qs?`<div class="row"><div class="lbl">Questions for human</div><ul style="margin:6px 0 0 16px;padding:0">${qs}</ul></div>`:'';
+    const limHtml=f.limits?`<div class="row"><div class="lbl">Limits</div>${f.limits}</div>`:'';
+    const ruleHtml=f.rule?`<div class="row cite"><div class="lbl">Rule</div>${f.rule.doc}${f.rule.section?' — '+f.rule.section:''}: <em>"${f.rule.quote}"</em></div>`:'';
+    return `<details class="check" data-sev="${ds}" id="${f.id||''}">
+      <summary>
+        <span style="font-size:10px;font-weight:800;letter-spacing:.07em;color:${sc};text-transform:uppercase;white-space:nowrap;min-width:58px">${f.severity}</span>
+        <span class="ttl">${f.title}</span>
+        <span class="arr">▶</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">Finding</div>${f.body||''}</div>
+        ${ruleHtml}${qHtml}${limHtml}
+      </div>
+    </details>`;
+  }
+
+  const byMod={};
+  (P.findings||[]).forEach(f=>{const m=f.module||1;(byMod[m]=byMod[m]||[]).push(f);});
+
+  let modsHtml='';
+  [1,2,3].forEach(m=>{
+    const fds=byMod[m]||[];
+    if(!fds.length)return;
+    modsHtml+=`<div style="margin-bottom:24px">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">Module ${m} — ${modLabel[m]||''}</div>
+      ${fds.map(findingHtml).join('')}
+    </div>`;
+  });
+
+  const clearHtml=(P.clear_checks||[]).map(c=>`<details class="check" data-sev="pass">
+    <summary>
+      <span style="font-size:10px;font-weight:800;letter-spacing:.07em;color:var(--green);text-transform:uppercase;white-space:nowrap;min-width:58px">CLEAR</span>
+      <span class="ttl">${c.check}</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><div class="row">${c.note||''}</div></div>
+  </details>`).join('');
+
+  const naHtml=((P.coverage&&P.coverage.not_assessable)||[]).map(na=>
+    `<div style="padding:8px 12px;background:var(--border-soft);border-radius:var(--radius-sm);margin-bottom:6px;font-size:12.5px;color:var(--text-3)"><strong>Not assessed:</strong> ${na.check} — ${na.reason}</div>`
+  ).join('');
+
+  const qsHtml=(P.questions_for_human||[]).map(q=>
+    `<div style="padding:8px 0;border-bottom:1px solid var(--border-soft);font-size:13px;color:var(--text-2)">${q}</div>`
+  ).join('');
+
+  const offYrs=(P.coverage&&P.coverage.office_years)||[];
+
+  const wrapper=document.createElement('div');
+  wrapper.className='prudence-member-content active';
+  wrapper.innerHTML=`
+    <div class="prudence-summary-card">
+      <div class="psc-intro">
+        <div class="psc-title">⚖️ Prudence — ${P.mode==='full'?'Full tier':'Lean tier'} · ${P.generated_at||''}</div>
+        <div class="psc-sub" style="font-size:12.5px;color:var(--text-3);line-height:1.6">${P.attribution||''}</div>
+      </div>
+      <div class="ai-badge">Prudence · ${P.mode||'lean'}</div>
+    </div>
+    <div class="vgrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:20px">
+      ${counts.HIGH?`<div class="vcard review"><div class="vn">${counts.HIGH}</div><div class="vl">HIGH</div></div>`:''}
+      <div class="vcard review"><div class="vn">${counts.NOTABLE}</div><div class="vl">NOTABLE</div></div>
+      <div class="vcard context"><div class="vn">${counts.LOW}</div><div class="vl">LOW</div></div>
+      <div class="vcard pass"><div class="vn">${counts.CLEAR}</div><div class="vl">Clear</div></div>
+      <div class="vcard scope"><div class="vn">${offYrs.length||'—'} yr</div><div class="vl">MRA coverage</div></div>
+    </div>
+    ${modsHtml}
+    ${clearHtml?`<div style="margin-bottom:24px"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">Cleared checks</div>${clearHtml}</div>`:''}
+    ${naHtml?`<div style="margin-bottom:24px"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">Not assessed</div>${naHtml}</div>`:''}
+    ${qsHtml?`<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px">Questions for a human reviewer</div>${qsHtml}</div>`:''}
+  `;
+  container.appendChild(wrapper);
+  if(typeof renderFlags==='function')renderFlags();
+}
 
 // Pull Prudence findings out of the rendered #page-houseai DOM. Returns the
 // review+context items only — passes are excluded so the inbox stays actionable.
