@@ -42,10 +42,10 @@
 
   <div style="height:74vh; flex:none; display:flex; min-height:0;">
 
-      <div ref="{{ mapRef }}" onMouseMove="{{ onMove }}" onClick="{{ onMapClick }}" style="flex:1; position:relative; overflow:hidden; min-width:0; background: {{ c.appBg }};">
+      <div ref="{{ mapRef }}" onMouseMove="{{ onMove }}" onMouseDown="{{ onMapClick }}" style="flex:1; position:relative; overflow:hidden; min-width:0; background: {{ c.appBg }};">
         <svg viewBox="{{ viewBox }}" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block;">
           <sc-for list="{{ statePaths }}" as="s" hint-placeholder-count="50">
-            <path d="{{ s.d }}" id="{{ s.pathId }}" fill="{{ s.fill }}" stroke="{{ c.stroke }}" strokeWidth="0.7" vectorEffect="non-scaling-stroke" strokeLinejoin="round" onClick="{{ s.onClick }}" onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" style="cursor: {{ s.cursor }}; transition:fill .18s ease;"></path>
+            <path d="{{ s.d }}" id="{{ s.pathId }}" fill="{{ s.fill }}" stroke="{{ c.stroke }}" strokeWidth="0.7" vectorEffect="non-scaling-stroke" strokeLinejoin="round" onMouseDown="{{ s.onClick }}" onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" style="cursor: {{ s.cursor }}; transition:fill .18s ease;"></path>
           </sc-for>
         </svg>
 
