@@ -515,10 +515,17 @@
             </div>
             <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,200px)); justify-content:space-between; gap:12px;">
               <sc-for list="{{ comStanding }}" as="cs" hint-placeholder-count="16">
-                <div style="aspect-ratio:1/1; display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:12px; padding:13px 13px 12px; min-width:0; overflow:hidden;">
+                <div style="min-height:228px; display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:12px; padding:13px 13px 12px; min-width:0; overflow:hidden;">
                   <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size:16px; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty;">{{ cs.name }}</div>
                   <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
                     <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
+                  </div>
+                  <div style="margin-top:7px;">
+                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
+                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                    </div>
+                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
                   </div>
                   <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
                     <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
@@ -560,6 +567,13 @@
                   <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
                     <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
                   </div>
+                  <div style="margin-top:7px;">
+                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
+                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                    </div>
+                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
+                  </div>
                   <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
                     <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
                     <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:22px; line-height:1; color: {{ c.headerFg }}; margin-top:2px;">{{ cs.referred }}</div>
@@ -599,6 +613,13 @@
                   <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size:16px; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty;">{{ cs.name }}</div>
                   <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
                     <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
+                  </div>
+                  <div style="margin-top:7px;">
+                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
+                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                    </div>
+                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
                   </div>
                   <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
                     <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
@@ -1298,6 +1319,11 @@ class Component extends DCLogic {
     const toSquare = x => ({
       name: x.name,
       chair: x.chair,
+      members: x.members,
+      partyR: x.partyR,
+      partyD: x.partyD,
+      repW: x.repW+'%',
+      demW: x.demW+'%',
       referred: x.referred.toLocaleString(),
       meetings: x.meetings,
       passed: x.passed,
