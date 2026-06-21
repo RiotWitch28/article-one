@@ -513,41 +513,35 @@
                 <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background: {{ c.rep }};"></span>Republican</span>
               </div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,200px)); justify-content:space-between; gap:12px;">
-              <sc-for list="{{ comStanding }}" as="cs" hint-placeholder-count="16">
-                <div style="min-height:228px; display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:12px; padding:13px 13px 12px; min-width:0; overflow:hidden;">
-                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size:16px; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty;">{{ cs.name }}</div>
-                  <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
-                    <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
-                  </div>
-                  <div style="margin-top:7px;">
-                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
-                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
-                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+              <sc-for list="{{ comStanding }}" as="cs" hint-placeholder-count="8">
+                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
+                  <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
+                    <div style="margin-top:10px;">
+                      <div style="display:flex; height:5px; border-radius:3px; overflow:hidden; margin-bottom:4px;">
+                        <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                        <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                      </div>
+                      <div style="font-size:9px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
                     </div>
-                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
-                  </div>
-                  <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:22px; line-height:1; color: {{ c.headerFg }}; margin-top:2px;">{{ cs.referred }}</div>
-                  </div>
-                  <div style="margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; padding-top:10px;">
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Failed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.fail }}; line-height:1.2;">{{ cs.failed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Meetings</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.meetings }}</div>
-                    </div>
+                  </sc-if>
+                  <div style="margin-top:auto; padding-top:10px;">
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
+                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:12px; display:flex; gap:20px;">
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
+                        </div>
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
+                        </div>
+                      </div>
+                    </sc-if>
                   </div>
                 </div>
               </sc-for>
@@ -560,41 +554,35 @@
               <div style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Select &amp; permanent select committees</div>
               <div style="font-size:12.5px; color: {{ c.muted }}; margin-top:4px;">Formed for specific investigations or ongoing intelligence oversight</div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,200px)); justify-content:space-between; gap:12px;">
-              <sc-for list="{{ comSelect }}" as="cs" hint-placeholder-count="3">
-                <div style="min-height:200px; display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:12px; padding:13px 13px 12px; min-width:0;">
-                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size:16px; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty;">{{ cs.name }}</div>
-                  <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
-                    <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
-                  </div>
-                  <div style="margin-top:7px;">
-                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
-                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
-                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+              <sc-for list="{{ comSelect }}" as="cs" hint-placeholder-count="8">
+                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
+                  <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
+                    <div style="margin-top:10px;">
+                      <div style="display:flex; height:5px; border-radius:3px; overflow:hidden; margin-bottom:4px;">
+                        <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                        <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                      </div>
+                      <div style="font-size:9px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
                     </div>
-                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
-                  </div>
-                  <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:22px; line-height:1; color: {{ c.headerFg }}; margin-top:2px;">{{ cs.referred }}</div>
-                  </div>
-                  <div style="margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; padding-top:10px;">
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Failed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.fail }}; line-height:1.2;">{{ cs.failed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Meetings</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.meetings }}</div>
-                    </div>
+                  </sc-if>
+                  <div style="margin-top:auto; padding-top:10px;">
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
+                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:12px; display:flex; gap:20px;">
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
+                        </div>
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
+                        </div>
+                      </div>
+                    </sc-if>
                   </div>
                 </div>
               </sc-for>
@@ -607,41 +595,35 @@
               <div style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Joint committees</div>
               <div style="font-size:12.5px; color: {{ c.muted }}; margin-top:4px;">Bicameral — membership drawn from both House and Senate</div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,200px)); justify-content:space-between; gap:12px;">
-              <sc-for list="{{ comJoint }}" as="cs" hint-placeholder-count="4">
-                <div style="min-height:200px; display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:12px; padding:13px 13px 12px; min-width:0;">
-                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size:16px; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty;">{{ cs.name }}</div>
-                  <div style="display:flex; align-items:center; gap:6px; margin-top:3px; min-width:0;">
-                    <span style="font-size:9.5px; color: {{ c.muted }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</span>
-                  </div>
-                  <div style="margin-top:7px;">
-                    <div style="display:flex; height:4px; border-radius:2px; overflow:hidden; margin-bottom:3px;">
-                      <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
-                      <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+              <sc-for list="{{ comJoint }}" as="cs" hint-placeholder-count="8">
+                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
+                  <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
+                    <div style="margin-top:10px;">
+                      <div style="display:flex; height:5px; border-radius:3px; overflow:hidden; margin-bottom:4px;">
+                        <div style="width: {{ cs.demW }}; background: {{ c.dem }};"></div>
+                        <div style="width: {{ cs.repW }}; background: {{ c.rep }};"></div>
+                      </div>
+                      <div style="font-size:9px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
                     </div>
-                    <div style="font-size:8.5px; letter-spacing:.03em; color: {{ c.muted }}; font-weight:700;">{{ cs.members }} MEMBERS · {{ cs.partyR }}R · {{ cs.partyD }}D</div>
-                  </div>
-                  <div style="margin-top:9px; padding-top:8px; border-top:1px solid {{ c.line }};">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills referred</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:22px; line-height:1; color: {{ c.headerFg }}; margin-top:2px;">{{ cs.referred }}</div>
-                  </div>
-                  <div style="margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; padding-top:10px;">
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Failed House</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ cs.fail }}; line-height:1.2;">{{ cs.failed }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                    </div>
-                    <div>
-                      <div style="font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Meetings</div>
-                      <div style="font-size:14px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.meetings }}</div>
-                    </div>
+                  </sc-if>
+                  <div style="margin-top:auto; padding-top:10px;">
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
+                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:12px; display:flex; gap:20px;">
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
+                        </div>
+                        <div>
+                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
+                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
+                        </div>
+                      </div>
+                    </sc-if>
                   </div>
                 </div>
               </sc-for>
@@ -1324,6 +1306,8 @@ class Component extends DCLogic {
       partyD: x.partyD,
       repW: x.repW+'%',
       demW: x.demW+'%',
+      _rev: x.referred,                       // raw "bills to review" (for sizing) — placeholder until Bucket 2
+      toReview: x.referred.toLocaleString(),  // headline: bills the committee must review for the House floor
       referred: x.referred.toLocaleString(),
       meetings: x.meetings,
       passed: x.passed,
@@ -1334,9 +1318,20 @@ class Component extends DCLogic {
       pass: greenPass,
       fail: c.rep
     });
-    const comStanding = COM.filter(x => !/^Joint /i.test(x.name) && !/^House (Permanent )?Select/i.test(x.name)).map(toSquare);
-    const comSelect   = COM.filter(x => /^House (Permanent )?Select/i.test(x.name)).map(toSquare);
-    const comJoint    = COM.filter(x => /^Joint /i.test(x.name)).map(toSquare);
+    // Bento sizing: within each compartment, rank by bills-to-review and assign
+    // tile sizes so the busiest committees become the largest tiles.
+    const tierize = (list, bigN, wideN) => {
+      const a = list.slice().sort((p,q)=> q._rev - p._rev);
+      a.forEach((t,i)=>{
+        if(i < bigN){ t.big=true; t.notBig=false; t.span='grid-column:span 2;grid-row:span 2;'; t.numSize='40px'; t.nameSize='19px'; }
+        else if(i < bigN+wideN){ t.big=false; t.notBig=true; t.span='grid-column:span 2;grid-row:span 1;'; t.numSize='30px'; t.nameSize='15px'; }
+        else { t.big=false; t.notBig=true; t.span='grid-column:span 1;grid-row:span 1;'; t.numSize='26px'; t.nameSize='14px'; }
+      });
+      return a;
+    };
+    const comStanding = tierize(COM.filter(x => !/^Joint /i.test(x.name) && !/^House (Permanent )?Select/i.test(x.name)).map(toSquare), 2, 4);
+    const comSelect   = tierize(COM.filter(x => /^House (Permanent )?Select/i.test(x.name)).map(toSquare), 1, 1);
+    const comJoint    = tierize(COM.filter(x => /^Joint /i.test(x.name)).map(toSquare), 1, 1);
     const comSquares = COM.map(toSquare);
 
     const bldg = {};
