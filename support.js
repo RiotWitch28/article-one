@@ -134,9 +134,17 @@
       // style-hover
       if (lower === 'style-hover') {
         const hStyle = interpolateStr(value, vals);
-        const orig = node.getAttribute('style') || '';
-        node.addEventListener('mouseenter', () => node.setAttribute('style', orig + ';' + hStyle));
-        node.addEventListener('mouseleave', () => node.setAttribute('style', orig));
+        // Capture the base style lazily on enter (by then the `style`
+        // attribute's {{ }} placeholders are interpolated); restore it on
+        // leave. Capturing up front would memoize the raw template string.
+        let base = null;
+        node.addEventListener('mouseenter', () => {
+          base = node.getAttribute('style') || '';
+          node.setAttribute('style', base + ';' + hStyle);
+        });
+        node.addEventListener('mouseleave', () => {
+          if (base !== null) node.setAttribute('style', base);
+        });
         rm.push(name);
         continue;
       }
