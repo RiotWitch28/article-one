@@ -30,6 +30,7 @@
 <script src="finance.js"></script>
 <script src="committees.js"></script>
 <script src="overview.js"></script>
+<script src="seat_changes.js"></script>
 </helmet>
 <div style="min-height:100vh; display:flex; flex-direction:column; background: {{ c.appBg }}; color: {{ c.fg }};">
 
@@ -363,6 +364,9 @@
             <span style="display:flex; align-items:center; gap:7px;"><span style="width:9px; height:9px; border-radius:50%; background: {{ c.dem }};"></span><strong>{{ dem }}</strong>&nbsp;Democrats</span>
             <span style="display:flex; align-items:center; gap:7px;"><strong>{{ rep }}</strong>&nbsp;Republicans<span style="width:9px; height:9px; border-radius:50%; background: {{ c.rep }};"></span></span>
           </div>
+          <sc-if value="{{ hasSeatChanges }}" hint-placeholder-val="{{ true }}">
+            <div title="{{ seatChangeTip }}" style="margin-top:14px; padding-top:13px; border-top:1px solid {{ c.line }}; font-size:11px; line-height:1.5; color: {{ c.muted }};">† {{ seatChangeNote }}</div>
+          </sc-if>
         </div>
 
         <!-- Three charts -->
@@ -1300,6 +1304,14 @@ class Component extends DCLogic {
     const rep = M.filter(m=>m.party==='Republican').length;
     const demPct = Math.round(dem/total*100);
 
+    // Mid-term seat changes (members who left and were replaced via special election)
+    const SC = (typeof window!=='undefined' && window.SEAT_CHANGES) ? window.SEAT_CHANGES : [];
+    const seatChangeCount = SC.length;
+    const seatChangeNote = seatChangeCount
+      ? seatChangeCount + ' seat' + (seatChangeCount===1?'':'s') + ' changed members during the 119th Congress, filled by special elections — counts reflect current officeholders.'
+      : '';
+    const seatChangeTip = SC.map(x => x.seat + ': ' + x.left + ' → ' + x.replacedBy).join('\n');
+
     // ---- Insights for the section below the map ----
     const majorityParty = rep >= dem ? 'Republican' : 'Democratic';
     const majDot = rep >= dem ? c.rep : c.dem;
@@ -1738,6 +1750,7 @@ class Component extends DCLogic {
       listMembers, listCount: filtered.length,
       total, dem, rep, demPctW: demPct+'%',
       majorityParty, majorityLabel: majorityParty+' majority', majDot, majSeats, majorityMargin, majMarkerW, seatsForMajority,
+      seatChangeCount, seatChangeNote, seatChangeTip, hasSeatChanges: seatChangeCount>0,
       committees, tenureBuckets, avgTenure, delegations, highlights, keyStats,
       comComposition, comSquares, comStanding, comSelect, comJoint, buildings, tenureByParty,
       comModalOpen, comModal, closeCom: ()=>this.closeCom(),
