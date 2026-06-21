@@ -5,3 +5,7 @@
 members/*/prudence.js
 members/*/prudence.json
 prudence-*.html
+
+# Secrets — never commit API keys
+.legiscan_key
+*.env
