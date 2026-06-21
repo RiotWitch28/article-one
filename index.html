@@ -29,6 +29,7 @@
 <script src="staff.js"></script>
 <script src="finance.js"></script>
 <script src="committees.js"></script>
+<script src="overview.js"></script>
 </helmet>
 <div style="min-height:100vh; display:flex; flex-direction:column; background: {{ c.appBg }}; color: {{ c.fg }};">
 
@@ -297,22 +298,22 @@
           <div style="font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:10px;">119th Congress · Legislative Activity</div>
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
             <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">6,842</div>
+              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.billsIntroduced }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Bills Introduced</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Introduced in the House</div>
             </div>
             <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">438</div>
+              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.sentToSenate }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Sent to Senate</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Passed House, awaiting Senate</div>
             </div>
             <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">213</div>
+              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.receivedFromSenate }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Received from Senate</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Senate-passed bills in House</div>
             </div>
             <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.accent }};">97</div>
+              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.accent }};">{{ ov.lawsCreated }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Laws Created</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Signed into law</div>
             </div>
@@ -1360,6 +1361,15 @@ class Component extends DCLogic {
       return { name:k, D:o.D, R:o.R, total:t, demW:(o.D/t*100)+'%', repW:(o.R/t*100)+'%' };
     }).sort((a,b)=>b.total-a.total);
 
+    // ---- House Overview legislative-activity figures (real, from LegiScan) ----
+    const OV = (typeof window!=='undefined' && window.OVERVIEW) ? window.OVERVIEW : {};
+    const ov = {
+      billsIntroduced: (OV.billsIntroduced != null ? OV.billsIntroduced : 9374).toLocaleString(),
+      sentToSenate: (OV.sentToSenate != null ? OV.sentToSenate : 556).toLocaleString(),
+      receivedFromSenate: (OV.receivedFromSenate != null ? OV.receivedFromSenate : 142).toLocaleString(),
+      lawsCreated: (OV.lawsCreated != null ? OV.lawsCreated : 63).toLocaleString()
+    };
+
     // ---- Committee squares (legislative activity, modeled) ----
     const COM = (typeof window!=='undefined' && window.COMMITTEES) ? window.COMMITTEES : [];
     const greenPass = (this.props.theme==='midnight') ? '#5bc47e' : '#2f7d4f';
@@ -1707,7 +1717,7 @@ class Component extends DCLogic {
     };
 
     return {
-      c, u,
+      c, u, ov,
       subtitle: this.props.subtitle != null ? this.props.subtitle : 'U.S. House of Representatives · 119th Congress (sample data)',
       viewBox: st.vb.x+' '+st.vb.y+' '+st.vb.w+' '+st.vb.h,
       statePaths, isMap: st.view==='map', isList: st.view==='list' && !sm,

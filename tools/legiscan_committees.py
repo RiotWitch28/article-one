@@ -39,6 +39,7 @@ from collections import defaultdict
 API = "https://api.legiscan.com/"
 HERE = os.path.dirname(os.path.abspath(__file__))
 COMMITTEES_JS = os.path.normpath(os.path.join(HERE, "..", "committees.js"))
+OVERVIEW_JS = os.path.normpath(os.path.join(HERE, "..", "overview.js"))
 
 # LegiScan bill status ids
 STATUS_INTRODUCED = 1   # still in committee / not yet advanced
@@ -163,6 +164,40 @@ def write_committees_js(committees):
     open(COMMITTEES_JS, "w", encoding="utf-8").write("window.COMMITTEES = " + body + ";\n")
 
 
+def _orig(b):
+    return b.get("body") or b.get("current_body") or ""
+
+
+def _cur(b):
+    return b.get("current_body") or b.get("body") or ""
+
+
+def compute_overview(bills):
+    """House Overview legislative-activity figures, by agreed definitions:
+
+      billsIntroduced   H.R. bills introduced in the House (bill_type B, House-origin)
+      sentToSenate      House-origin bills passed the House, now in the Senate
+      receivedFromSenate Senate-origin bills currently in the House
+      lawsCreated       House-origin bills enacted into law (status 4)
+
+    'Days in Session' is intentionally absent — it's a House-calendar metric,
+    not derivable from bill data; it stays hardcoded in the template.
+    """
+    house = [b for b in bills if _orig(b) == "H"]
+    senate = [b for b in bills if _orig(b) == "S"]
+    return {
+        "billsIntroduced": sum(1 for b in house if (b.get("bill_type") == "B")),
+        "sentToSenate": sum(1 for b in house if _cur(b) == "S"),
+        "receivedFromSenate": sum(1 for b in senate if _cur(b) == "H"),
+        "lawsCreated": sum(1 for b in house if int(b.get("status") or 0) == STATUS_PASSED),
+    }
+
+
+def write_overview_js(ov):
+    body = json.dumps(ov, separators=(", ", ": "), ensure_ascii=False)
+    open(OVERVIEW_JS, "w", encoding="utf-8").write("window.OVERVIEW = " + body + ";\n")
+
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else ""
     session_id, session_name = find_119th_session()
@@ -229,8 +264,11 @@ def main():
         for k in sorted(unmatched_legiscan)[:30]:
             print("   -", k, dict(tally[k]))
 
+    overview = compute_overview(bills)
+    print("\nHouse Overview figures:", json.dumps(overview))
+
     if mode == "--dry-run":
-        print("\n--dry-run: not writing committees.js")
+        print("\n--dry-run: not writing committees.js / overview.js")
         for c in committees:
             print(f'  {c["name"][:40]:40} ref={c["referred"]:>4} pass={c["passed"]:>4} '
                   f'fail={c["failed"]:>3} inCom={c["inCommittee"]:>4} law={c["law"]:>3}')
@@ -238,6 +276,8 @@ def main():
 
     write_committees_js(committees)
     print(f"\nWrote {COMMITTEES_JS}")
+    write_overview_js(overview)
+    print(f"Wrote {OVERVIEW_JS}")
 
 
 if __name__ == "__main__":
