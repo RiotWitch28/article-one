@@ -503,7 +503,7 @@
                     </div>
                     <button onClick="{{ closeCom }}" style="margin-left:auto; width:30px; height:30px; flex:none; border:none; border-radius:8px; background: {{ c.inputBg }}; color: {{ c.muted }}; cursor:pointer; font-size:16px;">✕</button>
                   </div>
-                  <div style="padding:22px 24px;">
+                  <div style="padding:22px 24px; max-height:70vh; overflow:auto;">
                     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
                       <div style="background: {{ c.inputBg }}; border:1px solid {{ c.line }}; border-radius:12px; padding:14px;">
                         <div style="font-size:9px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills in Committee</div>
@@ -518,7 +518,41 @@
                         <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; color: {{ c.headerFg }}; margin-top:4px;">{{ comModal.law }}</div>
                       </div>
                     </div>
-                    <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }}; font-size:12.5px; line-height:1.5; color: {{ c.muted }};">Additional committee detail will go here — formatting to be defined.</div>
+
+                    <div style="margin-top:14px; display:flex; gap:22px; flex-wrap:wrap; font-size:12px; color: {{ c.muted }};">
+                      <span>Bills referred <span style="color: {{ c.fg }}; font-weight:700;">{{ comModal.referred }}</span></span>
+                      <span>Failed in House <span style="color: {{ c.fg }}; font-weight:700;">{{ comModal.failed }}</span></span>
+                      <span>Success rate <span style="color: {{ c.fg }}; font-weight:700;">{{ comModal.successRate }}</span></span>
+                    </div>
+
+                    <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }};">
+                      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+                        <div style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Party composition</div>
+                        <div style="font-size:11px; color: {{ c.muted }};">{{ comModal.majorityLabel }} · +{{ comModal.margin }}</div>
+                      </div>
+                      <div style="display:flex; height:8px; border-radius:4px; overflow:hidden;">
+                        <div style="width: {{ comModal.demW }}; background: {{ c.dem }};"></div>
+                        <div style="width: {{ comModal.repW }}; background: {{ c.rep }};"></div>
+                      </div>
+                      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:11px; color: {{ c.muted }};">
+                        <span>{{ comModal.partyD }} Democrats</span>
+                        <span>{{ comModal.partyR }} Republicans</span>
+                      </div>
+                    </div>
+
+                    <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }};">
+                      <div style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:10px;">Committee roster · {{ comModal.rosterCount }}</div>
+                      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:4px 14px;">
+                        <sc-for list="{{ comModal.roster }}" as="mem" hint-placeholder-count="8">
+                          <div onClick="{{ mem.onSelect }}" style="display:flex; align-items:center; gap:9px; cursor:pointer; min-width:0; padding:5px 7px; border-radius:8px;" style-hover="background: {{ c.inputBg }};">
+                            <span style="width:8px; height:8px; flex:none; border-radius:50%; background: {{ mem.dot }};"></span>
+                            <span style="font-size:13px; color: {{ c.fg }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ mem.name }}</span>
+                            <sc-if value="{{ mem.isChair }}" hint-placeholder-val="{{ false }}"><span style="font-size:8px; letter-spacing:.05em; text-transform:uppercase; font-weight:700; color: {{ c.muted }}; border:1px solid {{ c.line }}; padding:1px 5px; border-radius:5px; flex:none;">Chair</span></sc-if>
+                            <span style="font-size:11px; color: {{ c.muted }}; margin-left:auto; flex:none;">{{ mem.partyShort }}</span>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -529,6 +563,7 @@
                 <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">The House</div>
                 <h2 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; letter-spacing:.2px; color: {{ c.headerFg }};">Committees</h2>
                 <p style="margin:6px 0 0; font-size:14px; line-height:1.55; color: {{ c.muted }}; max-width:560px;">How the chamber's standing committees split by party — bills referred, passed, and the legislative workload each one carries this Congress.</p>
+                <p style="margin:8px 0 0; font-size:11px; color: {{ c.muted }};">Legislative activity sourced from <a href="https://legiscan.com" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">LegiScan</a> · 119th Congress · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">CC BY 4.0</a></p>
               </div>
 
         <!-- A closer look -->
@@ -1169,6 +1204,7 @@ class Component extends DCLogic {
   selectState(abbr){ this.setState({selState:abbr, selMember:null, hover:null}); setTimeout(()=>this.zoomToState(abbr), 40); }
   openCom(name){ this.setState({selCom:name}); }
   closeCom(){ this.setState({selCom:null}); }
+  openMemberFromCom(id){ this.setState({selCom:null}); this.selectMember(id); if(typeof window!=='undefined') window.scrollTo({top:0, behavior:'smooth'}); }
   selectMember(id){ const m = this.members().find(x=>x.id===id); if(!m) return; this.setState({view:'map', selState:m.st, selMember:id, q:'', hover:null}); setTimeout(()=>this.zoomToState(m.st), 60); }
   backToState(){ this.setState({selMember:null}); }
   clearSel(){ this.setState({selState:null, selMember:null}); this.tween({x:0,y:0,w:960,h:600}); }
@@ -1369,6 +1405,17 @@ class Component extends DCLogic {
     // ---- Committee detail modal ----
     const selComData = st.selCom ? COM.find(x => x.name === st.selCom) : null;
     const comModalOpen = !!selComData;
+    const comRoster = selComData ? M
+      .filter(m => (m.committees||[]).includes(selComData.name))
+      .map(m => {
+        const v = this.vm(m, c);
+        v.onSelect = () => this.openMemberFromCom(m.id);
+        v.isChair = !!selComData.chair && (m.name === selComData.chair ||
+          (m.last && selComData.chair.endsWith(m.last)));
+        return v;
+      })
+      .sort((a,b) => (b.isChair?1:0)-(a.isChair?1:0) || a.name.localeCompare(b.name))
+      : [];
     const comModal = selComData ? {
       name: selComData.name,
       chair: selComData.chair,
@@ -1379,7 +1426,14 @@ class Component extends DCLogic {
       demW: selComData.demW+'%',
       inCommittee: selComData.inCommittee.toLocaleString(),
       sentToFloor: selComData.passed.toLocaleString(),
-      law: selComData.law.toLocaleString()
+      law: selComData.law.toLocaleString(),
+      referred: selComData.referred.toLocaleString(),
+      failed: selComData.failed.toLocaleString(),
+      successRate: selComData.successRate+'%',
+      majorityLabel: (selComData.partyR>=selComData.partyD?'Republican':'Democratic')+' majority',
+      margin: Math.abs(selComData.partyR-selComData.partyD),
+      roster: comRoster,
+      rosterCount: comRoster.length
     } : {};
 
     const bldg = {};
