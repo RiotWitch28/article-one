@@ -9,3 +9,6 @@ prudence-*.html
 # Secrets — never commit API keys
 .legiscan_key
 *.env
+
+# Python
+__pycache__/
