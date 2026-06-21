@@ -33,5 +33,6 @@ echo ""
 # Open the browser after a short delay so the server is up
 ( sleep 1 && open "$URL" ) &
 
-# Run the server in the foreground so closing the Terminal window stops it
-python3 -m http.server $PORT
+# Run the server in the foreground so closing the Terminal window stops it.
+# Uses the no-cache dev server so edits always show up on reload.
+python3 dev-server.py $PORT .
