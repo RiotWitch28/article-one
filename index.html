@@ -491,6 +491,39 @@
           </sc-if>
 
           <sc-if value="{{ isMembers }}" hint-placeholder-val="{{ false }}">
+
+            <sc-if value="{{ comModalOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:24px;">
+                <div onClick="{{ closeCom }}" style="position:absolute; inset:0; background:rgba(10,15,22,.45); animation:fadeIn .15s ease;"></div>
+                <div style="position:relative; z-index:1; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:18px; max-width:580px; width:100%; box-shadow:0 30px 80px rgba(0,0,0,.35); overflow:hidden; animation:popIn .16s ease;">
+                  <div style="padding:22px 24px; border-bottom:1px solid {{ c.line }}; display:flex; align-items:flex-start; gap:14px;">
+                    <div style="min-width:0;">
+                      <h2 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:22px; line-height:1.15; color: {{ c.headerFg }};">{{ comModal.name }}</h2>
+                      <div style="font-size:13px; color: {{ c.muted }}; margin-top:4px;">Chair · {{ comModal.chair }} · {{ comModal.members }} members ({{ comModal.partyR }}R / {{ comModal.partyD }}D)</div>
+                    </div>
+                    <button onClick="{{ closeCom }}" style="margin-left:auto; width:30px; height:30px; flex:none; border:none; border-radius:8px; background: {{ c.inputBg }}; color: {{ c.muted }}; cursor:pointer; font-size:16px;">✕</button>
+                  </div>
+                  <div style="padding:22px 24px;">
+                    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+                      <div style="background: {{ c.inputBg }}; border:1px solid {{ c.line }}; border-radius:12px; padding:14px;">
+                        <div style="font-size:9px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills in Committee</div>
+                        <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; color: {{ c.headerFg }}; margin-top:4px;">{{ comModal.inCommittee }}</div>
+                      </div>
+                      <div style="background: {{ c.inputBg }}; border:1px solid {{ c.line }}; border-radius:12px; padding:14px;">
+                        <div style="font-size:9px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Sent to Floor</div>
+                        <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; color: {{ c.headerFg }}; margin-top:4px;">{{ comModal.sentToFloor }}</div>
+                      </div>
+                      <div style="background: {{ c.inputBg }}; border:1px solid {{ c.line }}; border-radius:12px; padding:14px;">
+                        <div style="font-size:9px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Law</div>
+                        <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; color: {{ c.headerFg }}; margin-top:4px;">{{ comModal.law }}</div>
+                      </div>
+                    </div>
+                    <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }}; font-size:12.5px; line-height:1.5; color: {{ c.muted }};">Additional committee detail will go here — formatting to be defined.</div>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+
             <div style="padding:32px 30px 56px;">
               <div style="margin-bottom:22px;">
                 <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">The House</div>
@@ -513,9 +546,9 @@
                 <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background: {{ c.rep }};"></span>Republican</span>
               </div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:152px; gap:12px; grid-auto-flow:dense;">
               <sc-for list="{{ comStanding }}" as="cs" hint-placeholder-count="8">
-                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                <div onClick="{{ cs.onClick }}" style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;" style-hover="box-shadow:0 12px 26px rgba(0,0,0,.12); transform:translateY(-2px);">
                   <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
                   <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
                     <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
@@ -528,20 +561,18 @@
                     </div>
                   </sc-if>
                   <div style="margin-top:auto; padding-top:10px;">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
-                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:12px; display:flex; gap:20px;">
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                        </div>
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                        </div>
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills in Committee</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.inCommitteeMain }}</div>
+                    <div style="margin-top:10px; display:flex; gap:18px; border-top:1px solid {{ c.line }}; padding-top:8px;">
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Sent to Floor</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.sentToFloor }}</div>
                       </div>
-                    </sc-if>
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Law</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.law }}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </sc-for>
@@ -554,9 +585,9 @@
               <div style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Select &amp; permanent select committees</div>
               <div style="font-size:12.5px; color: {{ c.muted }}; margin-top:4px;">Formed for specific investigations or ongoing intelligence oversight</div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:152px; gap:12px; grid-auto-flow:dense;">
               <sc-for list="{{ comSelect }}" as="cs" hint-placeholder-count="8">
-                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                <div onClick="{{ cs.onClick }}" style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;" style-hover="box-shadow:0 12px 26px rgba(0,0,0,.12); transform:translateY(-2px);">
                   <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
                   <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
                     <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
@@ -569,20 +600,18 @@
                     </div>
                   </sc-if>
                   <div style="margin-top:auto; padding-top:10px;">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
-                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:12px; display:flex; gap:20px;">
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                        </div>
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                        </div>
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills in Committee</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.inCommitteeMain }}</div>
+                    <div style="margin-top:10px; display:flex; gap:18px; border-top:1px solid {{ c.line }}; padding-top:8px;">
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Sent to Floor</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.sentToFloor }}</div>
                       </div>
-                    </sc-if>
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Law</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.law }}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </sc-for>
@@ -595,9 +624,9 @@
               <div style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Joint committees</div>
               <div style="font-size:12.5px; color: {{ c.muted }}; margin-top:4px;">Bicameral — membership drawn from both House and Senate</div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:116px; gap:12px; grid-auto-flow:dense;">
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:152px; gap:12px; grid-auto-flow:dense;">
               <sc-for list="{{ comJoint }}" as="cs" hint-placeholder-count="8">
-                <div style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden;">
+                <div onClick="{{ cs.onClick }}" style="{{ cs.span }} display:flex; flex-direction:column; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:14px; min-width:0; overflow:hidden; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;" style-hover="box-shadow:0 12px 26px rgba(0,0,0,.12); transform:translateY(-2px);">
                   <div style="font-family:'Lora',Georgia,serif; font-weight:700; font-size: {{ cs.nameSize }}; line-height:1.12; color: {{ c.headerFg }}; text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">{{ cs.name }}</div>
                   <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
                     <div style="font-size:10px; color: {{ c.muted }}; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chair · {{ cs.chair }}</div>
@@ -610,20 +639,18 @@
                     </div>
                   </sc-if>
                   <div style="margin-top:auto; padding-top:10px;">
-                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills to review</div>
-                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.toReview }}</div>
-                    <sc-if value="{{ cs.big }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:12px; display:flex; gap:20px;">
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Passed House</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.passed }}</div>
-                        </div>
-                        <div>
-                          <div style="font-size:8px; letter-spacing:.06em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">In committee</div>
-                          <div style="font-size:16px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.inCommittee }}</div>
-                        </div>
+                    <div style="font-size:8px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills in Committee</div>
+                    <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size: {{ cs.numSize }}; line-height:1; color: {{ c.headerFg }}; margin-top:3px;">{{ cs.inCommitteeMain }}</div>
+                    <div style="margin-top:10px; display:flex; gap:18px; border-top:1px solid {{ c.line }}; padding-top:8px;">
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Sent to Floor</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ c.fg }}; line-height:1.2;">{{ cs.sentToFloor }}</div>
                       </div>
-                    </sc-if>
+                      <div>
+                        <div style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Law</div>
+                        <div style="font-size:15px; font-weight:700; color: {{ cs.pass }}; line-height:1.2;">{{ cs.law }}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </sc-for>
@@ -1095,7 +1122,7 @@ class Component extends DCLogic {
     this.mapRef = React.createRef();
     this._raf = null;
   }
-  state = { view:'map', section:'glance', navOpen:true, selState:null, selMember:null, q:'', party:'all', hover:null, mx:0, my:0, vb:{x:0,y:0,w:960,h:600} };
+  state = { view:'map', section:'glance', navOpen:true, selState:null, selMember:null, q:'', party:'all', hover:null, mx:0, my:0, vb:{x:0,y:0,w:960,h:600}, selCom:null };
 
   themes(){
     return {
@@ -1140,6 +1167,8 @@ class Component extends DCLogic {
     this.tween({x:cx-w/2, y:cy-h/2, w, h});
   }
   selectState(abbr){ this.setState({selState:abbr, selMember:null, hover:null}); setTimeout(()=>this.zoomToState(abbr), 40); }
+  openCom(name){ this.setState({selCom:name}); }
+  closeCom(){ this.setState({selCom:null}); }
   selectMember(id){ const m = this.members().find(x=>x.id===id); if(!m) return; this.setState({view:'map', selState:m.st, selMember:id, q:'', hover:null}); setTimeout(()=>this.zoomToState(m.st), 60); }
   backToState(){ this.setState({selMember:null}); }
   clearSel(){ this.setState({selState:null, selMember:null}); this.tween({x:0,y:0,w:960,h:600}); }
@@ -1306,8 +1335,10 @@ class Component extends DCLogic {
       partyD: x.partyD,
       repW: x.repW+'%',
       demW: x.demW+'%',
-      _rev: x.referred,                       // raw "bills to review" (for sizing) — placeholder until Bucket 2
-      toReview: x.referred.toLocaleString(),  // headline: bills the committee must review for the House floor
+      _size: x.inCommittee,                          // MAIN metric: drives tile size + order
+      inCommitteeMain: x.inCommittee.toLocaleString(), // headline: "Bills in Committee"
+      sentToFloor: x.passed.toLocaleString(),         // "Bills Sent to Floor"
+      law: x.law.toLocaleString(),                    // "Law"
       referred: x.referred.toLocaleString(),
       meetings: x.meetings,
       passed: x.passed,
@@ -1316,12 +1347,13 @@ class Component extends DCLogic {
       rate: x.successRate+'%',
       rateW: x.successRate+'%',
       pass: greenPass,
-      fail: c.rep
+      fail: c.rep,
+      onClick: () => this.openCom(x.name)
     });
     // Bento sizing: within each compartment, rank by bills-to-review and assign
     // tile sizes so the busiest committees become the largest tiles.
     const tierize = (list, bigN, wideN) => {
-      const a = list.slice().sort((p,q)=> q._rev - p._rev);
+      const a = list.slice().sort((p,q)=> q._size - p._size);
       a.forEach((t,i)=>{
         if(i < bigN){ t.big=true; t.notBig=false; t.span='grid-column:span 2;grid-row:span 2;'; t.numSize='40px'; t.nameSize='19px'; }
         else if(i < bigN+wideN){ t.big=false; t.notBig=true; t.span='grid-column:span 2;grid-row:span 1;'; t.numSize='30px'; t.nameSize='15px'; }
@@ -1333,6 +1365,22 @@ class Component extends DCLogic {
     const comSelect   = tierize(COM.filter(x => /^House (Permanent )?Select/i.test(x.name)).map(toSquare), 1, 1);
     const comJoint    = tierize(COM.filter(x => /^Joint /i.test(x.name)).map(toSquare), 1, 1);
     const comSquares = COM.map(toSquare);
+
+    // ---- Committee detail modal ----
+    const selComData = st.selCom ? COM.find(x => x.name === st.selCom) : null;
+    const comModalOpen = !!selComData;
+    const comModal = selComData ? {
+      name: selComData.name,
+      chair: selComData.chair,
+      members: selComData.members,
+      partyR: selComData.partyR,
+      partyD: selComData.partyD,
+      repW: selComData.repW+'%',
+      demW: selComData.demW+'%',
+      inCommittee: selComData.inCommittee.toLocaleString(),
+      sentToFloor: selComData.passed.toLocaleString(),
+      law: selComData.law.toLocaleString()
+    } : {};
 
     const bldg = {};
     M.forEach(m=>{
@@ -1628,6 +1676,7 @@ class Component extends DCLogic {
       majorityParty, majorityLabel: majorityParty+' majority', majDot, majSeats, majorityMargin, majMarkerW, seatsForMajority,
       committees, tenureBuckets, avgTenure, delegations, highlights, keyStats,
       comComposition, comSquares, comStanding, comSelect, comJoint, buildings, tenureByParty,
+      comModalOpen, comModal, closeCom: ()=>this.closeCom(),
       staffStats, staffRoles, payByRole, medPayrollLabel,
       dcPct, distPct, dcPctW: dcPct+'%', avgDistOffices,
       demoBars, turnoverByPay, sizeBySeniority, turnoverByParty, staffByState,
