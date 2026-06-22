@@ -302,6 +302,7 @@
                 <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">The House</div>
                 <h2 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; letter-spacing:.2px; color: {{ c.headerFg }};">House Overview</h2>
                 <p style="margin:6px 0 0; font-size:14px; line-height:1.55; color: {{ c.muted }}; max-width:560px;">A read on the chamber that represents you — its balance of power and how the seats break down today.</p>
+                <p style="margin:9px 0 0; font-size:11px; line-height:1.5; color: {{ c.muted }}; max-width:560px;">Sources · legislative activity from <a href="https://legiscan.com" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">LegiScan</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">CC BY 4.0</a>) · House floor calendar from <a href="https://domewatch.us" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">DomeWatch</a>, Office of the Democratic Whip</p>
               </div>
 
         <!-- 119th Congress legislative activity -->
@@ -328,17 +329,20 @@
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Laws Created</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Signed into law</div>
             </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
+          </div>
+          <!-- Voting-day stats: three tiles together on one centered row -->
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:12px;">
+            <div style="flex:0 1 200px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
               <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.votingDaysHeld }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Voting Days Held</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Floor voting days so far</div>
             </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
+            <div style="flex:0 1 200px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
               <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.votingDaysRemaining }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Voting Days Remaining</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Scheduled through year-end</div>
             </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
+            <div style="flex:0 1 200px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
               <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.votingDaysCanceled }}</div>
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Voting Days Canceled</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Taken off the calendar</div>
