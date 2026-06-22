@@ -23,6 +23,7 @@
   ::-webkit-scrollbar-track{background:transparent}
   @keyframes popIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes dwpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.78);opacity:.55}}
 </style>
 <script src="us-paths.js"></script>
 <script src="members.js"></script>
@@ -31,6 +32,7 @@
 <script src="committees.js"></script>
 <script src="overview.js"></script>
 <script src="seat_changes.js"></script>
+<script src="floor-status.js"></script>
 </helmet>
 <div style="min-height:100vh; display:flex; flex-direction:column; background: {{ c.appBg }}; color: {{ c.fg }};">
 
@@ -39,6 +41,13 @@
       <h1 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:23px; letter-spacing:.2px; color: {{ c.headerFg }};">Article One</h1>
       <span style="font-size:11.5px; color: {{ c.muted }}; letter-spacing:.03em;">{{ subtitle }}</span>
     </div>
+
+    <sc-if value="{{ showFloor }}" hint-placeholder-val="{{ false }}">
+      <div title="{{ floorTitle }}" style="display:flex; align-items:center; gap:8px; padding:6px 13px; border-radius:999px; background: {{ floorPillBg }}; border:1px solid {{ floorBorder }}; flex:none;">
+        <span style="width:9px; height:9px; border-radius:50%; background: {{ floorDot }}; animation: {{ floorAnim }};"></span>
+        <span style="font-size:12px; font-weight:600; letter-spacing:.02em; color: {{ floorFg }}; white-space:nowrap;">{{ floorLabel }}</span>
+      </div>
+    </sc-if>
 
   </header>
 
@@ -1267,6 +1276,28 @@ class Component extends DCLogic {
     const c = this.tokens();
     const M = this.members();
     const st = this.state;
+
+    // ── Live House floor status (from floor-status.js, refreshed server-side) ──
+    const fs = (typeof window!=='undefined' && window.FLOOR_STATUS) ? window.FLOOR_STATUS : null;
+    let showFloor=false, floorLabel='', floorTitle='', floorDot=c.muted,
+        floorFg=c.muted, floorPillBg='transparent', floorBorder=c.line, floorAnim='none';
+    if(fs){
+      showFloor = true;
+      const live = !!fs.inSession;
+      const txt = (fs.text||'').trim();
+      // The API's text is friendly when short; long vote questions fall back to a label.
+      floorLabel = (txt && txt.length<=22) ? txt : (live ? 'In Session' : 'Adjourned');
+      floorTitle = live ? 'The U.S. House is currently in session' : 'The U.S. House is not in session';
+      if(fs.firstVotes && !live) floorTitle += ' — ' + fs.firstVotes;
+      if(live){
+        floorDot = '#1f9d57'; floorFg = '#157a43';
+        floorPillBg = 'rgba(31,157,87,.10)'; floorBorder = 'rgba(31,157,87,.30)';
+        floorAnim = 'dwpulse 2s ease-in-out infinite';
+      } else {
+        floorDot = '#9aa3af'; floorFg = c.muted;
+        floorPillBg = c.inputBg; floorBorder = c.line; floorAnim = 'none';
+      }
+    }
     const counts = {};
     M.forEach(m=>{ counts[m.st] = (counts[m.st]||0)+1; });
 
@@ -1730,6 +1761,7 @@ class Component extends DCLogic {
 
     return {
       c, u, ov,
+      showFloor, floorLabel, floorTitle, floorDot, floorFg, floorPillBg, floorBorder, floorAnim,
       subtitle: this.props.subtitle != null ? this.props.subtitle : 'U.S. House of Representatives · 119th Congress (sample data)',
       viewBox: st.vb.x+' '+st.vb.y+' '+st.vb.w+' '+st.vb.h,
       statePaths, isMap: st.view==='map', isList: st.view==='list' && !sm,

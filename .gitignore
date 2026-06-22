@@ -12,3 +12,5 @@ prudence-*.html
 
 # Python
 __pycache__/
+
+.domewatch_key
