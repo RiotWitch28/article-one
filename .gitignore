@@ -14,3 +14,5 @@ prudence-*.html
 __pycache__/
 
 .domewatch_key
+
+.congress_key

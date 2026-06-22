@@ -555,17 +555,38 @@
                     </div>
 
                     <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }};">
-                      <div style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:10px;">Committee roster · {{ comModal.rosterCount }}</div>
-                      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:4px 14px;">
-                        <sc-for list="{{ comModal.roster }}" as="mem" hint-placeholder-count="8">
-                          <div onClick="{{ mem.onSelect }}" style="display:flex; align-items:center; gap:9px; cursor:pointer; min-width:0; padding:5px 7px; border-radius:8px;" style-hover="background: {{ c.inputBg }};">
-                            <span style="width:8px; height:8px; flex:none; border-radius:50%; background: {{ mem.dot }};"></span>
-                            <span style="font-size:13px; color: {{ c.fg }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ mem.name }}</span>
-                            <sc-if value="{{ mem.isChair }}" hint-placeholder-val="{{ false }}"><span style="font-size:8px; letter-spacing:.05em; text-transform:uppercase; font-weight:700; color: {{ c.muted }}; border:1px solid {{ c.line }}; padding:1px 5px; border-radius:5px; flex:none;">Chair</span></sc-if>
-                            <span style="font-size:11px; color: {{ c.muted }}; margin-left:auto; flex:none;">{{ mem.partyShort }}</span>
+                      <div style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">Committee roster · {{ comModal.rosterCount }}</div>
+                      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px 12px;">
+                        <sc-for list="{{ comModal.roster }}" as="mem" hint-placeholder-count="12">
+                          <div onClick="{{ mem.onSelect }}" style="display:flex; align-items:center; gap:7px; cursor:pointer; min-width:0; padding:3px 6px; border-radius:7px;" style-hover="background: {{ c.inputBg }};">
+                            <span style="width:6px; height:6px; flex:none; border-radius:50%; background: {{ mem.dot }};"></span>
+                            <span style="font-size:11.5px; color: {{ c.fg }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ mem.name }}</span>
+                            <sc-if value="{{ mem.isChair }}" hint-placeholder-val="{{ false }}"><span style="font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; font-weight:700; color: {{ c.muted }}; border:1px solid {{ c.line }}; padding:1px 4px; border-radius:4px; flex:none;">Chair</span></sc-if>
                           </div>
                         </sc-for>
                       </div>
+                    </div>
+
+                    <!-- Bills before the committee (lazy, from LegiScan GAITS RSS feed) -->
+                    <div style="margin-top:18px; padding-top:16px; border-top:1px solid {{ c.line }};">
+                      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:9px;">
+                        <div style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Bills before the committee · {{ comModal.billsCount }}</div>
+                        <sc-if value="{{ comModal.hasFeed }}" hint-placeholder-val="{{ false }}"><a href="{{ comModal.feed }}" target="_blank" rel="noopener" style="font-size:10px; letter-spacing:.05em; text-transform:uppercase; font-weight:700; color: {{ c.accent }}; text-decoration:none;">📡 RSS</a></sc-if>
+                      </div>
+                      <sc-if value="{{ comModal.billsLoading }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px; color: {{ c.muted }};">Loading recent bills…</div></sc-if>
+                      <sc-if value="{{ comModal.billsNone }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px; color: {{ c.muted }};">No bill feed configured for this committee yet.</div></sc-if>
+                      <sc-if value="{{ comModal.billsError }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px; color: {{ c.muted }};">Couldn't load the bill list.</div></sc-if>
+                      <sc-if value="{{ comModal.billsReady }}" hint-placeholder-val="{{ false }}">
+                        <div style="font-size:11px; color: {{ c.muted }}; margin:-2px 0 9px;">Most recently active · newest first</div>
+                        <div style="display:flex; flex-direction:column; gap:1px; max-height:300px; overflow:auto;">
+                          <sc-for list="{{ comModal.bills }}" as="b" hint-placeholder-count="10">
+                            <div style="display:flex; gap:10px; align-items:baseline; padding:5px 7px; border-radius:8px;" style-hover="background: {{ c.inputBg }};">
+                              <a href="{{ b.url }}" target="_blank" rel="noopener" style="flex:none; font-family:'Lora',Georgia,serif; font-weight:600; font-size:12.5px; color: {{ c.accent }}; text-decoration:none; min-width:80px;">{{ b.num }}</a>
+                              <span style="font-size:12.5px; color: {{ c.fg }}; line-height:1.4; min-width:0;">{{ b.title }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
                     </div>
                   </div>
                 </div>
@@ -1138,7 +1159,7 @@ class Component extends DCLogic {
     this.mapRef = React.createRef();
     this._raf = null;
   }
-  state = { view:'map', section:'glance', navOpen:true, selState:null, selMember:null, q:'', party:'all', hover:null, mx:0, my:0, vb:{x:0,y:0,w:960,h:600}, selCom:null };
+  state = { view:'map', section:'glance', navOpen:true, selState:null, selMember:null, q:'', party:'all', hover:null, mx:0, my:0, vb:{x:0,y:0,w:960,h:600}, selCom:null, comBills:{} };
 
   themes(){
     return {
@@ -1183,8 +1204,22 @@ class Component extends DCLogic {
     this.tween({x:cx-w/2, y:cy-h/2, w, h});
   }
   selectState(abbr){ this.setState({selState:abbr, selMember:null, hover:null}); setTimeout(()=>this.zoomToState(abbr), 40); }
-  openCom(name){ this.setState({selCom:name}); }
+  openCom(name){ this.setState({selCom:name}); this.loadComBills(name); }
   closeCom(){ this.setState({selCom:null}); }
+  // Committee name -> bills filename slug. MUST match slugify() in
+  // tools/legiscan_committee_bills.py.
+  comSlug(name){ return name.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  // Lazily fetch a committee's bill list (from a LegiScan GAITS RSS feed,
+  // baked to data/committee-bills/<slug>.json by the build script). Cached in
+  // state by committee name; a missing file (404) means no feed is configured.
+  loadComBills(name){
+    if(this.state.comBills[name]) return;                 // already loading/loaded
+    this.setState({comBills:{...this.state.comBills, [name]:{status:'loading'}}});
+    fetch('data/committee-bills/'+this.comSlug(name)+'.json')
+      .then(r => { if(!r.ok) throw new Error(r.status===404?'none':'http'); return r.json(); })
+      .then(d => this.setState({comBills:{...this.state.comBills, [name]:{status:'ok', bills:d.bills||[], feed:d.feed||'', count:d.count||0}}}))
+      .catch(e => this.setState({comBills:{...this.state.comBills, [name]:{status: e.message==='none'?'none':'error'}}}));
+  }
   openMemberFromCom(id){ this.setState({selCom:null}); this.selectMember(id); if(typeof window!=='undefined') window.scrollTo({top:0, behavior:'smooth'}); }
   selectMember(id){ const m = this.members().find(x=>x.id===id); if(!m) return; this.setState({view:'map', selState:m.st, selMember:id, q:'', hover:null}); setTimeout(()=>this.zoomToState(m.st), 60); }
   backToState(){ this.setState({selMember:null}); }
@@ -1455,6 +1490,19 @@ class Component extends DCLogic {
       roster: comRoster,
       rosterCount: comRoster.length
     } : {};
+    // ---- Committee bill list (lazy, from LegiScan GAITS RSS) ----
+    if(selComData){
+      const be = st.comBills[selComData.name] || {status:'loading'};
+      const bills = (be.bills||[]).map(b => ({ num:b.num, title:b.title, url:b.url }));
+      comModal.bills = bills;
+      comModal.billsCount = bills.length.toLocaleString();
+      comModal.billsLoading = be.status==='loading';
+      comModal.billsReady   = be.status==='ok' && bills.length>0;
+      comModal.billsNone    = be.status==='none' || (be.status==='ok' && bills.length===0);
+      comModal.billsError   = be.status==='error';
+      comModal.feed = be.feed || '';
+      comModal.hasFeed = !!be.feed;
+    }
 
     const bldg = {};
     M.forEach(m=>{

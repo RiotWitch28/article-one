@@ -1,0 +1,607 @@
+{
+"committee": "Energy and Commerce",
+"feed": "https://legiscan.com/gaits/feed/11a37cbd18af6b37e85df8078d1f4956.rss",
+"count": 100,
+"bills": [
+{
+"num": "H.Res. 1371",
+"title": "Expressing support for a \"World Sickle Cell Awareness Day\" in order to increase public awareness across the United States and global community about sickle cell disease and the continued need for empirical research, early detection screenings, novel effective treatments leading to a cure, and preventative care programs with respect to complications from sickle cell anemia and conditions relating to sickle cell disease.",
+"url": "https://legiscan.com/US/bill/HR1371/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9335",
+"title": "To direct the Secretary of Energy to establish a clearinghouse for advanced transmission technology, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9335/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9371",
+"title": "To require disclosure when personalized algorithmic pricing is used, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9371/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.Res. 1373",
+"title": "Expressing support for the designation of June 21, 2026, as National ASK (Asking Saves Kids) Day to promote children's health and secure storage of guns in the home.",
+"url": "https://legiscan.com/US/bill/HR1373/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.Res. 1374",
+"title": "Expressing the sense of the House of Representatives that parents should be provided clear, accurate, and useful information about the content of video programming so they can make informed decisions for their children.",
+"url": "https://legiscan.com/US/bill/HR1374/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9340",
+"title": "To amend the Public Utility Regulatory Policies Act of 1978 to establish a Federal standard relating to the recovery of the full, incremental costs of upgrades that serve large-load customers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9340/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9337",
+"title": "To amend the Federal Power Act to modernize the hydropower licensing process, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9337/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9339",
+"title": "To require the Secretary of Energy to conduct an assessment on the use of artificial intelligence and high-performance computing technologies to enhance the bulk-power system, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9339/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9345",
+"title": "To amend title XIX of the Social Security Act to establish a resources test for eligibility under the Medicaid program for the expansion population.",
+"url": "https://legiscan.com/US/bill/HB9345/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9365",
+"title": "To direct the Secretary of Health and Human Services to establish an office to assist communities in providing mental health services to individuals experiencing fear-based trauma related to immigration law enforcement actions taken by Federal agencies, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9365/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9336",
+"title": "To amend title XIX of the Social Security Act to require States to take into account performance when assigning individuals to managed care entities under the Medicaid program.",
+"url": "https://legiscan.com/US/bill/HB9336/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.J.Res. 197",
+"title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Centers for Medicare & Medicaid Services of the Department of Health and Human Services relating to \"Patient Protection and Affordable Care Act, HHS Notice of Benefit and Payment Parameters for 2027; and Basic Health Program\".",
+"url": "https://legiscan.com/US/bill/HJR197/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9332",
+"title": "To require the Federal Energy Regulatory Commission to establish regional joint boards to study electric load forecasting, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9332/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9317",
+"title": "To prohibit engine idling restrictions for over-the-road buses and school buses if an engine idles for less than 15 minutes, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9317/2025",
+"date": "2026-06-15"
+},
+{
+"num": "H.Res. 1365",
+"title": "Recognizing Avoidant/Restrictive Food Intake Disorder (ARFID) as a serious feeding and eating disorder and acknowledging the urgent need to advance awareness, early identification, research, and equitable access to care.",
+"url": "https://legiscan.com/US/bill/HR1365/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9286",
+"title": "To direct the Assistant Secretary of Commerce for Communications and Information to conduct a study and submit to Congress a report on the technologies used to provide broadband internet access service, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9286/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9285",
+"title": "To direct the Secretary of Health and Human Services to carry out a Heat Illness AI Surveillance and Response Program, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9285/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9293",
+"title": "To amend the Solid Waste Disposal Act to provide that solid waste shall not include certain recovered materials and recovered resources, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9293/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9274",
+"title": "To direct the Director of the Centers for Disease Control and Prevention to establish a gun violence prevention and public safety database.",
+"url": "https://legiscan.com/US/bill/HB9274/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9273",
+"title": "To direct the Secretary of Health and Human Services to require public institutions of higher education that receive grants under the Medical Student Education program to include training for medical students relating to menopause in the curriculums of such institutions, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9273/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9297",
+"title": "To amend title 49, United States Code, to establish certain safety standards and disclose certain information relating to pedestrians and motor vehicles, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9297/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.Res. 1361",
+"title": "Expressing support for the recognition of July 3 through July 10, 2026, as \"National Extreme Heat Awareness Week\", a national event educating the public on the dangers of extreme heat and the risks of extreme heat events to public safety, infrastructure, agriculture, and much more, and supporting the goals of a National Extreme Heat Awareness Week.",
+"url": "https://legiscan.com/US/bill/HR1361/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9301",
+"title": "To establish an independent bipartisan National Advisory Commission on Extreme Heat and Global Security to develop short-term and long-term sustainable plans of action to mitigate and adapt to extreme heat and heat-related extreme weather events.",
+"url": "https://legiscan.com/US/bill/HB9301/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9257",
+"title": "To amend the Employee Retirement Income Security Act of 1974, title XXVII of the Public Health Service Act, and the Internal Revenue Code of 1986 to require group health plans and health insurance issuers offering group or individual health insurance coverage to provide for 3 primary care visits and 3 behavioral health care visits without application of any cost-sharing requirement.",
+"url": "https://legiscan.com/US/bill/HB9257/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9255",
+"title": "To establish requirements with respect to the sale of timeshares to improve acquisition transparency, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9255/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9251",
+"title": "To amend the Public Health Service Act to provide funding for trained school personnel to administer drugs and devices for emergency treatment of known or suspected opioid overdose, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9251/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9231",
+"title": "To amend the Federal Food, Drug, and Cosmetic Act to deem certain substances to be unsafe for use as food contact substances, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9231/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9190",
+"title": "To amend the Federal Food, Drug, and Cosmetic Act to authorize the use of investigational individualized medical treatments by patients diagnosed with a life-threatening disease or condition or severely debilitating illness, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9190/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9197",
+"title": "To require the Secretary of Energy to study new technologies and opportunities for recycling spent nuclear fuel.",
+"url": "https://legiscan.com/US/bill/HB9197/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9192",
+"title": "To amend the Employee Retirement Income Security Act of 1974, title XXVII of the Public Health Service Act, and the Internal Revenue Code of 1986 to require health insurance coverage of drugs indicated for the treatment of autoimmune diseases and certain blood disorders.",
+"url": "https://legiscan.com/US/bill/HB9192/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9186",
+"title": "To amend the Controlled Substances Act to more closely align the Act with modern medical knowledge, terminology, and practices, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9186/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9151",
+"title": "To require the Secretary of Commerce, acting through the Assistant Secretary of Commerce for Communications and Information, to develop a plan for how the United States will advance and advocate for Wi-Fi and other unlicensed technologies, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9151/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9149",
+"title": "To establish the National Diabetes Project, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9149/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9139",
+"title": "To amend title XIX of the Social Security Act to clarify the intent of Congress with regards to Medicaid financing policies.",
+"url": "https://legiscan.com/US/bill/HB9139/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9169",
+"title": "To support polycystic kidney disease research, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9169/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9122",
+"title": "To amend the consumer product safety laws to repeal the exclusion of pistols, revolvers, and other firearms from the definition of consumer product under such laws.",
+"url": "https://legiscan.com/US/bill/HB9122/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.Res. 1337",
+"title": "Recognizing the contributions of academic medicine and observing Academic Medicine Week from June 8 through 12, 2026.",
+"url": "https://legiscan.com/US/bill/HR1337/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9117",
+"title": "To promote the availability of ceratin health care information, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9117/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9126",
+"title": "To amend title XIX of the Social Security Act to require States to report on anti-fraud measures relating to home and community-based services furnished under the Medicaid program.",
+"url": "https://legiscan.com/US/bill/HB9126/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9129",
+"title": "To provide for certain humanoid and quadruped robotics communications equipment or services to be placed on the covered list of the Federal Communications Commission, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9129/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9090",
+"title": "To improve menopause care and mid-life women's health, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9090/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9084",
+"title": "To increase transparency relating to the Department of Energy's authorizations of certain nuclear facilities.",
+"url": "https://legiscan.com/US/bill/HB9084/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9083",
+"title": "To amend the Clean Air Act to repeal the mandatory requirements for State motor vehicle inspection and maintenance programs, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9083/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.Res. 1331",
+"title": "Expressing support for the designation of June 1, 2026, through June 7, 2026, as \"Hidradenitis Suppurativa Awareness Week\".",
+"url": "https://legiscan.com/US/bill/HR1331/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9107",
+"title": "To amend the Patient Protection and Affordable Care Act to provide that qualified health plans are not required to use a provider network.",
+"url": "https://legiscan.com/US/bill/HB9107/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9058",
+"title": "To amend the Public Health Service Act to establish a grant program to promote access to automated external defibrillators and cardiopulmonary resuscitation in eligible federally assisted multifamily housing, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9058/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9061",
+"title": "To amend title XIX of the Social Security Act to require the Secretary of Health and Human Services to issue guidance to States on which tests for the screening and early detection of preeclampsia may be covered under the Medicaid program and the Children's Health Insurance Program.",
+"url": "https://legiscan.com/US/bill/HB9061/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9067",
+"title": "To amend the Communications Act of 1934 to provide for a gender identity content descriptor for video programming, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9067/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.Res. 1325",
+"title": "Expressing support for May 2026 as \"American Stroke Month\" and encouraging all to learn the warning signs of stroke, understand their personal risk factors, and take action to improve stroke prevention, response, and recovery in our communities.",
+"url": "https://legiscan.com/US/bill/HR1325/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9057",
+"title": "To require origin and location disclosure for new products of Foreign origin offered for sale on the internet.",
+"url": "https://legiscan.com/US/bill/HB9057/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9065",
+"title": "To provide research on, and services for, individuals with clinical mental health complications following a pregnancy loss, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9065/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.Res. 1329",
+"title": "Expressing support for the designation of May 2026 as \"Mental Health Awareness Month\".",
+"url": "https://legiscan.com/US/bill/HR1329/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9048",
+"title": "To amend the Federal Food, Drug, and Cosmetic Act to include gluten-containing grain in the definition of a major food allergen.",
+"url": "https://legiscan.com/US/bill/HB9048/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9077",
+"title": "To direct the Director of the National Institutes of Health and the Secretary of Health and Human Services to evaluate hormone variability and hormone testing, respectively, in women with respect to perimenopause.",
+"url": "https://legiscan.com/US/bill/HB9077/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9044",
+"title": "To amend title V of the Public Health Service Act to reauthorize the Minority Fellowship Program.",
+"url": "https://legiscan.com/US/bill/HB9044/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.R. 9040",
+"title": "To establish fair prices for prescription drugs, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9040/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.R. 9019",
+"title": "To direct the Secretary of Energy to report to Congress on the use of electric energy and water by certain data centers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9019/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.Res. 1323",
+"title": "Recognizing the impact the stigmatization of menstruation has on the lives of women, girls, and people who menstruate, and expressing support for the designation of the month of May as \"National Menstrual Health Awareness Month\".",
+"url": "https://legiscan.com/US/bill/HR1323/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.Res. 1318",
+"title": "Expressing support for the designation of the month of May 2026 as \"Progressive Supranuclear Palsy and Corticobasal Degeneration Awareness Month\".",
+"url": "https://legiscan.com/US/bill/HR1318/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8983",
+"title": "To increase compliance with PDMP requirements by veterinarians, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8983/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 9007",
+"title": "To direct the Secretary of Health and Human Services to establish a pilot program under which the Secretary provides financial assistance to certain individuals to purchase infant formula, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9007/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8990",
+"title": "To amend the Clean Air Act to exclude marginal wells from certain standards of performance and other requirements under such Act, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8990/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8970",
+"title": "To direct the Secretary of Health and Human Services to conduct research to advance the understanding of gambling disorder, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8970/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8961",
+"title": "To amend title V of the Public Health Service Act to provide for a public awareness campaign for schools regarding youth suicide prevention resources, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8961/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1311",
+"title": "Expressing support for the designation of May 2026 as \"Necrotizing Fasciitis Awareness Month\".",
+"url": "https://legiscan.com/US/bill/HR1311/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 9000",
+"title": "To amend the Public Health Service Act to provide for a public awareness campaign with respect to screening for type 1 diabetes, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9000/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8964",
+"title": "To improve the safety of pasteurized donor human milk and enhance regulation.",
+"url": "https://legiscan.com/US/bill/HB8964/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1315",
+"title": "Expressing support for the designation of May 2026 as \"Renewable Fuels Month\" to recognize the important role that renewable fuels play in lowering fuel prices for consumers, lessening reliance on foreign adversaries, supporting rural communities, and reducing carbon impacts.",
+"url": "https://legiscan.com/US/bill/HR1315/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8989",
+"title": "To amend the Public Health Service Act to direct the Secretary of Health and Human Services to carry out demonstration programs to develop, implement, and evaluate evidence-based strategies to prevent suicide among children and adolescents, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8989/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1310",
+"title": "Expressing support for continued efforts to safeguard Medicare, Medicaid, and other Federal health care programs from fraud, waste, abuse, and improper payments through strengthened program integrity measures, enhanced oversight, and coordinated enforcement actions, and recognizing the work of the Trump administration and congressional Republicans to investigate and prosecute fraud and protect taxpayer dollars and preserve the long-term sustainability of the Nation's health care safety net.",
+"url": "https://legiscan.com/US/bill/HR1310/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 9002",
+"title": "To amend title XVIII of the Social Security Act to extend the Quality Payment Program-Small Practice, Underserved, and Rural Support program.",
+"url": "https://legiscan.com/US/bill/HB9002/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8939",
+"title": "To direct the Director of the National Institutes of Health to conduct a study and submit to Congress a report on the development of a standardized, noninvasive test for HPV in men, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8939/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8948",
+"title": "To amend the Public Utility Regulatory Policies Act of 1978 to require States to consider measures that limit the amount of retail utility rate increases an electric utility can request to once every 365 days.",
+"url": "https://legiscan.com/US/bill/HB8948/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8916",
+"title": "To direct the Secretary of Health and Human Services and the Secretary of Housing and Urban Development to jointly award grants for the purposes of improving access to, developing, or expanding services that provide an individual with transportation to or from substance use disorder treatment or supportive services.",
+"url": "https://legiscan.com/US/bill/HB8916/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8947",
+"title": "To require the Federal Energy Regulatory Commission to establish and maintain the National Utility Rate Change Tracker, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8947/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8936",
+"title": "To establish the Foundation for Digital Opportunity, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8936/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8926",
+"title": "To direct the Assistant Secretary of Commerce for Communications and Information to establish a grant program to modernize the technology of State and local governments, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8926/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8907",
+"title": "To direct the Administrator of the Centers for Medicare & Medicaid Services to implement the Perinatal Care Alternative Payment Model Demonstration Project to test various payment models with respect to maternity care provided to pregnant and postpartum individuals, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8907/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.Res. 1302",
+"title": "Designating May 2026 as \"National Electrical Safety Month\" in the United States and supporting the goals and ideals of \"National Electrical Safety Month\" to raise awareness of electrical hazards in homes, schools, and workplaces and the action citizens can take to protect against electrically related hazards.",
+"url": "https://legiscan.com/US/bill/HR1302/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8890",
+"title": "To amend the Public Health Services Act, commonly referred to as the \"Clinical Laboratory Improvement Amendments\" or \"CLIA\", with respect to laboratory developed tests, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8890/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8889",
+"title": "To improve dam and hydropower safety, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8889/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8895",
+"title": "To prohibit food retailers and third party delivery service providers from using technology that uses the personal data of a consumer to engage in dynamic pricing, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8895/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8908",
+"title": "To amend subsection (q) of section 505 of the Federal Food, Drug, and Cosmetic Act to clarify the process for denying certain petitions whose primary purpose is to delay the approval of an application submitted under subsection (b)(2) or (j) of such section 505, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8908/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8865",
+"title": "To amend title XI of the Social Security Act to exclude providers convicted of certain fraud-related criminal offenses from participation in Federal health care programs on a permanent basis.",
+"url": "https://legiscan.com/US/bill/HB8865/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.R. 8869",
+"title": "To amend the Public Health Service Act (42 U.S.C. 201 et seq.) to authorize research on the impacts of traumatic birth experiences and post-traumatic stress disorder on mothers, infants, and families, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8869/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.R. 8857",
+"title": "To amend title XI of the Social Security Act to adjust which engineered cyclic peptides are qualifying single source drugs for purposes of the Drug Price Negotiation Program.",
+"url": "https://legiscan.com/US/bill/HB8857/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.Res. 1295",
+"title": "Expressing support for the designation of May 17, 2026, as \"DIPG Awareness Day\" to raise awareness and encourage research into cures for diffuse intrinsic pontine glioma (DIPG) and pediatric cancers in general.",
+"url": "https://legiscan.com/US/bill/HR1295/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.Res. 1297",
+"title": "Expressing support for the designation of May 17, 2026, as \"Necrotizing Enterocolitis Awareness Day\".",
+"url": "https://legiscan.com/US/bill/HR1297/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.R. 8852",
+"title": "To amend the Public Health Service Act to direct the Director of the National Institutes of Health to design and implement a program to study the health effects of nuclear radiation on women, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8852/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.Res. 1290",
+"title": "Recognizing the significant and often overlooked behavioral health needs experienced by individuals and families affected by rare diseases, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HR1290/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.Res. 1287",
+"title": "Recognizing stroke as a national health crisis requiring immediate, coordinated Federal action, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HR1287/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8812",
+"title": "To require the Nuclear Regulatory Commission to allow the use of commercial-grade steel and concrete in non-safety-related structures at nuclear power plants, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8812/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8807",
+"title": "To authorize appropriations for data collection, surveillance, and research on maternal health outcomes during public health emergencies, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8807/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.Res. 1285",
+"title": "Expressing the sense of the House of Representatives that over 25 years of real-world evidence and hundreds of peer-reviewed studies proving that mifepristone is safe and effective should be respected, and law and policy governing access to lifesaving, time-sensitive medication abortion care in the United States should be equitable, transparent, and based on the best available peer-reviewed evidence-based science.",
+"url": "https://legiscan.com/US/bill/HR1285/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.Res. 1288",
+"title": "Supporting the designation of May 14, 2026, as \"National Scam Survivor Day\".",
+"url": "https://legiscan.com/US/bill/HR1288/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8839",
+"title": "To address the health of cancer survivors and unmet needs that survivors face through the entire continuum of care from diagnosis through active treatment and posttreatment, in order to improve survivorship, treatment, transition to recovery and beyond, quality of life and palliative care, and long-term health outcomes, including by developing a minimum standard of care for cancer survivorship, irrespective of the type of cancer, a survivor's background, or forthcoming survivorship needs, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8839/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8811",
+"title": "To address maternal mental health conditions and substance use disorders, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8811/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8840",
+"title": "To address the high costs of health care services, prescription drugs, and health insurance coverage in the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8840/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8829",
+"title": "To amend the Public Health Service Act to improve reproductive health care of individuals with disabilities.",
+"url": "https://legiscan.com/US/bill/HB8829/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8794",
+"title": "To provide for increased research and initiatives related to bleeding disorders in underserved populations, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8794/2025",
+"date": "2026-05-13"
+}
+]
+}
