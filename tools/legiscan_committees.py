@@ -35,6 +35,7 @@ import urllib.parse
 import urllib.request
 import zipfile
 from collections import defaultdict
+from datetime import datetime, timezone
 
 API = "https://api.legiscan.com/"
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -194,7 +195,9 @@ def compute_overview(bills):
 
 
 def write_overview_js(ov):
-    body = json.dumps(ov, separators=(", ", ": "), ensure_ascii=False)
+    out = dict(ov)
+    out["generatedAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    body = json.dumps(out, separators=(", ", ": "), ensure_ascii=False)
     open(OVERVIEW_JS, "w", encoding="utf-8").write("window.OVERVIEW = " + body + ";\n")
 
 
