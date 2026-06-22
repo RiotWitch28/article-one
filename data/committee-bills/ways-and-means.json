@@ -1,0 +1,607 @@
+{
+"committee": "Ways and Means",
+"feed": "https://legiscan.com/gaits/feed/07c970ddc37776912e211eeec4dec7dd.rss",
+"count": 100,
+"bills": [
+{
+"num": "H.R. 9353",
+"title": "To amend the Internal Revenue Code of 1986 to exempt qualified religious institutions from the excise tax on investment income.",
+"url": "https://legiscan.com/US/bill/HB9353/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9378",
+"title": "To amend the Internal Revenue Code of 1986 to establish a tax credit for grocery stores located in food deserts.",
+"url": "https://legiscan.com/US/bill/HB9378/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9358",
+"title": "To improve the lives of the American people, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9358/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9356",
+"title": "To amend the Internal Revenue Code of 1986 to establish a tax credit for expenses paid or incurred by private cemeteries to attach veteran medallions to headstones.",
+"url": "https://legiscan.com/US/bill/HB9356/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9364",
+"title": "To amend title XVIII of the Social Security Act to prohibit Medicare Advantage plans from imposing prior authorization with respect to repairs to complex rehabilitation technology.",
+"url": "https://legiscan.com/US/bill/HB9364/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9315",
+"title": "To amend the Small Business Act, the Internal Revenue Code of 1986, title 40, United States Code, and title IV of the Social Security Act to replace the term \"sheltered workshop\" with \"community rehabilitation program\", and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9315/2025",
+"date": "2026-06-15"
+},
+{
+"num": "H.R. 9296",
+"title": "To improve the retirement security of United States families by strengthening Social Security.",
+"url": "https://legiscan.com/US/bill/HB9296/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9267",
+"title": "To amend the Internal Revenue Code of 1986 to modify the low-income housing tax credit to incentivize affordable and transit-oriented development and development in certain difficult development areas, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9267/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9289",
+"title": "To amend the Internal Revenue Code of 1986 to repeal the tax credit for contributions of individuals to scholarship granting organizations, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9289/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9284",
+"title": "To establish the Foreign Investment Review Authority to determine whether foreign countries that have made investment commitments to the United States have complied with those commitments, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9284/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9258",
+"title": "To amend the Internal Revenue Code of 1986 to impose a mileage-based user fee for mobile mounted concrete boom pumps in lieu of the tax on taxable fuels, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9258/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9281",
+"title": "To provide rental vouchers for the homeless, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9281/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9262",
+"title": "To protect the authority of local governments to make zoning decisions regarding data center development, and to require community benefit agreements as a condition for Federal tax incentives.",
+"url": "https://legiscan.com/US/bill/HB9262/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9308",
+"title": "To amend the Internal Revenue Code of 1986 to provide tax relief relating to public safety officers' death benefits, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9308/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9254",
+"title": "To specify that the Southern Poverty Law Center shall not be treated as described in section 501(c)(3) of the Internal Revenue Code of 1986.",
+"url": "https://legiscan.com/US/bill/HB9254/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9227",
+"title": "To amend the Internal Revenue Code of 1986 to incentivize the domestic production and use of permanent magnets, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9227/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9207",
+"title": "To amend the Internal Revenue Code of 1986 to exclude pensions of members of the Armed Forces from gross income.",
+"url": "https://legiscan.com/US/bill/HB9207/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9179",
+"title": "To amend the Internal Revenue Code of 1986 to provide for adjustments in the individual income tax rates to reflect regional differences in the cost-of-living.",
+"url": "https://legiscan.com/US/bill/HB9179/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9174",
+"title": "To establish the Digital Assets Voluntary Disclosure Program.",
+"url": "https://legiscan.com/US/bill/HB9174/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9173",
+"title": "To amend the Internal Revenue Code of 1986 to except digital assets from the appraisal requirement applicable to certain charitable contributions, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9173/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9175",
+"title": "To amend the Internal Revenue Code of 1986 to provide rules for taxation of income relating to the mining and staking of digital assets, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9175/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9178",
+"title": "To amend the Internal Revenue Code of 1986 to reduce certain tax compliance burdens with respect to digital asset ownership, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9178/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9187",
+"title": "To establish the Commission on Long-Term Social Security Solvency, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9187/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9176",
+"title": "To amend the Internal Revenue Code of 1986 to clarify the application of certain rules with respect to the trading of digital assets, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9176/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9172",
+"title": "To amend the Internal Revenue Code of 1986 to apply the wash sale rules and constructive sale rules to digital assets, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9172/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9162",
+"title": "To prohibit the entry into the United States of connected vehicles associated with foreign adversaries.",
+"url": "https://legiscan.com/US/bill/HB9162/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9163",
+"title": "To amend title XVIII of the Social Security Act to ensure that facilities do not lose critical access hospital status as a result of a roadway or transportation infrastructure improvement.",
+"url": "https://legiscan.com/US/bill/HB9163/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9168",
+"title": "To amend the Internal Revenue Code of 1986 to allow a credit against income tax for qualified conservation contributions which include National Scenic Trails.",
+"url": "https://legiscan.com/US/bill/HB9168/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.Res. 1340",
+"title": "Expressing strong opposition to the imposition of digital services taxes and other relevant similar measures by other countries that unfairly discriminate against United States companies.",
+"url": "https://legiscan.com/US/bill/HR1340/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9108",
+"title": "To amend title XVIII of the Social Security Act to adjust the eligibility for the rural emergency hospital designation under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB9108/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9100",
+"title": "To amend the Internal Revenue Code of 1986 to modify certain rules applicable to qualified small issue manufacturing bonds, to expand certain exceptions to the private activity bond rules for first-time farmers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9100/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9114",
+"title": "To amend the Internal Revenue Code of 1986 to require payroll tax withholding on independent contractors of certain large businesses.",
+"url": "https://legiscan.com/US/bill/HB9114/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9089",
+"title": "To establish the Commission on Sustaining Medicare and Social Security, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9089/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9060",
+"title": "To amend the Internal Revenue Code of 1986 to provide that income received by a regulated investment company from precious metals shall be treated as qualifying income.",
+"url": "https://legiscan.com/US/bill/HB9060/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9075",
+"title": "To amend the Internal Revenue Code of 1986 to impose a tax on payments received from any settlement fund established as a result of a civil action filed by the President of the United States against the Internal Revenue Service.",
+"url": "https://legiscan.com/US/bill/HB9075/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9064",
+"title": "To amend the Internal Revenue Code of 1986 to temporarily increase the capital gains exclusion for any qualifying senior who sells a principal residence during a qualifying year, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9064/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9054",
+"title": "To amend title XVIII of the Social Security Act to establish a demonstration program for international coverage under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB9054/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9031",
+"title": "To amend the Internal Revenue Code of 1986 to establish a refundable young adult tax credit with monthly advance payment.",
+"url": "https://legiscan.com/US/bill/HB9031/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.R. 9012",
+"title": "To amend the Internal Revenue Code of 1986 to allow 5-year carrybacks for the low-income housing tax credit.",
+"url": "https://legiscan.com/US/bill/HB9012/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.R. 8996",
+"title": "To amend the Internal Revenue Code of 1986 to provide bonus depreciation for long-term residential rental housing.",
+"url": "https://legiscan.com/US/bill/HB8996/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8986",
+"title": "To amend title XVIII of the Social Security Act to allow for the designation of certain facilities as critical access hospitals under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB8986/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8959",
+"title": "To amend the Internal Revenue Code of 1986 to clarify the application of the advanced manufacturing investment credit with respect to semiconductor manufacturing facilities located in outer space.",
+"url": "https://legiscan.com/US/bill/HB8959/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8997",
+"title": "To amend part E of title IV of the Social Security Act, to require States to guarantee legal representation to children and parents involved in child protection proceedings, under the program of Federal payments for foster care, prevention, and permanency, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8997/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8972",
+"title": "To amend the Internal Revenue Code of 1986 to include optional practical training for F-1 visa holders as employment for purposes of taxes under the Federal Insurance Contribution Act and the Social Security Act.",
+"url": "https://legiscan.com/US/bill/HB8972/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8988",
+"title": "To amend the Internal Revenue Code of 1986 to allow a business credit for gain from the sale of real property for use as a manufactured home community, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8988/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8995",
+"title": "To amend the Internal Revenue Code of 1986 to modify the excise tax on remittance transfers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8995/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8967",
+"title": "To provide for an extension of the rural community hospital demonstration program.",
+"url": "https://legiscan.com/US/bill/HB8967/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8917",
+"title": "To amend the Internal Revenue Code of 1986 to provide that overtime pay provided to certain border patrol agents is qualified overtime compensation.",
+"url": "https://legiscan.com/US/bill/HB8917/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8933",
+"title": "To amend the Internal Revenue Code of 1986 to include dietary supplements as qualified medical expenses.",
+"url": "https://legiscan.com/US/bill/HB8933/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8923",
+"title": "To amend title XVIII of the Social Security Act to establish a 2-year demonstration program for hospitals to provide outpatient observation services to Medicare beneficiaries at home.",
+"url": "https://legiscan.com/US/bill/HB8923/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8921",
+"title": "To amend the Internal Revenue Code of 1986 to modify and eliminate certain taxes imposed under the National Firearms Act, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8921/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8943",
+"title": "To amend title XVIII of the Social Security Act to prohibit payments for graduate medical education costs attributable to individuals who are not citizens or nationals of the United States under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB8943/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8942",
+"title": "To amend title XVIII of the Social Security Act to require hospitals receiving payment for direct graduate medical education costs under the Medicare program to report information with respect to the citizenship status of residents in an approved medical residency training program.",
+"url": "https://legiscan.com/US/bill/HB8942/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8920",
+"title": "To amend the Internal Revenue Code of 1986 to direct the Secretary of the Treasury to share Individual Taxpayer Identification Number information with the Department of Homeland Security for the purpose of enforcing immigration laws.",
+"url": "https://legiscan.com/US/bill/HB8920/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.J.Res. 187",
+"title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Centers for Medicare & Medicaid Services of the Department of Health and Human Services relating to \"Medicare Program; Implementation of Prior Authorization for Select Services for the Wasteful and Inappropriate Services Reduction (WISeR) Model\".",
+"url": "https://legiscan.com/US/bill/HJR187/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8899",
+"title": "To amend the Internal Revenue Code of 1986 to provide for the tax treatment of digital assets.",
+"url": "https://legiscan.com/US/bill/HB8899/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8892",
+"title": "To amend title XII of the Social Security Act to require States to first use certain funds to pay outstanding balances on advances made under such title prior to using such funds for any other purpose.",
+"url": "https://legiscan.com/US/bill/HB8892/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8910",
+"title": "To amend the Internal Revenue Code of 1986 to impose a tax on specified settlement fund payments, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8910/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8891",
+"title": "To amend title XVIII of the Social Security Act to exclude certain beds from counting as acute care inpatient beds for critical access hospitals under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB8891/2025",
+"date": "2026-05-19"
+},
+{
+"num": "H.R. 8864",
+"title": "To amend the Internal Revenue Code of 1986 to provide a credit for American infrastructure bonds, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8864/2025",
+"date": "2026-05-15"
+},
+{
+"num": "H.R. 8837",
+"title": "To amend the Internal Revenue Code of 1986 to provide for a microemployer pension plan startup credit, to permit the assignment of small business pension plan startup credits, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8837/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8816",
+"title": "To amend the Internal Revenue Code of 1986 to exclude strike benefits from gross income.",
+"url": "https://legiscan.com/US/bill/HB8816/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.Res. 1286",
+"title": "Calling for a trade policy that supports workers, consumers, independent farmers, small businesses, and the environment.",
+"url": "https://legiscan.com/US/bill/HR1286/2025",
+"date": "2026-05-14"
+},
+{
+"num": "H.R. 8804",
+"title": "To amend title XVIII of the Social Security Act to authorize the Secretary of Health and Human Services to enter into contracts with recovery audit contractors to perform prepayment reviews under the Medicare program.",
+"url": "https://legiscan.com/US/bill/HB8804/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8786",
+"title": "To amend the Internal Revenue Code of 1986 to provide the work opportunity tax credit with respect to the hiring of veterans in the field of renewable energy.",
+"url": "https://legiscan.com/US/bill/HB8786/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8783",
+"title": "To amend the Internal Revenue Code of 1986 to exclude from gross income charitable distributions from certain employer-sponsored retirement plans, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8783/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8806",
+"title": "To amend the Internal Revenue Code of 1986 to establish the newborn tax credit and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8806/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8784",
+"title": "To amend title XVIII of the Social Security Act to require hospitals and freestanding birth centers to notify each mother of a miscarried fetus of her rights with respect to such fetus, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8784/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8780",
+"title": "To amend the Internal Revenue Code of 1986 to expand and improve the advanced manufacturing production tax credit.",
+"url": "https://legiscan.com/US/bill/HB8780/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8805",
+"title": "To provide supplemental payments to Federal personnel performing immigration enforcement operations, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8805/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8803",
+"title": "To amend the Internal Revenue Code of 1986 to impose a windfall profits excise tax on crude oil and to rebate the tax collected back to individual taxpayers until the President declares that all hostilities with Iran have ceased, the Strait of Hormuz is fully reopened, and the price of oil drops below $75 per barrel.",
+"url": "https://legiscan.com/US/bill/HB8803/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8795",
+"title": "To provide a fuel tax holiday.",
+"url": "https://legiscan.com/US/bill/HB8795/2025",
+"date": "2026-05-13"
+},
+{
+"num": "H.R. 8757",
+"title": "To amend subpart 2 of part B of title IV of the Social Security Act to address child welfare involvement caused by reasonable childhood independence activities, to amend the Child Abuse Prevention and Treatment Act to promote childhood independence, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8757/2025",
+"date": "2026-05-12"
+},
+{
+"num": "H.R. 8753",
+"title": "To amend the Internal Revenue Code of 1986 to provide a tax holiday for gasoline and diesel fuel.",
+"url": "https://legiscan.com/US/bill/HB8753/2025",
+"date": "2026-05-12"
+},
+{
+"num": "H.R. 8744",
+"title": "To prohibit the import of certain goods produced, sourced, made, or otherwise derived from deforestation and the sale of such items in interstate commerce, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8744/2025",
+"date": "2026-05-12"
+},
+{
+"num": "H.R. 8772",
+"title": "To provide a diesel fuel tax holiday.",
+"url": "https://legiscan.com/US/bill/HB8772/2025",
+"date": "2026-05-12"
+},
+{
+"num": "H.R. 8755",
+"title": "To amend the Internal Revenue Code of 1986 to enhance the qualified business income deduction for domestic manufacturers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8755/2025",
+"date": "2026-05-12"
+},
+{
+"num": "H.R. 8726",
+"title": "To amend title XVIII of the Social Security Act to allow States to enforce Medicare Advantage plan requirements.",
+"url": "https://legiscan.com/US/bill/HB8726/2025",
+"date": "2026-05-11"
+},
+{
+"num": "H.R. 8725",
+"title": "To direct the Secretary of the Treasury to establish the Survivor Tax Portal, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8725/2025",
+"date": "2026-05-11"
+},
+{
+"num": "H.R. 8709",
+"title": "To amend the Internal Revenue Code of 1986 to allow the establishment of homeownership savings accounts.",
+"url": "https://legiscan.com/US/bill/HB8709/2025",
+"date": "2026-05-07"
+},
+{
+"num": "H.R. 8714",
+"title": "To amend the Internal Revenue Code of 1986 to establish skill savings accounts.",
+"url": "https://legiscan.com/US/bill/HB8714/2025",
+"date": "2026-05-07"
+},
+{
+"num": "H.R. 8687",
+"title": "To amend the Tariff Act of 1930 to provide for escalating civil penalties for fraudulent or negligent importation of unauthorized electronic nicotine delivery systems.",
+"url": "https://legiscan.com/US/bill/HB8687/2025",
+"date": "2026-05-07"
+},
+{
+"num": "H.R. 8672",
+"title": "To amend the Internal Revenue Code of 1986 to allow a deduction for loan interest payments made with respect to certain vehicles.",
+"url": "https://legiscan.com/US/bill/HB8672/2025",
+"date": "2026-05-07"
+},
+{
+"num": "H.R. 8677",
+"title": "To amend the Internal Revenue Code of 1986 to allow a refundable credit for qualified home acquisition expenses, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8677/2025",
+"date": "2026-05-07"
+},
+{
+"num": "H.R. 8655",
+"title": "To amend the Internal Revenue Code to create a tax credit for taxpayers selling products that promote New Jersey and to direct port authorities to give retail space preference to businesses that sell such products.",
+"url": "https://legiscan.com/US/bill/HB8655/2025",
+"date": "2026-05-04"
+},
+{
+"num": "H.R. 8662",
+"title": "To provide assisted living assistance through Medicaid and low-income housing tax credit.",
+"url": "https://legiscan.com/US/bill/HB8662/2025",
+"date": "2026-05-04"
+},
+{
+"num": "H.R. 8600",
+"title": "To amend the Internal Revenue Code of 1986 to temporarily suspend certain fuel excise taxes for fuel separated during periods in which the national average price of gasoline exceeds $3.99 per gallon, and to prohibit certain credits or deductions for oil and gas companies during such periods.",
+"url": "https://legiscan.com/US/bill/HB8600/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8591",
+"title": "To amend the Internal Revenue Code of 1986 to provide an exclusion from gross income of gain from the sale of qualified farm property to qualified family members.",
+"url": "https://legiscan.com/US/bill/HB8591/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.Res. 1241",
+"title": "Of inquiry requesting the President of the United States to furnish certain information to the House of Representatives relating to access to and usage of NUMIDENT, death information, and other personally identifiable information in the possession of the Social Security Administration by an individual acting for or on behalf of the Department of Government Efficiency.",
+"url": "https://legiscan.com/US/bill/HR1241/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8632",
+"title": "To amend the Internal Revenue Code of 1986 to impose an excise tax on the sale of perfluoroalkyl or polyfluoroalkyl substances, to establish a credit for expenditures paid or incurred for the removal of such substances from public water systems, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8632/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8624",
+"title": "To amend the Internal Revenue Code of 1986 to provide a credit against employer payroll taxes for wages and other expenses paid or incurred for apprenticeship programs.",
+"url": "https://legiscan.com/US/bill/HB8624/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8626",
+"title": "To amend the Internal Revenue Code of 1986 to provide a credit for middle-income housing, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8626/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8631",
+"title": "To amend the Internal Revenue Code of 1986 to ensure that low alcohol by volume kombucha is exempt from any excise taxes and any regulations under chapter 53 of such Code which are imposed on alcoholic beverages.",
+"url": "https://legiscan.com/US/bill/HB8631/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8644",
+"title": "To amend the Internal Revenue Code of 1986 to disallow deductions with respect to certain expenses relating to private planes.",
+"url": "https://legiscan.com/US/bill/HB8644/2025",
+"date": "2026-04-30"
+},
+{
+"num": "H.R. 8580",
+"title": "To require certain duties and covered import restrictions with respect to forestry products to be reduced by 50 percent if an importer of such product can demonstrate that such product contains 100 percent raw wood material originating in the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8580/2025",
+"date": "2026-04-29"
+},
+{
+"num": "H.R. 8583",
+"title": "To prohibit the imposition of any duty on the importation of phosphate fertilizers under section 122 or 301 of the Trade Act of 1974, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8583/2025",
+"date": "2026-04-29"
+},
+{
+"num": "H.R. 8572",
+"title": "To provide a gasoline tax holiday.",
+"url": "https://legiscan.com/US/bill/HB8572/2025",
+"date": "2026-04-29"
+},
+{
+"num": "H.R. 8538",
+"title": "To amend the Internal Revenue Code of 1986 to allow for limited full expensing of certain reforestation expenditures.",
+"url": "https://legiscan.com/US/bill/HB8538/2025",
+"date": "2026-04-28"
+},
+{
+"num": "H.R. 8497",
+"title": "To amend the Internal Revenue Code of 1986 to extend biodiesel and renewable diesel incentives, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8497/2025",
+"date": "2026-04-27"
+},
+{
+"num": "H.R. 8501",
+"title": "To amend the Internal Revenue Code of 1986 to allow rehabilitation expenditures for public school buildings to qualify for rehabilitation credit.",
+"url": "https://legiscan.com/US/bill/HB8501/2025",
+"date": "2026-04-27"
+}
+]
+}

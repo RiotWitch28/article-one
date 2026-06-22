@@ -1,0 +1,607 @@
+{
+"committee": "the Judiciary",
+"feed": "https://legiscan.com/gaits/feed/dd4acb998bcb4f258295bb27a923862a.rss",
+"count": 100,
+"bills": [
+{
+"num": "H.R. 9355",
+"title": "To amend title 28, United States Code, to reform the process for payment of certain compromise settlements, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9355/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9374",
+"title": "To require the Secretary of Homeland Security to develop and maintain an online detainee locator system, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9374/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9350",
+"title": "To amend the Justice for United States Victims of State Sponsored Terrorism Act with respect to lump sum catch up payment for certain eligible parties.",
+"url": "https://legiscan.com/US/bill/HB9350/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9361",
+"title": "To direct the Secretary of Homeland Security to create and maintain a publicly accessible database that contains information about each criminal alien who is released from custody, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9361/2025",
+"date": "2026-06-18"
+},
+{
+"num": "H.R. 9312",
+"title": "To amend the Immigration and Nationality Act to include the processing of crawfish as agricultural labor or services, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9312/2025",
+"date": "2026-06-15"
+},
+{
+"num": "H.R. 9314",
+"title": "To enact a moratorium on certain Department of Homeland Security contracts relating to the use and implementation of surveillance and data analytics technologies pending public audits and reporting requirements, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9314/2025",
+"date": "2026-06-15"
+},
+{
+"num": "H.R. 9279",
+"title": "To provide for a right of action against Federal employees for violations of First Amendment rights relating to the use or development of artificial intelligence.",
+"url": "https://legiscan.com/US/bill/HB9279/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9290",
+"title": "To amend title 28, United States Code, to provide for the allotment of Supreme Court justices to circuits, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9290/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9294",
+"title": "To prohibit extended detention in holding rooms, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9294/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.J.Res. 196",
+"title": "Proposing an amendment to the Constitution of the United States regarding the right to vote.",
+"url": "https://legiscan.com/US/bill/HJR196/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9270",
+"title": "To address the enforcement of the immigration laws with respect to unaccompanied minors.",
+"url": "https://legiscan.com/US/bill/HB9270/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9298",
+"title": "To amend the Protection of Lawful Commerce in Arms Act to clarify liability protections for firearms and associated manufacturers and retailers, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9298/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9277",
+"title": "To amend title 5, United States Code, to provide that judicial review under the Administrative Procedure Act does not include any evidence that the court determines is not the product of reliable scientific principles and methods.",
+"url": "https://legiscan.com/US/bill/HB9277/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9271",
+"title": "To authorize sitting Governors to conduct health and safety oversight inspections of immigration detention facilities located within their states, and to establish a reporting mechanism to Congress on conditions found therein.",
+"url": "https://legiscan.com/US/bill/HB9271/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9278",
+"title": "To amend title 5, United States Code, to provide that judicial review under the Administrative Procedure Act requires de novo trial of the facts when agency action seeks a sanction.",
+"url": "https://legiscan.com/US/bill/HB9278/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9276",
+"title": "To establish the Federal Cryptocurrency Theft Task Force, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9276/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9295",
+"title": "To amend chapter 5 of title 5, United States Code, and chapter 161 of title 28, United States Code, to provide a maximum amount for the fees and other expenses that may be awarded in connection with an agency adjudication, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9295/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9264",
+"title": "To amend title 18, United States Code, to strike all exceptions to the circumstances in which it is unlawful for aliens to vote, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9264/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9259",
+"title": "To provide counsel for unaccompanied children, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9259/2025",
+"date": "2026-06-11"
+},
+{
+"num": "H.R. 9249",
+"title": "To amend the Immigration and Nationality Act to provide for a limitation on approval of an immigrant petition on behalf of an alien who was previously employed by an entity on the Department of Defense's 1260H list.",
+"url": "https://legiscan.com/US/bill/HB9249/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9253",
+"title": "To empower independent music creator owners to collectively negotiate with dominant online platforms regarding the terms on which their music may be distributed.",
+"url": "https://legiscan.com/US/bill/HB9253/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9244",
+"title": "To regulate certain State taxation of interstate commerce, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9244/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9236",
+"title": "To amend the PROTECT Act to include minimum standards for issuing an alert for a high-risk missing person, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9236/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9239",
+"title": "To provide for limitations on judgments, awards, and compromise settlements under section 1304 of title 31, United States Code.",
+"url": "https://legiscan.com/US/bill/HB9239/2025",
+"date": "2026-06-10"
+},
+{
+"num": "H.R. 9229",
+"title": "To protect seaports from unmanned aircraft systems, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9229/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.Res. 1350",
+"title": "Expressing support of the goal of celebrating a \"National Day of Honor and Respect\" in conjunction with \"Constitution Day and Citizenship Day\".",
+"url": "https://legiscan.com/US/bill/HR1350/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9222",
+"title": "To ban stock trading and prediction market participation for the President, Vice President, and Members of Congress, suspend pay for Members of Congress during shutdowns, establish term limits for Congress, establish term limits and ethics rules for the Supreme Court, reform the presidential pardon power, revoke the statute of limitations for the President and Vice President, strengthen the foreign and domestic emoluments clauses, overturn Citizens United, ban dark money, corporate PACS, and partisan gerrymandering, end voter suppression, and restrict government pensions for felony convictions and lawsuits by the President, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9222/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.Res. 1351",
+"title": "Impeaching Eleanor Louise Ross, Judge of the United States District Court for the Northern District of Georgia, for high crimes and misdemeanors.",
+"url": "https://legiscan.com/US/bill/HR1351/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9210",
+"title": "To amend title 28, United States Code, to establish certain requirements for compromise settlements between the President and the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9210/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.Res. 1354",
+"title": "Impeaching John McConnell, Jr., Chief Judge of the United States District Court for the District of Rhode Island, for high crimes and misdemeanors.",
+"url": "https://legiscan.com/US/bill/HR1354/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9234",
+"title": "To establish a W nonimmigrant visa program for careworkers.",
+"url": "https://legiscan.com/US/bill/HB9234/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9219",
+"title": "To direct the Secretary of Defense to assess and address risks to fuel supply infrastructure supporting military installations in California and to improve the resilience of fuel supply chains critical to national defense.",
+"url": "https://legiscan.com/US/bill/HB9219/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.Res. 1353",
+"title": "Expressing the sense of the House of Representatives supporting the Department of State's efforts to prevent the Islamic Revolutionary Guard Corps (IRGC) from embedding themselves within the Iranian National Football Delegation during the 2026 FIFA World Cup and to limit the delegation's presence in the United States to the minimum time necessary for scheduled match play.",
+"url": "https://legiscan.com/US/bill/HR1353/2025",
+"date": "2026-06-09"
+},
+{
+"num": "H.R. 9200",
+"title": "To secure the borders of the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9200/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9189",
+"title": "To establish an express cause of action for violations of the right to record, observe, or peacefully protest law enforcement activities, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9189/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9204",
+"title": "To authorize the Attorney General to make grants to support the development of safe firearm storage devices, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9204/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9208",
+"title": "To regulate firearm silencers and firearm mufflers.",
+"url": "https://legiscan.com/US/bill/HB9208/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9199",
+"title": "To secure the borders of the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9199/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.Res. 1346",
+"title": "Impeaching Eleanor L. Ross, Judge of the United States District Court for the Northern District of Georgia, for high crimes and misdemeanors.",
+"url": "https://legiscan.com/US/bill/HR1346/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9191",
+"title": "To amend chapter 3 of title 36, United States Code, to designate the American mastodon as the national fossil mammal and the Tyrannosaurus rex as the national fossil dinosaur of the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9191/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9205",
+"title": "To expand the Gun Free School Zones Act, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9205/2025",
+"date": "2026-06-08"
+},
+{
+"num": "H.R. 9146",
+"title": "To increase penalties for the sexual exploitation of children.",
+"url": "https://legiscan.com/US/bill/HB9146/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9157",
+"title": "To reform the H-1B process, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9157/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9160",
+"title": "To establish a new ground for inadmissibility for close relatives of foreign terrorists.",
+"url": "https://legiscan.com/US/bill/HB9160/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9142",
+"title": "To amend title 35, United States Code, to limit the ability of persons who pose a threat to national security to receive and enforce patents, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9142/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9155",
+"title": "To establish a private right of action against a person who transmits unsolicited intimate visual depictions.",
+"url": "https://legiscan.com/US/bill/HB9155/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9137",
+"title": "To protect the name, image, and likeness rights of, and provide protections for, student athletes and to promote fair competition among intercollegiate athletics, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9137/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9143",
+"title": "To amend title 35, United States Code, to require the Director of the United States Patent and Trademark Office to require disclosures in patent applications regarding ties to the People's Republic of China and other foreign adversaries, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9143/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.Res. 1342",
+"title": "Expressing support for the designation of June 5, 2026, as \"National Gun Violence Awareness Day\" and June 2026 as \"National Gun Violence Awareness Month\".",
+"url": "https://legiscan.com/US/bill/HR1342/2025",
+"date": "2026-06-04"
+},
+{
+"num": "H.R. 9130",
+"title": "To amend title 18, United States Code, to prohibit former Members and elected officers of Congress from lobbying Congress at any time after leaving office.",
+"url": "https://legiscan.com/US/bill/HB9130/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9136",
+"title": "To provide for a limitation on obligation of funds in certain settlement agreements.",
+"url": "https://legiscan.com/US/bill/HB9136/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.J.Res. 191",
+"title": "Proposing an amendment to the Constitution of the United States to provide that Congress and the States shall have certain authority to regulate and limit contributions and spending in campaigns for elections for public office, elections for public office, and ballot initiatives and referendums.",
+"url": "https://legiscan.com/US/bill/HJR191/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.J.Res. 194",
+"title": "Proposing an amendment to the Constitution of the United States to prohibit any person who has citizenship or nationality of, or otherwise owes allegiance to, a country other than the United States from serving as a Representative or Senator in Congress, a Judge of the Supreme Court or any inferior court, an Ambassador, public Minister or Consul, or any other officer of the United States which requires the advice and consent of the Senate, or the President or Vice President unless the person formally and permanently relinquishes such citizenship, nationality, or allegiance.",
+"url": "https://legiscan.com/US/bill/HJR194/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.Res. 1334",
+"title": "Reaffirming the Nation's commitment to one Nation Under God in the Pledge of Allegiance.",
+"url": "https://legiscan.com/US/bill/HR1334/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9124",
+"title": "To provide for improvements in the treatment of detained persons, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9124/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9115",
+"title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9115/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9131",
+"title": "To prohibit surrogacy agencies from facilitating surrogacy contracts with sex offenders, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9131/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9118",
+"title": "To amend Kristen's Act to provide for the inclusion of information related to developmental disabilities, alzheimer's disease, and dementia, in alerts issued through the Ashanti Alert communications network, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9118/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9125",
+"title": "To authorize the head of agencies to issue rules related to the uses of algorithmic decision-making systems that are likely to materially contribute to violations of Federal laws that the agency is authorized to enforce, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9125/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9132",
+"title": "To prohibit foreign nationals from entering into or enforcing surrogacy contracts in the United States, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9132/2025",
+"date": "2026-06-03"
+},
+{
+"num": "H.R. 9111",
+"title": "To amend title 11 of the United States Code to stop abusive student loan collection practices in bankruptcy cases.",
+"url": "https://legiscan.com/US/bill/HB9111/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.J.Res. 190",
+"title": "Proposing an amendment to the Constitution of the United States to clarify the 14th amendment does not provide for automatic citizenship for the children of aliens.",
+"url": "https://legiscan.com/US/bill/HJR190/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9095",
+"title": "To protect the constitutional right to trial and discourage imposition of extended sentences for defendants who elect to go to trial instead of accepting a plea offer, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9095/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9112",
+"title": "To provide visuals artists the exclusive right to authorize the commercial exploitation, or public distribution in or affecting interstate commerce of a stylistic impersonation of that visual artist, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9112/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9096",
+"title": "To amend the Immigration and Nationality Act to revoke the citizenship of any naturalized United States citizen convicted of a terrorism-related crime.",
+"url": "https://legiscan.com/US/bill/HB9096/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9098",
+"title": "To protect the separation of powers enshrined in the United States Constitution and end the weaponized surveillance of Members of Congress.",
+"url": "https://legiscan.com/US/bill/HB9098/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9109",
+"title": "To designate Antifa as a domestic terrorist organization, to counter domestic terrorism and organized political violence, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9109/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9099",
+"title": "To require the Secretary of Homeland Security to notify a designated point of contact of release of a detained individual, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9099/2025",
+"date": "2026-06-02"
+},
+{
+"num": "H.R. 9069",
+"title": "To limit the Department of Homeland Security from detaining children and individuals with a cognitive disability and to prohibit immigration enforcement actions at sensitive locations without a court-issued criminal warrant.",
+"url": "https://legiscan.com/US/bill/HB9069/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9066",
+"title": "To authorize the Attorney General to establish a hate crime prevention grant, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9066/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9059",
+"title": "To direct the Assistant Attorney General to award grants to the National Police Athletic/Activities League to improve academic and social outcomes for youth and reduce both juvenile crime and the risk that youth will become victims of crime by providing productive activities conducted by law enforcement personnel during non-school hours.",
+"url": "https://legiscan.com/US/bill/HB9059/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9071",
+"title": "To amend title 18, United States Code, to clarify and expand the prohibition on coercion and enticement to include patronizing or soliciting a minor for a commercial sex act, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9071/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9070",
+"title": "To improve immigration enforcement transparency, preserve civil rights, and improve the accountability of immigration enforcement personnel, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9070/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9078",
+"title": "To amend the Omnibus Crime Control and Safe Streets Act to include reporting requirements of felony convictions related to animal cruelty, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9078/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9076",
+"title": "To require a court order for use of a mail cover.",
+"url": "https://legiscan.com/US/bill/HB9076/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.Con.Res. 107",
+"title": "Recognizing the importance of saving lives, reducing gun violence, and strengthening public safety as the United States celebrates its 250th anniversary.",
+"url": "https://legiscan.com/US/bill/HCR107/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9068",
+"title": "To strengthen hiring and screening standards for immigration enforcement officers and to strengthen uniform, identification, and professional conduct standards for such officers.",
+"url": "https://legiscan.com/US/bill/HB9068/2025",
+"date": "2026-05-29"
+},
+{
+"num": "H.R. 9035",
+"title": "To amend title 11 of the United States Code to ensure oil, gas, and coal companies that are debtors in bankruptcy fulfill environmental reclamation obligations.",
+"url": "https://legiscan.com/US/bill/HB9035/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.Res. 1324",
+"title": "Recognizing the 1885 Rock Springs Chinese Massacre.",
+"url": "https://legiscan.com/US/bill/HR1324/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.R. 9030",
+"title": "To amend the Immigration and Nationality Act to require assimilation likelihood screenings.",
+"url": "https://legiscan.com/US/bill/HB9030/2025",
+"date": "2026-05-26"
+},
+{
+"num": "H.Res. 1322",
+"title": "Condemning racist rhetoric targeting Indian and Chinese Americans, reaffirming that immigrants from all backgrounds are vital to the United States, and calling on all elected officials to refrain from language that promotes racial or ethnic division.",
+"url": "https://legiscan.com/US/bill/HR1322/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.R. 9016",
+"title": "To amend title 18, United States Code, to update the privacy protections for electronic communications information that is stored by third-party service providers in order to protect consumer privacy interests while meeting law enforcement needs, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB9016/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.R. 9013",
+"title": "To amend title 18, United States Code, to provide that unlawful interstate transportation of fireworks is specified unlawful activity for purposes of laundering of monetary instruments.",
+"url": "https://legiscan.com/US/bill/HB9013/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.R. 9009",
+"title": "To repeal the Hughes Amendment to the Firearm Owners' Protection Act.",
+"url": "https://legiscan.com/US/bill/HB9009/2025",
+"date": "2026-05-22"
+},
+{
+"num": "H.R. 8971",
+"title": "To require the Secretary of Homeland Security to establish a veterans visa program to permit veterans who have been removed from the United States to return as immigrants, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8971/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8993",
+"title": "To amend title 28, United States Code, to provide for original and concurrent jurisdiction for the district courts over certain civil actions.",
+"url": "https://legiscan.com/US/bill/HB8993/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8991",
+"title": "To amend section 2101 of title 28, United States Code, to set forth factors for stays pending appeal.",
+"url": "https://legiscan.com/US/bill/HB8991/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1314",
+"title": "America 250 Commemorative Flag Act.",
+"url": "https://legiscan.com/US/bill/HR1314/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8976",
+"title": "To provide for improvements in the treatment of women in the legal system.",
+"url": "https://legiscan.com/US/bill/HB8976/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1313",
+"title": "Condemning the hateful comments of Texas congressional candidate Maureen Galindo.",
+"url": "https://legiscan.com/US/bill/HR1313/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8992",
+"title": "To establish a panel to review certiorari petitions, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8992/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8968",
+"title": "To prohibit the President from filing a civil action against the United States.",
+"url": "https://legiscan.com/US/bill/HB8968/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8955",
+"title": "To prohibit the use of Federal funds for the payment of claims submitted to the Anti-Weaponization Fund.",
+"url": "https://legiscan.com/US/bill/HB8955/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.Res. 1309",
+"title": "Impeaching John Glover Roberts, Jr., Chief Justice of the United States for high crimes and misdemeanors.",
+"url": "https://legiscan.com/US/bill/HR1309/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8966",
+"title": "To amend section 2703 of title 18, United States Code, to prohibit certain use of administrative subpoenas with respect to customer communications and records, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8966/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8951",
+"title": "To establish mandatory minimum terms of imprisonment for fraud offenses, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8951/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8994",
+"title": "To empower independent music creator owners to collectively negotiate with dominant online platforms regarding the terms on which their music may be distributed.",
+"url": "https://legiscan.com/US/bill/HB8994/2025",
+"date": "2026-05-21"
+},
+{
+"num": "H.R. 8940",
+"title": "To prohibit the imposition of the death penalty for any violation of Federal law, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8940/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8932",
+"title": "To establish a United States Commission on Hate Crimes to study and make recommendations on the prevention of the commission of hate crimes, and for other purposes.",
+"url": "https://legiscan.com/US/bill/HB8932/2025",
+"date": "2026-05-20"
+},
+{
+"num": "H.R. 8922",
+"title": "To amend section 3596 of title 18, United States Code, with respect to implementation of a sentence of death.",
+"url": "https://legiscan.com/US/bill/HB8922/2025",
+"date": "2026-05-20"
+}
+]
+}
