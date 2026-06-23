@@ -34,6 +34,7 @@
 <script src="seat_changes.js"></script>
 <script src="floor-status.js"></script>
 <script src="calendar-stats.js"></script>
+<script src="report-card.js"></script>
 </helmet>
 <div style="min-height:100vh; display:flex; flex-direction:column; background: {{ c.appBg }}; color: {{ c.fg }};">
 
@@ -262,6 +263,12 @@
               <div style="position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:3px; background: {{ nav.members.bar }};"></div>
               <span style="flex:none; display:flex;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="5" r="1.4"></circle><line x1="8" y1="5" x2="17" y2="5"></line><circle cx="4.5" cy="10" r="1.4"></circle><line x1="8" y1="10" x2="17" y2="10"></line><circle cx="4.5" cy="15" r="1.4"></circle><line x1="8" y1="15" x2="17" y2="15"></line></svg></span>
               <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:7px; white-space:nowrap;"><span style="font-size:13.5px; font-weight:600;">Committees</span><span style="display:inline-flex; align-items:center; justify-content:center; min-width:19px; height:18px; padding:0 6px; border-radius:9px; background: {{ c.accent }}; color: {{ c.accentText }}; font-size:11px; font-weight:700; line-height:1;">{{ committeeCount }}</span></span></sc-if>
+            </div>
+
+            <div onClick="{{ goReportCard }}" title="Report Card" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.reportCard.bg }}; color: {{ nav.reportCard.fg }}; transition:background .15s ease;">
+              <div style="position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:3px; background: {{ nav.reportCard.bar }};"></div>
+              <span style="flex:none; display:flex;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="12" height="14" rx="2"></rect><path d="M7.3 3.2h5.4V5a1 1 0 0 1-1 1H8.3a1 1 0 0 1-1-1z"></path><path d="M7.5 10.2l1.6 1.6 3-3.6"></path></svg></span>
+              <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><span style="font-size:13.5px; font-weight:600; white-space:nowrap;">Report Card</span></sc-if>
             </div>
 
             <div onClick="{{ goSocial }}" title="Social Media Analysis" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.social.bg }}; color: {{ nav.social.fg }}; transition:background .15s ease;">
@@ -706,6 +713,56 @@
 
         </div>
 
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isReportCard }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:32px 30px 56px;">
+              <div style="margin-bottom:24px;">
+                <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">The House</div>
+                <h2 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; letter-spacing:.2px; color: {{ c.headerFg }};">Report Card</h2>
+                <p style="margin:6px 0 0; font-size:14px; line-height:1.55; color: {{ c.muted }}; max-width:580px;">How effectively the 119th House is moving legislation — from committee to the floor to the Senate — and which committees are doing the work.</p>
+              </div>
+
+              <div style="font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:12px;">The bill pipeline</div>
+              <div style="display:flex; align-items:stretch; flex-wrap:nowrap; gap:0; margin-bottom:10px;">
+                <div style="flex:1 1 0; min-width:0; background:#3a6ea5; color:#fff; padding:16px 10px 16px 16px; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius:8px 0 0 8px;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.inCommittee }}</div>
+                  <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">In committee</div>
+                </div>
+                <div style="flex:1 1 0; min-width:0; background:#b8862f; color:#fff; padding:16px 10px 16px 26px; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); margin-left:-14px;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.floorVotePending }}</div>
+                  <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Floor vote pending</div>
+                </div>
+                <div style="flex:1 1 0; min-width:0; background:#2f7d4f; color:#fff; padding:16px 10px 16px 26px; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); margin-left:-14px;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.sentToSenate }}</div>
+                  <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Sent to the Senate</div>
+                </div>
+                <div style="flex:1 1 0; min-width:0; background:#b23a32; color:#fff; padding:16px 12px 16px 22px; clip-path:polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%); margin-left:11px; border-radius:0 8px 8px 0;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.sentBack }}</div>
+                  <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Sent back from the Senate</div>
+                </div>
+              </div>
+              <p style="margin:0; font-size:11.5px; line-height:1.5; color: {{ c.muted }};">House (H.R.) bills only · {{ reportCard.becameLaw }} signed into law. "Sent back" = the Senate amended a House-passed bill and returned it for the House to act on.</p>
+
+              <div style="margin-top:30px; margin-bottom:6px; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Who's moving bills</div>
+              <p style="margin:0 0 12px; font-size:12.5px; color: {{ c.muted }}; max-width:560px;">Committees rated on the share of bills referred to them that they vote out to the floor.</p>
+              <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; overflow:hidden;">
+                <sc-for list="{{ reportCard.committees }}" as="k" hint-placeholder-count="10">
+                  <div style="display:grid; grid-template-columns:34px 1fr auto; align-items:center; gap:12px; padding:11px 16px; border-top:1px solid {{ c.line }};">
+                    <span style="display:inline-flex; align-items:center; justify-content:center; width:25px; height:25px; border-radius:50%; font-size:12px; font-weight:700; background: {{ k.rankBg }}; color: {{ k.rankFg }};">{{ k.rank }}</span>
+                    <span style="font-size:14px; color: {{ c.fg }}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ k.name }}</span>
+                    <span style="display:flex; align-items:center; gap:2px;">
+                      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="{{ k.s1 }}" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="{{ k.s2 }}" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="{{ k.s3 }}" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="{{ k.s4 }}" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="{{ k.s5 }}" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                    </span>
+                  </div>
+                </sc-for>
+              </div>
+              <p style="margin:12px 0 0; font-size:11px; line-height:1.5; color: {{ c.muted }};">★ rating: 5★ 20%+ · 4★ 15–20% · 3★ 10–15% · 2★ 5–10% · 1★ under 5%. {{ reportCard.lowSampleCount }} committees with too few bills to rate are excluded. Source: LegiScan (CC BY 4.0) · updated {{ reportCard.updated }}.</p>
             </div>
           </sc-if>
 
@@ -1433,6 +1490,27 @@ class Component extends DCLogic {
           hour: 'numeric', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' })
       : '';
 
+    // ---- Report Card: bill pipeline + committee efficiency ratings ----
+    const RC = (typeof window!=='undefined' && window.REPORT_CARD) ? window.REPORT_CARD : {};
+    const rcp = RC.pipeline || {};
+    const GOLD = '#e0a100';
+    const reportCard = {
+      inCommittee: (rcp.inCommittee||0).toLocaleString(),
+      floorVotePending: (rcp.floorVotePending||0).toLocaleString(),
+      sentToSenate: (rcp.sentToSenate||0).toLocaleString(),
+      sentBack: (rcp.sentBackFromSenate||0).toLocaleString(),
+      becameLaw: (rcp.becameLaw||0).toLocaleString(),
+      lowSampleCount: (RC.committees||[]).filter(x=>x.lowSample).length,
+      updated: RC.generatedAt ? new Date(RC.generatedAt).toLocaleString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}) : '',
+      committees: (RC.committees||[]).filter(x=>!x.lowSample).map((x,i)=>({
+        rank: i+1, name: x.name,
+        rankBg: i<3 ? c.accentSoft : 'transparent',
+        rankFg: i<3 ? c.headerFg : c.muted,
+        s1: x.stars>=1?GOLD:c.line, s2: x.stars>=2?GOLD:c.line, s3: x.stars>=3?GOLD:c.line,
+        s4: x.stars>=4?GOLD:c.line, s5: x.stars>=5?GOLD:c.line
+      }))
+    };
+
     // ---- Committee squares (legislative activity, modeled) ----
     const COM = (typeof window!=='undefined' && window.COMMITTEES) ? window.COMMITTEES : [];
     const greenPass = (this.props.theme==='midnight') ? '#5bc47e' : '#2f7d4f';
@@ -1782,7 +1860,7 @@ class Component extends DCLogic {
     const navSty = id => st.section===id
       ? { bg:c.accentSoft, fg:c.headerFg, bar:c.accent }
       : { bg:'transparent', fg:c.fg, bar:'transparent' };
-    const nav = { glance:navSty('glance'), members:navSty('members'), social:navSty('social'), staff:navSty('staff'), spending:navSty('spending'), officeSpend:navSty('officeSpend') };
+    const nav = { glance:navSty('glance'), members:navSty('members'), reportCard:navSty('reportCard'), social:navSty('social'), staff:navSty('staff'), spending:navSty('spending'), officeSpend:navSty('officeSpend') };
 
     const u = {
       mapBg: st.view==='map'?c.accent:c.panel, mapFg: st.view==='map'?c.accentText:c.fg,
@@ -1817,6 +1895,7 @@ class Component extends DCLogic {
       majorityParty, majorityLabel: majorityParty+' majority', majDot, majSeats, majorityMargin, majMarkerW, seatsForMajority,
       seatChangeCount, seatChangeNote, seatChangeTip, hasSeatChanges: seatChangeCount>0,
       committees, tenureBuckets, avgTenure, delegations, highlights, committeeCount: committeesCount,
+      reportCard,
       comComposition, comSquares, comStanding, comSelect, comJoint, buildings, tenureByParty,
       comModalOpen, comModal, closeCom: ()=>this.closeCom(),
       staffStats, staffRoles, payByRole, medPayrollLabel,
@@ -1830,9 +1909,10 @@ class Component extends DCLogic {
       navChevron: navOpen ? '\u00ab' : '\u00bb',
       navJustify: navOpen ? 'flex-start' : 'center',
       navHeadJustify: navOpen ? 'space-between' : 'center',
-      isGlance: section==='glance', isMembers: section==='members', isSocial: section==='social', isStaff: section==='staff', isSpending: section==='spending', isOfficeSpend: section==='officeSpend',
+      isGlance: section==='glance', isMembers: section==='members', isReportCard: section==='reportCard', isSocial: section==='social', isStaff: section==='staff', isSpending: section==='spending', isOfficeSpend: section==='officeSpend',
       goGlance: ()=>this.setState({section:'glance'}),
       goMembers: ()=>this.setState({section:'members'}),
+      goReportCard: ()=>this.setState({section:'reportCard'}),
       goSocial: ()=>this.setState({section:'social'}),
       goStaff: ()=>this.setState({section:'staff'}),
       goSpending: ()=>this.setState({section:'spending'}),
