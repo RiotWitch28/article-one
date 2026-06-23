@@ -90,7 +90,8 @@ def main():
 
     # ---- Pipeline (House H.R. bills) ----
     hr = [b for b in bills if LC.is_house_origin(b) and b.get("bill_type") == "B"]
-    pipe = dict(inCommittee=0, floorVotePending=0, sentToSenate=0, sentBackFromSenate=0, becameLaw=0)
+    pipe = dict(inCommittee=0, floorVotePending=0, sentToSenate=0,
+                sentBackFromSenate=0, sentFromSenate=0, becameLaw=0)
     for b in hr:
         status = int(b.get("status") or 0)
         rep = is_reported(b)
@@ -104,6 +105,13 @@ def main():
             pipe["sentBackFromSenate"] += 1
         if status == 4:
             pipe["becameLaw"] += 1
+
+    # Senate-origin (S.) bills that passed the Senate and moved to the House.
+    senate = [b for b in bills if not LC.is_house_origin(b) and b.get("bill_type") == "B"]
+    for b in senate:
+        status = int(b.get("status") or 0)
+        if status >= 2 and cur_body(b) == "H":
+            pipe["sentFromSenate"] += 1
 
     # ---- Committee efficiency (all House-origin bills) ----
     referred = {c["name"]: 0 for c in LC.load_committees_js()}

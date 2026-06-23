@@ -314,28 +314,6 @@
         <!-- 119th Congress legislative activity -->
         <div style="margin-bottom:16px;">
           <div style="font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:10px;">119th Congress · Legislative Activity</div>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.billsIntroduced }}</div>
-              <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Bills Introduced</div>
-              <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Introduced in the House</div>
-            </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.sentToSenate }}</div>
-              <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Sent to Senate</div>
-              <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Passed House, awaiting Senate</div>
-            </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.receivedFromSenate }}</div>
-              <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Received from Senate</div>
-              <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Senate-passed bills in House</div>
-            </div>
-            <div style="background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
-              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.accent }};">{{ ov.lawsCreated }}</div>
-              <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Laws Created</div>
-              <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Signed into law</div>
-            </div>
-          </div>
           <!-- Voting-day stats: three tiles together on one centered row -->
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:12px;">
             <div style="flex:0 1 200px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
@@ -738,12 +716,16 @@
                   <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.sentToSenate }}</div>
                   <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Sent to the Senate</div>
                 </div>
-                <div style="flex:1 1 0; min-width:0; background:#b23a32; color:#fff; padding:16px 12px 16px 22px; clip-path:polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%); margin-left:11px; border-radius:0 8px 8px 0;">
+                <div style="flex:1 1 0; min-width:0; background:#b23a32; color:#fff; padding:16px 26px 16px 22px; clip-path:polygon(16px 0, 100% 0, calc(100% - 16px) 50%, 100% 100%, 16px 100%, 0 50%); margin-left:11px;">
                   <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.sentBack }}</div>
                   <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Sent back from the Senate</div>
                 </div>
+                <div style="flex:1 1 0; min-width:0; background:#6b5b8a; color:#fff; padding:16px 12px 16px 22px; clip-path:polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%); margin-left:-14px; border-radius:0 8px 8px 0;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:24px; line-height:1;">{{ reportCard.sentFromSenate }}</div>
+                  <div style="font-size:12px; opacity:.95; margin-top:6px; line-height:1.3;">Sent from the Senate</div>
+                </div>
               </div>
-              <p style="margin:0; font-size:11.5px; line-height:1.5; color: {{ c.muted }};">House (H.R.) bills only · {{ reportCard.becameLaw }} signed into law. "Sent back" = the Senate amended a House-passed bill and returned it for the House to act on.</p>
+              <p style="margin:0; font-size:11.5px; line-height:1.5; color: {{ c.muted }};">House (H.R.) bills, except "Sent from the Senate" (S. bills passed by the Senate and now before the House) · {{ reportCard.becameLaw }} signed into law. "Sent back" = the Senate amended a House-passed bill and returned it for the House to act on.</p>
 
               <div style="margin-top:30px; margin-bottom:6px; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700;">Who's moving bills</div>
               <p style="margin:0 0 12px; font-size:12.5px; color: {{ c.muted }}; max-width:560px;">Committees rated on the share of bills referred to them that they vote out to the floor.</p>
@@ -768,15 +750,57 @@
 
           <sc-if value="{{ isSocial }}" hint-placeholder-val="{{ false }}">
             <div style="padding:32px 30px 56px;">
-              <div style="margin-bottom:32px;">
-                <div style="font-size:11px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; margin-bottom:8px;">The House</div>
-                <h2 style="margin:0; font-family:'Lora',Georgia,serif; font-weight:600; font-size:26px; letter-spacing:.2px; color: {{ c.headerFg }};">Social Media Analysis</h2>
-                <p style="margin:6px 0 0; font-size:14px; line-height:1.55; color: {{ c.muted }}; max-width:560px;">Monitor and analyze the social media activity of members of Congress across platforms — posts, engagement, sentiment, and more.</p>
-              </div>
-              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:72px 32px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:16px; text-align:center;">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: {{ c.muted }}; margin-bottom:20px; opacity:0.45;"><circle cx="33" cy="11" r="4.5"></circle><circle cx="11" cy="22" r="4.5"></circle><circle cx="33" cy="33" r="4.5"></circle><line x1="15.2" y1="19.8" x2="28.8" y2="13.2"></line><line x1="15.2" y1="24.2" x2="28.8" y2="30.8"></line></svg>
-                <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:19px; color: {{ c.headerFg }}; margin-bottom:8px;">No data yet</div>
-                <div style="font-size:13.5px; color: {{ c.muted }}; max-width:380px; line-height:1.6;">Social media monitoring tools are coming soon. Track posts, engagement, and sentiment across platforms for all 435 House members.</div>
+              <!-- Big section: 119th Congress · X Posts word map, split by party -->
+              <div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:4px;">
+                  <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:21px; color: {{ c.headerFg }};">119th Congress · X Posts</div>
+                  <span style="display:inline-flex; align-items:center; gap:6px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#b8862f; background:#fbf3df; border:1px solid #ecdcae; border-radius:999px; padding:4px 11px;">● Draft · sample data</span>
+                </div>
+                <p style="margin:0 0 22px; font-size:12.5px; color: {{ c.muted }}; max-width:600px; line-height:1.5;">Most-mentioned terms in members' posts, bucketed by party. <strong>This is a draft using placeholder words to show the layout</strong> — real post data will be wired in once the X feed is connected.</p>
+
+                <!-- Entire Congress (combined) -->
+                <div style="border:1px solid {{ c.line }}; border-radius:14px; overflow:hidden; margin-bottom:18px;">
+                  <div style="display:flex; align-items:center; gap:9px; padding:13px 18px; border-bottom:1px solid {{ c.line }}; background: {{ c.inputBg }};">
+                    <span style="width:11px; height:11px; border-radius:50%; background: {{ c.accent }};"></span>
+                    <span style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:16px; color: {{ c.headerFg }};">Entire Congress</span>
+                    <span style="font-size:11.5px; color: {{ c.muted }};">— all members combined</span>
+                  </div>
+                  <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 14px; padding:30px 24px; min-height:180px;">
+                    <sc-for list="{{ socialCloud.all }}" as="w" hint-placeholder-count="30">
+                      <span style="display:inline-block; font-size:{{ w.size }}; font-weight:{{ w.weight }}; color:{{ w.color }}; opacity:{{ w.opacity }}; line-height:1.1;">{{ w.word }}</span>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+
+                  <!-- Democrats bucket -->
+                  <div style="border:1px solid {{ c.line }}; border-radius:14px; overflow:hidden;">
+                    <div style="display:flex; align-items:center; gap:9px; padding:13px 18px; border-bottom:1px solid {{ c.line }}; background: {{ c.accentSoft }};">
+                      <span style="width:11px; height:11px; border-radius:50%; background: {{ c.dem }};"></span>
+                      <span style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:16px; color: {{ c.headerFg }};">Democrats</span>
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 12px; padding:26px 22px; min-height:200px;">
+                      <sc-for list="{{ socialCloud.dem }}" as="w" hint-placeholder-count="22">
+                        <span style="display:inline-block; font-size:{{ w.size }}; font-weight:{{ w.weight }}; color:{{ w.color }}; opacity:{{ w.opacity }}; line-height:1.1;">{{ w.word }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+
+                  <!-- Republicans bucket -->
+                  <div style="border:1px solid {{ c.line }}; border-radius:14px; overflow:hidden;">
+                    <div style="display:flex; align-items:center; gap:9px; padding:13px 18px; border-bottom:1px solid {{ c.line }}; background:#fbecea;">
+                      <span style="width:11px; height:11px; border-radius:50%; background: {{ c.rep }};"></span>
+                      <span style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:16px; color: {{ c.headerFg }};">Republicans</span>
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 12px; padding:26px 22px; min-height:200px;">
+                      <sc-for list="{{ socialCloud.rep }}" as="w" hint-placeholder-count="22">
+                        <span style="display:inline-block; font-size:{{ w.size }}; font-weight:{{ w.weight }}; color:{{ w.color }}; opacity:{{ w.opacity }}; line-height:1.1;">{{ w.word }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </sc-if>
@@ -1499,6 +1523,7 @@ class Component extends DCLogic {
       floorVotePending: (rcp.floorVotePending||0).toLocaleString(),
       sentToSenate: (rcp.sentToSenate||0).toLocaleString(),
       sentBack: (rcp.sentBackFromSenate||0).toLocaleString(),
+      sentFromSenate: (rcp.sentFromSenate||0).toLocaleString(),
       becameLaw: (rcp.becameLaw||0).toLocaleString(),
       lowSampleCount: (RC.committees||[]).filter(x=>x.lowSample).length,
       updated: RC.generatedAt ? new Date(RC.generatedAt).toLocaleString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}) : '',
@@ -1509,6 +1534,42 @@ class Component extends DCLogic {
         s1: x.stars>=1?GOLD:c.line, s2: x.stars>=2?GOLD:c.line, s3: x.stars>=3?GOLD:c.line,
         s4: x.stars>=4?GOLD:c.line, s5: x.stars>=5?GOLD:c.line
       }))
+    };
+
+    // ---- Social Media: DRAFT word clouds (illustrative sample data, not real counts) ----
+    const buildCloud = (words, tone) => {
+      const ns = words.map(w=>w[1]);
+      const min = Math.min(...ns), max = Math.max(...ns), span = (max-min)||1;
+      return words.map(w=>{
+        const t = (w[1]-min)/span;                       // 0..1 by frequency
+        return {
+          word: w[0],
+          size: Math.round(15 + t*31) + 'px',            // 15px .. 46px
+          weight: t>0.66 ? '700' : (t>0.33 ? '600' : '500'),
+          color: tone,
+          opacity: (0.55 + t*0.45).toFixed(2)            // 0.55 .. 1.0
+        };
+      });
+    };
+    // [word, weight] — DRAFT sample topics only, to show the layout.
+    const DEM_WORDS = [['healthcare',95],['Medicare',58],['democracy',81],['workers',62],['climate',49],
+      ['Trump',88],['families',70],['costs',66],['Social Security',74],['abortion',60],['jobs',45],
+      ['voting rights',52],['seniors',40],['MAGA',55],['ACA',38],['gun safety',43],['veterans',36],
+      ['immigration',47],['freedom',33],['housing',35],['students',30],['rights',57]];
+    const REP_WORDS = [['border',97],['inflation',79],['economy',71],['Biden',84],['energy',64],
+      ['taxes',58],['security',66],['fentanyl',52],['spending',61],['family',44],['military',46],
+      ['freedom',48],['jobs',42],['America',75],['crime',54],['faith',31],['life',39],['secure',50],
+      ['China',45],['parents',34],['gas prices',37],['borders',56]];
+    // Combined "entire Congress" cloud: merge both lists, sum shared terms, keep top 30.
+    const mergeWords = (...lists) => {
+      const m = new Map();
+      lists.flat().forEach(([w,n]) => m.set(w, (m.get(w)||0)+n));
+      return [...m.entries()].sort((a,b)=>b[1]-a[1]).slice(0,30);
+    };
+    const socialCloud = {
+      all: buildCloud(mergeWords(DEM_WORDS, REP_WORDS), c.accent),
+      dem: buildCloud(DEM_WORDS, c.dem),
+      rep: buildCloud(REP_WORDS, c.rep)
     };
 
     // ---- Committee squares (legislative activity, modeled) ----
@@ -1896,6 +1957,7 @@ class Component extends DCLogic {
       seatChangeCount, seatChangeNote, seatChangeTip, hasSeatChanges: seatChangeCount>0,
       committees, tenureBuckets, avgTenure, delegations, highlights, committeeCount: committeesCount,
       reportCard,
+      socialCloud,
       comComposition, comSquares, comStanding, comSelect, comJoint, buildings, tenureByParty,
       comModalOpen, comModal, closeCom: ()=>this.closeCom(),
       staffStats, staffRoles, payByRole, medPayrollLabel,
