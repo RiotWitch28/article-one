@@ -16,11 +16,12 @@ _Last updated: 2026-06-23_
 
 | # | Item | What it pays for | Status | Rough cost |
 |---|------|------------------|--------|-----------|
-| 1 | **X (Twitter) API** | Members' post text + follower/tweet metrics for the Social Media section (word clouds, member directory) | **Will be needed** — account exists (`RiotWitch28`), pay-per-use, **$0 balance** | Pay-per-use credits; per-request rate shown in dev console. Higher fixed tiers exist (Basic historically ~$200/mo). **Confirm current rate before committing.** |
-| 2 | Bright Data (alternative to #1) | Bulk collection of social post text without the X API | Optional alternative; **not set up** (no account/key/CLI installed) | Billed per record collected. Only relevant if we choose it over the X API. |
-| 3 | LegiScan API | Bill pipeline + committee data (Report Card, Committees, House Overview) | **In use now** | Currently on the **free** bulk-dataset tier (CC BY 4.0). Paid tiers exist if usage grows. |
-| 4 | DomeWatch API | Live "in session" status + floor calendar / voting-day stats | **In use now** | Cost not yet confirmed (a key is configured). **To verify.** |
-| 5 | Hosting (GitHub Pages) | Serving the live dashboard | **In use now** | Free on current setup. |
+| 1 | **Claude Max (AI assistant)** | AI coding assistant used to build and maintain the entire dashboard — data pipelines, FEC reconciliation, UI features, and ongoing development | **In use now** | **$100–$200/month** (Max 5x at $100/mo; Max 20x at higher tier). Verified at [claude.com/pricing](https://claude.com/pricing). |
+| 2 | **X (Twitter) API** | Members' post text + follower/tweet metrics for the Social Media section (word clouds, member directory) | **Will be needed** — account exists (`RiotWitch28`), pay-per-use, **$0 balance** | Pay-per-use credits; per-request rate shown in dev console. Higher fixed tiers exist (Basic historically ~$200/mo). **Confirm current rate before committing.** |
+| 3 | Bright Data (alternative to #2) | Bulk collection of social post text without the X API | Optional alternative; **not set up** (no account/key/CLI installed) | Billed per record collected. Only relevant if we choose it over the X API. |
+| 4 | LegiScan API | Bill pipeline + committee data (Report Card, Committees, House Overview) | **In use now** | Currently on the **free** bulk-dataset tier (CC BY 4.0). Paid tiers exist if usage grows. |
+| 5 | DomeWatch API | Live "in session" status + floor calendar / voting-day stats | **In use now** | Cost not yet confirmed (a key is configured). **To verify.** |
+| 6 | Hosting (GitHub Pages) | Serving the live dashboard | **In use now** | Free on current setup. |
 
 ---
 

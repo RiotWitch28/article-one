@@ -248,7 +248,7 @@
               </div>
             </div>
 
-            <div style="margin-top:18px; font-size:11.5px; line-height:1.5; color: {{ c.muted }};">Sample directory — member names, photos and details are placeholders. Real congressional data and official portraits can be wired in.</div>
+            <button class="glass-btn" title="Member dashboards are coming soon">Member Dashboard <span class="cs">— Coming Soon</span></button>
           </div>
         </sc-if>
 
@@ -265,6 +265,12 @@
               <button onClick="{{ toggleNav }}" title="Collapse menu" style="width:28px; height:28px; flex:none; border:1px solid {{ c.line }}; border-radius:7px; background: {{ c.inputBg }}; color: {{ c.muted }}; cursor:pointer; font-size:12px; display:flex; align-items:center; justify-content:center;">{{ navChevron }}</button>
             </div>
 
+            <div onClick="{{ goReportCard }}" title="Report Card" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.reportCard.bg }}; color: {{ nav.reportCard.fg }}; transition:background .15s ease;">
+              <div style="position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:3px; background: {{ nav.reportCard.bar }};"></div>
+              <span style="flex:none; display:flex;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="12" height="14" rx="2"></rect><path d="M7.3 3.2h5.4V5a1 1 0 0 1-1 1H8.3a1 1 0 0 1-1-1z"></path><path d="M7.5 10.2l1.6 1.6 3-3.6"></path></svg></span>
+              <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><span style="font-size:13.5px; font-weight:600; white-space:nowrap;">Report Card</span></sc-if>
+            </div>
+
             <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><div style="font-size:10px; letter-spacing:.13em; text-transform:uppercase; color: {{ c.muted }}; font-weight:700; padding:10px 10px 6px;">The House</div></sc-if>
 
             <div onClick="{{ goGlance }}" title="House Overview" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.glance.bg }}; color: {{ nav.glance.fg }}; transition:background .15s ease;">
@@ -277,12 +283,6 @@
               <div style="position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:3px; background: {{ nav.members.bar }};"></div>
               <span style="flex:none; display:flex;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="5" r="1.4"></circle><line x1="8" y1="5" x2="17" y2="5"></line><circle cx="4.5" cy="10" r="1.4"></circle><line x1="8" y1="10" x2="17" y2="10"></line><circle cx="4.5" cy="15" r="1.4"></circle><line x1="8" y1="15" x2="17" y2="15"></line></svg></span>
               <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex; align-items:center; gap:7px; white-space:nowrap;"><span style="font-size:13.5px; font-weight:600;">Committees</span><span style="display:inline-flex; align-items:center; justify-content:center; min-width:19px; height:18px; padding:0 6px; border-radius:9px; background: {{ c.accent }}; color: {{ c.accentText }}; font-size:11px; font-weight:700; line-height:1;">{{ committeeCount }}</span></span></sc-if>
-            </div>
-
-            <div onClick="{{ goReportCard }}" title="Report Card" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.reportCard.bg }}; color: {{ nav.reportCard.fg }}; transition:background .15s ease;">
-              <div style="position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:3px; background: {{ nav.reportCard.bar }};"></div>
-              <span style="flex:none; display:flex;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="12" height="14" rx="2"></rect><path d="M7.3 3.2h5.4V5a1 1 0 0 1-1 1H8.3a1 1 0 0 1-1-1z"></path><path d="M7.5 10.2l1.6 1.6 3-3.6"></path></svg></span>
-              <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ true }}"><span style="font-size:13.5px; font-weight:600; white-space:nowrap;">Report Card</span></sc-if>
             </div>
 
             <div onClick="{{ goSocial }}" title="Social Media Analysis" style="position:relative; display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:2px; justify-content: {{ navJustify }}; background: {{ nav.social.bg }}; color: {{ nav.social.fg }}; transition:background .15s ease;">
