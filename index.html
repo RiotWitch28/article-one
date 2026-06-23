@@ -331,6 +331,11 @@
               <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Voting Days Canceled</div>
               <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Taken off the calendar</div>
             </div>
+            <div style="flex:0 1 200px; background: {{ c.panel }}; border:1px solid {{ c.line }}; border-radius:14px; padding:18px 20px;">
+              <div style="font-family:'Lora',Georgia,serif; font-weight:600; font-size:34px; line-height:1; color: {{ c.headerFg }};">{{ ov.daysLeftInYear }}</div>
+              <div style="font-size:12.5px; font-weight:600; color: {{ c.fg }}; margin-top:9px;">Days Left in the Year</div>
+              <div style="font-size:11px; color: {{ c.muted }}; margin-top:3px; line-height:1.4;">Business days remaining</div>
+            </div>
           </div>
         </div>
 
@@ -1496,7 +1501,35 @@ class Component extends DCLogic {
     // ---- House Overview legislative-activity figures (real, from LegiScan) ----
     const OV = (typeof window!=='undefined' && window.OVERVIEW) ? window.OVERVIEW : {};
     const CAL = (typeof window!=='undefined' && window.CALENDAR_STATS) ? window.CALENDAR_STATS : {};
+
+    // Business days left in the calendar year: weekdays from today through Dec 31,
+    // minus U.S. federal holidays (computed for the current year, so it's evergreen).
+    const _today = new Date();
+    const _yr = _today.getFullYear();
+    const _nthDow = (y,m,wd,n) => { let d=new Date(y,m,1),c=0; for(;;){ if(d.getDay()===wd){ c++; if(c===n) return new Date(y,m,d.getDate()); } d.setDate(d.getDate()+1); } };
+    const _lastDow = (y,m,wd) => { let d=new Date(y,m+1,0); while(d.getDay()!==wd) d.setDate(d.getDate()-1); return d; };
+    const _obs = d => { const k=d.getDay(); if(k===6) return new Date(d.getFullYear(),d.getMonth(),d.getDate()-1); if(k===0) return new Date(d.getFullYear(),d.getMonth(),d.getDate()+1); return d; };
+    const _dkey = d => d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();
+    const _holidays = new Set([
+      _obs(new Date(_yr,0,1)),    // New Year's Day
+      _nthDow(_yr,0,1,3),         // MLK Day (3rd Mon Jan)
+      _nthDow(_yr,1,1,3),         // Washington's Birthday (3rd Mon Feb)
+      _lastDow(_yr,4,1),          // Memorial Day (last Mon May)
+      _obs(new Date(_yr,5,19)),   // Juneteenth
+      _obs(new Date(_yr,6,4)),    // Independence Day
+      _nthDow(_yr,8,1,1),         // Labor Day (1st Mon Sep)
+      _nthDow(_yr,9,1,2),         // Columbus Day (2nd Mon Oct)
+      _obs(new Date(_yr,10,11)),  // Veterans Day
+      _nthDow(_yr,10,4,4),        // Thanksgiving (4th Thu Nov)
+      _obs(new Date(_yr,11,25))   // Christmas
+    ].map(_dkey));
+    let _bdays = 0;
+    const _cur = new Date(_yr,_today.getMonth(),_today.getDate());
+    const _eoy = new Date(_yr,11,31);
+    while(_cur <= _eoy){ const k=_cur.getDay(); if(k!==0 && k!==6 && !_holidays.has(_dkey(_cur))) _bdays++; _cur.setDate(_cur.getDate()+1); }
+
     const ov = {
+      daysLeftInYear: _bdays.toLocaleString(),
       billsIntroduced: (OV.billsIntroduced != null ? OV.billsIntroduced : 9374).toLocaleString(),
       sentToSenate: (OV.sentToSenate != null ? OV.sentToSenate : 556).toLocaleString(),
       receivedFromSenate: (OV.receivedFromSenate != null ? OV.receivedFromSenate : 142).toLocaleString(),
