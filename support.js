@@ -189,8 +189,27 @@
 
   window.DCLogic = DCLogic;
 
+  // Stable-ish signature for a focusable field, used to re-find it after a
+  // full-DOM rebuild so we can restore focus + caret.
+  function _fieldSig(el) {
+    return el.tagName + '|' + (el.getAttribute('placeholder') || '') +
+      '|' + (el.getAttribute('name') || '') + '|' + (el.type || '');
+  }
+
   function _render() {
     if (!_inst || !_cont) return;
+
+    // Capture focus + caret before the rebuild blows the live input away.
+    const active = document.activeElement;
+    let focusInfo = null;
+    if (active && _cont.contains(active) &&
+        (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+      const sig = _fieldSig(active);
+      const peers = [..._cont.querySelectorAll('input, textarea')].filter(e => _fieldSig(e) === sig);
+      focusInfo = { sig, index: peers.indexOf(active) };
+      try { focusInfo.start = active.selectionStart; focusInfo.end = active.selectionEnd; } catch (e) {}
+    }
+
     const vals = _inst.renderVals();
     const tmp = document.createElement('div');
     tmp.innerHTML = _tpl;
@@ -198,6 +217,18 @@
     // Move nodes into container (preserves attached event listeners)
     _cont.innerHTML = '';
     while (tmp.firstChild) _cont.appendChild(tmp.firstChild);
+
+    // Restore focus + caret to the matching field in the freshly built DOM.
+    if (focusInfo && focusInfo.index >= 0) {
+      const peers = [..._cont.querySelectorAll('input, textarea')].filter(e => _fieldSig(e) === focusInfo.sig);
+      const next = peers[focusInfo.index];
+      if (next) {
+        next.focus();
+        if (focusInfo.start != null && next.setSelectionRange) {
+          try { next.setSelectionRange(focusInfo.start, focusInfo.end); } catch (e) {}
+        }
+      }
+    }
   }
 
   // ── Bootstrap ─────────────────────────────────────────────────────
